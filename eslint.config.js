@@ -6,7 +6,7 @@ import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 export default [
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}'],
+    files: ['./src/**/*.{ts,mts,tsx,vue}'],
     plugins: {
       'unused-imports': pluginImports,
     },
@@ -25,7 +25,7 @@ export default [
   },
   {
     name: 'app/files-to-ignore',
-    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
+    ignores: ['**/.nuxt/**', '**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
