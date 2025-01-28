@@ -1,16 +1,21 @@
+// TODO WEIRD SHIT GOING ON HERE
+import withNuxt from './.nuxt/eslint.config.mjs';
+
 import pluginVue from 'eslint-plugin-vue';
-import pluginImports from 'eslint-plugin-unused-imports';
 import vueTsEslintConfig from '@vue/eslint-config-typescript';
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
+import unusedImports from 'eslint-plugin-unused-imports';
 
-export default [
+export default withNuxt([
+  ...pluginVue.configs['flat/essential'],
+  ...vueTsEslintConfig(),
+  skipFormatting,
   {
-    name: 'app/files-to-lint',
-    files: ['./src/**/*.{ts,mts,tsx,vue}'],
     plugins: {
-      'unused-imports': pluginImports,
+      'unused-imports': unusedImports,
     },
     rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
@@ -23,11 +28,4 @@ export default [
       ],
     },
   },
-  {
-    name: 'app/files-to-ignore',
-    ignores: ['**/.nuxt/**', '**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
-  },
-  ...pluginVue.configs['flat/essential'],
-  ...vueTsEslintConfig(),
-  skipFormatting,
-];
+]);

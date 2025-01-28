@@ -9,15 +9,18 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prepare": "husky",
-    "lint": "eslint . --fix",
+    "lint": "eslint . --fix --config eslint.config.js",
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@nuxt/scripts": "^0.9.5",
     "nuxt": "^3.14.1592",
+    "nuxt-gtag": "^3.0.2",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@nuxt/eslint": "0.7.3",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@vue/eslint-config-prettier": "^10.1.0",
