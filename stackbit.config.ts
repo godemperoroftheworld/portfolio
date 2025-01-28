@@ -4,7 +4,16 @@ import { defineStackbitConfig } from '@stackbit/types';
 export default defineStackbitConfig({
   stackbitVersion: '~0.6.0',
   nodeVersion: '18',
-  ssgName: 'nuxt',
+  ssgName: 'custom',
+  experimental: {
+    ssg: {
+      name: 'Nuxt3',
+      logPatterns: {
+        up: 'Listening on:',
+      },
+      passthrough: ['/vite-hmr/**'],
+    },
+  },
   contentSources: [
     new ContentfulContentSource({
       spaceId: process.env.CONTENTFUL_SPACE_ID!,
@@ -13,6 +22,6 @@ export default defineStackbitConfig({
       accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
     }),
   ],
-  modelExtensions: [{ name: 'Home', type: 'page', urlPath: '/' }],
+  devCommand: 'npm run dev --- -p {PORT}',
   postInstallCommand: 'npm i --no-save @stackbit/types @stackbit/cms-contentful',
 });
