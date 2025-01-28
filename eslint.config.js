@@ -1,4 +1,3 @@
-// TODO WEIRD SHIT GOING ON HERE
 import withNuxt from './.nuxt/eslint.config.mjs';
 
 import pluginVue from 'eslint-plugin-vue';
@@ -15,6 +14,8 @@ export default withNuxt([
       'unused-imports': unusedImports,
     },
     rules: {
+      'vue/multi-word-component-names': 'off',
+      'vue/no-multiple-template-root': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
