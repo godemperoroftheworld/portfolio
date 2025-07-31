@@ -1,7 +1,6 @@
 {
   "name": "astro-paper",
   "version": "4.2.0",
-  "private": false,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -59,5 +58,6 @@
     "*.{js,jsx,ts,tsx,md,mdx,json,astro}": [
       "prettier --write --plugin=prettier-plugin-astro"
     ]
-  }
+  },
+  "packageManager": "yarn@3.6.4"
 }
