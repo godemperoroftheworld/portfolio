@@ -1,0 +1,40 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"div"> {
+  padding?: number;
+}
+
+const { padding = 0, class: className, ...rest } = Astro.props;
+---
+
+<div class:list={[className, "cutout p-0.25 bg-primary-500 h-fit"]} {...rest}>
+  <div class="cutout p-0.5 bg-black">
+    <div class="cutout p-0.25 bg-primary-500">
+      <div
+        class:list={[
+          "cutout container relative overflow-hidden bg-silver-950 text-silver-200",
+          `p-${padding}`,
+        ]}
+      >
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cutout {
+    clip-path: polygon(
+      /* top edge */ var(--corner) 0%,
+      calc(100% - var(--corner)) 0%,
+      /* right edge */ 100% var(--corner),
+      100% calc(100% - var(--corner)),
+      /* bottom edge */ calc(100% - var(--corner)) 100%,
+      var(--corner) 100%,
+      /* left edge */ 0% calc(100% - var(--corner)),
+      0% var(--corner)
+    );
+
+    --corner: 1em;
+  }
+</style>

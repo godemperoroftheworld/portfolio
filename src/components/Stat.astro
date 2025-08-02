@@ -1,0 +1,59 @@
+---
+import DiceRoller from "@/components/DiceRoller.vue";
+
+interface Props {
+  label: string;
+  value: number;
+}
+
+const { label, value } = Astro.props;
+const modifier = Math.floor((value - 10) / 2);
+---
+
+<div class="relative w-32 h-32 mb-4">
+  <div class="cutout w-full h-full p-0.25 bg-primary-500">
+    <div
+      class="cutout w-full h-full bg-black flex flex-col items-center justify-center px-2"
+    >
+      <label
+        class="absolute top-1 text-primary-500 font-bold uppercase"
+        for="precision"
+      >
+        {label}
+      </label>
+      <span class="font-number oldstyle-nums text-4xl" id="precision"
+        >{value}</span
+      >
+    </div>
+  </div>
+  <div
+    class="cutout p-0.25 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 bg-primary-500 oldstyle-nums font-heading font-bold"
+  >
+    <DiceRoller
+      modifier={modifier}
+      class="cutout bg-black h-8 w-8 flex items-center justify-center"
+      client:visible
+    >
+      <span class="-ml-1">
+        {`+${modifier}`}
+      </span>
+    </DiceRoller>
+  </div>
+</div>
+
+<style>
+  .cutout {
+    clip-path: polygon(
+      /* top edge */ var(--corner) 0%,
+      calc(100% - var(--corner)) 0%,
+      /* right edge */ 100% var(--corner),
+      100% calc(100% - var(--corner)),
+      /* bottom edge */ calc(100% - var(--corner)) 100%,
+      var(--corner) 100%,
+      /* left edge */ 0% calc(100% - var(--corner)),
+      0% var(--corner)
+    );
+
+    --corner: 0.75em;
+  }
+</style>

@@ -7,7 +7,10 @@ import svgLoader from "vite-svg-loader";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap(), vue({ devtools: true })],
+  integrations: [
+    sitemap(),
+    vue({ devtools: true, appEntrypoint: "/src/pages/_app" }),
+  ],
   vite: {
     plugins: [tailwindcss(), svgLoader()],
   },
