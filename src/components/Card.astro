@@ -2,17 +2,22 @@
 import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"div"> {
   padding?: number;
+  animate?: boolean;
 }
 
-const { padding = 0, class: className, ...rest } = Astro.props;
+const { padding = 0, class: className, animate = true, ...rest } = Astro.props;
 ---
 
-<div class:list={[className, "cutout p-0.25 bg-primary-500 h-fit"]} {...rest}>
-  <div class="cutout p-0.5 bg-black">
-    <div class="cutout p-0.25 bg-primary-500">
+<div
+  data-aos={animate ? "flip-up" : undefined}
+  class:list={[className, "cutout p-0.25 bg-primary-500"]}
+  {...rest}
+>
+  <div class="cutout p-0.5 bg-black h-full">
+    <div class="cutout p-0.25 bg-primary-500 h-full">
       <div
         class:list={[
-          "cutout container relative overflow-hidden bg-silver-950 text-silver-200",
+          "cutout flex flex-col relative overflow-hidden bg-silver-950 text-silver-200 h-full",
           `p-${padding}`,
         ]}
       >

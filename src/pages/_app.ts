@@ -8,6 +8,6 @@ export default (app: App) => {
       "rounded-none! border-primary-500 border stroke-primary-500 fill-primary-500 text-primary-500",
     progressClassName: "bg-secondary-500",
     transition: "flip",
-    containerClassName: "mt-8",
+    containerClassName: "mt-10",
   } as ToastContainerOptions);
 };

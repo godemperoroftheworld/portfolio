@@ -27,13 +27,15 @@
     "@headlessui/vue": "^1.7.23",
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^13.6.0",
+    "aos": "^2.3.4",
     "astro": "^5.12.7",
     "install": "^0.13.0",
     "npm": "^11.5.2",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.3.3",
     "vue": "^3.5.18",
-    "vue3-toastify": "^0.2.8"
+    "vue3-toastify": "^0.2.8",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.4.2",

@@ -15,7 +15,10 @@ const { label, id, class: className } = Astro.props;
   >
     <slot />
   </div>
-  <label class="uppercase font-heading font-bold text-primary-400" for={id}>
+  <label
+    class="uppercase font-heading font-bold text-primary-400 text-right"
+    for={id}
+  >
     {label}
   </label>
 </div>

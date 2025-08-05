@@ -4,12 +4,12 @@ const diceBox = new DiceBox({
   container: "#dice-box",
   assetPath: "/assets/",
   theme: "default",
-  offscreen: true,
   scale: 3,
+  offscreen: false,
 });
 
 if (!import.meta.env.SSR) {
-  diceBox.init().then(() => console.log("initialsied dice"));
+  diceBox.init();
 }
 
 export default diceBox;

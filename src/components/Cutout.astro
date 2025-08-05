@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from "astro/types";
+type Props = HTMLAttributes<"div">;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  class:list={[
+    "relative cutout p-0.25 overflow-hidden bg-silver-950",
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</div>
+
+<style>
+  .cutout {
+    clip-path: polygon(
+      /* top edge */ var(--corner) 0%,
+      calc(100% - var(--corner)) 0%,
+      /* right edge */ 100% var(--corner),
+      100% calc(100% - var(--corner)),
+      /* bottom edge */ calc(100% - var(--corner)) 100%,
+      var(--corner) 100%,
+      /* left edge */ 0% calc(100% - var(--corner)),
+      0% var(--corner)
+    );
+    --corner: 1em;
+  }
+
+  .cutout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: inherit;
+  }
+
+  .cutout::before {
+    background-color: var(--color-silver-950);
+  }
+</style>

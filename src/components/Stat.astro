@@ -10,18 +10,18 @@ const { label, value } = Astro.props;
 const modifier = Math.floor((value - 10) / 2);
 ---
 
-<div class="relative w-32 h-32 mb-4">
+<div class="relative w-28 h-26 mb-2">
   <div class="cutout w-full h-full p-0.25 bg-primary-500">
     <div
       class="cutout w-full h-full bg-black flex flex-col items-center justify-center px-2"
     >
       <label
-        class="absolute top-1 text-primary-500 font-bold uppercase"
+        class="absolute top-1 text-primary-500 font-bold text-sm uppercase"
         for="precision"
       >
         {label}
       </label>
-      <span class="font-number oldstyle-nums text-4xl" id="precision"
+      <span class="font-number oldstyle-nums text-3xl" id="precision"
         >{value}</span
       >
     </div>
