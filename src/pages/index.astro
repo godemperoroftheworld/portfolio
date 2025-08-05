@@ -6,13 +6,16 @@ import Stat from "../components/Stat.astro";
 import Feature from "../components/Feature.astro";
 import Skill from "../components/Skill.astro";
 import SkillsCarousel from "@/contents/SkillsCarousel.vue";
+import HandWritingBlock from "../components/HandWritingBlock.astro";
 ---
 
 <Layout title="Home" description="Home page">
   <div
-    class="flex w-full items-center justify-center gap-8 max-md:flex-col-reverse lg:max-w-5xl"
+    class="flex w-full items-center justify-center gap-8 max-md:flex-col-reverse lg:px-4"
   >
-    <div class="my-auto flex flex-col gap-1">
+    <div
+      class="my-auto flex flex-col gap-1 max-md:w-full max-md:max-w-md max-md:px-8"
+    >
       <LabeledValue label="Character Name" id="name">
         Tenzin Pelletier
       </LabeledValue>
@@ -20,59 +23,48 @@ import SkillsCarousel from "@/contents/SkillsCarousel.vue";
       <LabeledValue label="Classes & Levels" id="class">
         Software Artificer (Frontend) 3
       </LabeledValue>
-      <LabeledValue label="Species /Ancestry / Lineage" id="species">
+      <LabeledValue label="Species" id="species">
         Human (Variant)
       </LabeledValue>
       <LabeledValue label="Background" id="background">
-        Computer Science
+        Computer Science / Film
+      </LabeledValue>
+      <LabeledValue label="Alignment" id="alignment">
+        Lawful Good
       </LabeledValue>
     </div>
-    <Card animate={false} class="h-fit max-md:max-w-sm md:max-w-sm">
+    <Card class="aspect-square max-w-lg">
       <img src="/avatar.jpg" alt="Avatar" />
     </Card>
-    <div class="flex w-80 flex-col justify-center gap-4 max-lg:hidden">
-      <Card padding={2}>
-        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
-        <h1
-          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
-        >
-          Personality Traits
-        </h1>
-      </Card>
-      <Card padding={2}>
-        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
-        <h1
-          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
-        >
-          Ideals
-        </h1>
-      </Card>
-      <Card padding={2}>
-        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
-        <h1
-          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
-        >
-          Bonds
-        </h1>
-      </Card>
-      <Card padding={2}>
-        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
-        <h1
-          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
-        >
-          Flaws
-        </h1>
-      </Card>
+    <div class="flex w-80 min-w-64 flex-col justify-center gap-4 max-lg:hidden">
+      <HandWritingBlock label="Personality Traits">
+        I love TTRPGs and all forms of interactive storytelling (could you
+        tell?)
+        <br />
+        <br />
+        My dream is to have a bachelor's degree in everything.
+      </HandWritingBlock>
+      <HandWritingBlock label="Ideals">
+        People should always come before technological progress.
+      </HandWritingBlock>
+      <HandWritingBlock label="Bonds">
+        I want to my work to mean something, and to make someone's day a little
+        better.
+      </HandWritingBlock>
+      <HandWritingBlock label="Flaws">
+        I sometimes hyperfixate on one task, which can lead me to neglect other
+        work like documentation and pull request reviews.
+      </HandWritingBlock>
     </div>
   </div>
   <div class="flex max-w-full gap-8 max-md:flex-col lg:max-w-5xl">
-    <Card class="h-fit" padding={4}>
+    <Card padding={4}>
       <h1
         class="text-primary-400 mb-4 select-none text-center text-2xl font-bold uppercase"
       >
         Stats
       </h1>
-      <div class="flex flex-wrap justify-center gap-4 md:flex-col">
+      <div class="my-auto flex flex-wrap justify-center gap-4 md:flex-col">
         <!-- STR -->
         <Stat label="Precision" value={16} />
         <!-- DEX -->

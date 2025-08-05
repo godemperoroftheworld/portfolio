@@ -1,0 +1,29 @@
+---
+import Card from "./Card.astro";
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<Card padding={2}>
+  <div class="line-paper m-2 italic leading-[1.2] max-xl:text-sm">
+    <slot />
+  </div>
+  <h1
+    class="text-primary-400 select-none text-center text-sm font-bold uppercase"
+  >
+    {label}
+  </h1>
+</Card>
+
+<style>
+  .line-paper {
+    background-image: linear-gradient(
+      var(--color-silver-700) 0.1em,
+      transparent 0.1em
+    );
+    background-size: 100% 1.2em;
+    background-position-y: 1em;
+  }
+</style>
