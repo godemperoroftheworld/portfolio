@@ -21,7 +21,7 @@ const { title, description } = Astro.props;
 
 <html
   lang="en"
-  class="h-dvh w-dvw bg-white dark:bg-black text-black dark:text-white transition-colors ease-in-out"
+  class="h-dvh w-dvw bg-white text-black transition-colors ease-in-out dark:bg-black dark:text-white"
 >
   <head>
     <meta charset="utf-8" />
@@ -37,15 +37,15 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="relative">
-    <script src="../utils/aos.ts"></script>
-    <header class="sticky top-0 p-4 z-10">
+    <header class="sticky top-0 z-10 p-4">
       <ThemeToggle class="ml-auto" client:only="vue" />
     </header>
     <main
-      class="flex flex-col gap-8 items-center justify-center relative p-4 pb-8"
+      class="relative flex max-w-full flex-col items-center justify-center gap-8 overflow-hidden p-4 pb-8"
     >
       <slot />
     </main>
     <DiceBox />
+    <script src="../utils/aos.ts"></script>
   </body>
 </html>

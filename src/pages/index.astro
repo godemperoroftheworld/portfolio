@@ -5,13 +5,14 @@ import LabeledValue from "../components/LabeledValue.astro";
 import Stat from "../components/Stat.astro";
 import Feature from "../components/Feature.astro";
 import Skill from "../components/Skill.astro";
-import ReactIcon from "@/icons/ReactIcon.svg";
-import Appium from "@/icons/Appium.svg";
+import SkillsCarousel from "@/contents/SkillsCarousel.vue";
 ---
 
 <Layout title="Home" description="Home page">
-  <div class="flex items-center justify-center gap-8 w-full lg:max-w-5xl">
-    <div class="flex flex-col gap-1 my-auto">
+  <div
+    class="flex w-full items-center justify-center gap-8 max-md:flex-col-reverse lg:max-w-5xl"
+  >
+    <div class="my-auto flex flex-col gap-1">
       <LabeledValue label="Character Name" id="name">
         Tenzin Pelletier
       </LabeledValue>
@@ -26,52 +27,52 @@ import Appium from "@/icons/Appium.svg";
         Computer Science
       </LabeledValue>
     </div>
-    <Card animate={false} class="max-md:max-w-sm md:max-w-sm h-fit">
+    <Card animate={false} class="h-fit max-md:max-w-sm md:max-w-sm">
       <img src="/avatar.jpg" alt="Avatar" />
     </Card>
-    <div class="flex flex-col justify-center gap-4 w-80 max-lg:hidden">
+    <div class="flex w-80 flex-col justify-center gap-4 max-lg:hidden">
       <Card padding={2}>
-        <div class="italic px-1">lorem ipsum dolor amet</div>
+        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
         <h1
-          class="text-xs text-center select-none font-bold text-primary-400 uppercase mt-1"
+          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
         >
           Personality Traits
         </h1>
       </Card>
       <Card padding={2}>
-        <div class="italic px-1">lorem ipsum dolor amet</div>
+        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
         <h1
-          class="text-xs text-center select-none font-bold text-primary-400 uppercase mt-1"
+          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
         >
           Ideals
         </h1>
       </Card>
       <Card padding={2}>
-        <div class="italic px-1">lorem ipsum dolor amet</div>
+        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
         <h1
-          class="text-xs text-center select-none font-bold text-primary-400 uppercase mt-1"
+          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
         >
           Bonds
         </h1>
       </Card>
       <Card padding={2}>
-        <div class="italic px-1">lorem ipsum dolor amet</div>
+        <div class="px-3 pt-1 italic">lorem ipsum dolor amet</div>
         <h1
-          class="text-xs text-center select-none font-bold text-primary-400 uppercase mt-1"
+          class="text-primary-400 mt-1 select-none text-center text-xs font-bold uppercase"
         >
           Flaws
         </h1>
       </Card>
     </div>
   </div>
-  <div class="flex max-md:flex-col gap-8 md:max-w-4xl">
+  <div class="flex max-w-full gap-8 max-md:flex-col lg:max-w-5xl">
     <Card class="h-fit" padding={4}>
       <h1
-        class="text-2xl text-center select-none font-bold text-primary-400 uppercase mb-4"
+        class="text-primary-400 mb-4 select-none text-center text-2xl font-bold uppercase"
       >
         Stats
       </h1>
-      <div class="flex md:flex-col flex-wrap gap-4 justify-center">
+      <div class="flex flex-wrap justify-center gap-4 md:flex-col">
         <!-- STR -->
         <Stat label="Precision" value={16} />
         <!-- DEX -->
@@ -86,15 +87,15 @@ import Appium from "@/icons/Appium.svg";
         <Stat label="Creativity" value={13} />
       </div>
     </Card>
-    <div class="flex flex-col gap-8">
-      <div class="flex max-md:flex-col gap-8 md:max-h-[35.25rem]">
+    <div class="flex grow-0 flex-col gap-8 overflow-hidden">
+      <div class="flex gap-8 max-md:flex-col md:max-h-[35.25rem]">
         <Card class="h-fit shrink-0" padding={4}>
           <h1
-            class="text-2xl text-center select-none font-bold text-primary-400 uppercase mb-4"
+            class="text-primary-400 mb-4 select-none text-center text-2xl font-bold uppercase"
           >
             Skills
           </h1>
-          <div class="flex flex-col gap-4 h-full w-fit justify-center">
+          <div class="flex h-full w-fit flex-col justify-center gap-4">
             <Skill name="Unit Testing" stat="Precision" value={5} />
             <Skill name="Kanban" stat="Agility" value={5} />
             <Skill name="CI/CD Pipelines" stat="Stamina" value={3} />
@@ -111,12 +112,12 @@ import Appium from "@/icons/Appium.svg";
         </Card>
         <Card class="max-h-full" padding={4}>
           <h1
-            class="text-2xl text-center select-none font-bold text-primary-400 uppercase mb-4"
+            class="text-primary-400 mb-4 select-none text-center text-2xl font-bold uppercase"
           >
             Features & Traits
           </h1>
           <div
-            class="flex flex-col justify-between gap-2 grow overflow-y-scroll"
+            class="flex grow flex-col justify-between gap-2 overflow-y-scroll"
           >
             <Feature
               name="Rapid Execution"
@@ -143,23 +144,12 @@ import Appium from "@/icons/Appium.svg";
       </div>
       <Card class="flex-grow" padding={4}>
         <h1
-          class="text-2xl text-center select-none font-bold text-primary-400 uppercase mb-4"
+          class="text-primary-400 mb-4 select-none text-center text-2xl font-bold uppercase"
         >
           Languages & Proficiencies
         </h1>
-        <div class="flex flex-col justify-between gap-2 grow-0">
-          <div>
-            <strong class="text-primary-500">Languages:</strong>
-            TypeScript/JavaScript, Node.js, Java, C#, Kotlin, C/C++, , HTML/CSS,
-            LATEX, postgreSQL
-          </div>
-          <div>
-            <strong class="text-primary-500">Frameworks:</strong>
-            Vue,
-            <ReactIcon class="inline w-4 h-4 fill-white" /> React, Next.js, Express.js,
-            Fastify, Flask, Strapi, Jest, Vitest,
-            <Appium class="inline w-4 h-4 fill-white" /> Appium, Cypress,
-          </div>
+        <div class="my-auto">
+          <SkillsCarousel client:load />
         </div>
       </Card>
     </div>
