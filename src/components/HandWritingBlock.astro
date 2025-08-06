@@ -1,13 +1,14 @@
 ---
 import Card from "./Card.astro";
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"div"> {
   label: string;
 }
-const { label } = Astro.props;
+const { label, ...rest } = Astro.props;
 ---
 
-<Card padding={2}>
-  <div class="line-paper m-2 italic leading-[1.2] max-xl:text-sm">
+<Card padding={2} {...rest}>
+  <div class="line-paper m-2 mx-3 italic leading-[1.2] max-xl:text-sm">
     <slot />
   </div>
   <h1

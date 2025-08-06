@@ -36,16 +36,19 @@ const { title, description } = Astro.props;
     </script>
     <title>{title}</title>
   </head>
-  <body class="relative">
-    <header class="sticky top-0 z-10 p-4">
+  <body>
+    <header class="fixed left-0 top-0 z-10 h-16 w-dvw p-4">
       <ThemeToggle class="ml-auto" client:only="vue" />
     </header>
-    <main
-      class="relative flex max-w-full flex-col items-center justify-center gap-8 overflow-hidden p-4 pb-8"
-    >
+    <main class="relative flex flex-col items-center p-4 pt-0">
       <slot />
     </main>
-    <DiceBox />
-    <script src="../utils/aos.ts"></script>
   </body>
 </html>
+<DiceBox />
+<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script is:inline>
+  AOS.init({
+    once: true,
+  });
+</script>

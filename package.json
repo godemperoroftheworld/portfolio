@@ -27,7 +27,6 @@
     "@headlessui/vue": "^1.7.23",
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^13.6.0",
-    "aos": "^2.3.4",
     "astro": "^5.12.7",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
