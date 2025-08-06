@@ -10,7 +10,7 @@ const { icon, label } = defineProps<Props>();
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <component class="h-12 w-12 fill-white" :is="icon" />
+    <component class="h-10 w-10 fill-white" :is="icon" />
     <span class="text-center text-sm">{{ label }}</span>
   </div>
 </template>

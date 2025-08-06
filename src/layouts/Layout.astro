@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 
 import ThemeToggle from "@/components/ThemeToggle.vue";
 import DiceBox from "@/components/DiceBox.astro";
+import HeaderLink from "@/components/HeaderLink.vue";
 
 interface Props {
   title: string;
@@ -38,8 +39,27 @@ const { title, description } = Astro.props;
     <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
   </head>
   <body class="relative">
-    <header class="fixed left-0 top-0 z-10 h-16 w-dvw p-4">
-      <ThemeToggle class="ml-auto" client:only="vue" />
+    <header
+      class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-6 p-4 md:bg-black/75"
+    >
+      <HeaderLink
+        class="max-md:hidden"
+        client:load
+        elementId="characterProfile"
+      >
+        Profile
+      </HeaderLink>
+      <HeaderLink class="max-md:hidden" client:load elementId="characterSheet">
+        Sheet
+      </HeaderLink>
+      <HeaderLink
+        class="max-md:hidden"
+        client:load
+        elementId="characterInventory"
+      >
+        Inventory
+      </HeaderLink>
+      <ThemeToggle client:load client:only="vue" />
     </header>
     <main class="relative flex flex-col items-center gap-8 p-4 pt-0">
       <slot />
