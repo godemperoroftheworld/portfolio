@@ -4,7 +4,7 @@ const diceBox = new DiceBox({
   container: "#dice-box",
   assetPath: "/assets/",
   theme: "default",
-  scale: 3,
+  scale: 1.5,
   offscreen: false,
 });
 

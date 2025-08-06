@@ -1,0 +1,109 @@
+---
+import Card from "@/components/Card.astro";
+import Stat from "@/components/Stat.astro";
+import Feature from "@/components/Feature.astro";
+import Skill from "@/components/Skill.astro";
+import SkillsCarousel from "@/contents/ProficiencyCarousel.vue";
+import Scroller from "@/components/client/Scroller.vue";
+---
+
+<div
+  id="characterSheet"
+  class="flex h-dvh min-h-dvh max-w-full flex-col gap-6 pt-16"
+>
+  <div class="flex gap-6 max-md:flex-col lg:max-w-5xl">
+    <Card padding={4}>
+      <h1
+        class="text-primary-400 mb-4 select-none text-center text-xl font-bold uppercase"
+      >
+        Stats
+      </h1>
+      <div
+        class="flex h-full flex-wrap justify-center gap-3 md:flex-col md:justify-around"
+      >
+        <!-- STR -->
+        <Stat label="Focus" value={16} id="Focus" />
+        <!-- DEX -->
+        <Stat label="Agility" value={17} id="agility" />
+        <!-- CON -->
+        <Stat label="Stamina" value={12} id="stamina" />
+        <!-- INT -->
+        <Stat label="Logic" value={15} id="logic" />
+        <!-- WIS -->
+        <Stat label="Lore" value={14} id="lore" />
+        <!-- CHA -->
+        <Stat label="Muse" value={13} id="Muse" />
+      </div>
+    </Card>
+    <Card class="shrink-0 grow" padding={4}>
+      <h1
+        class="text-primary-400 mb-4 select-none text-center text-xl font-bold uppercase"
+      >
+        Skills
+      </h1>
+      <div class="flex h-full w-fit flex-col justify-around gap-4">
+        <Skill name="Unit Testing" stat="Focus" value={5} />
+        <Skill name="Kanban" stat="Agility" value={5} />
+        <Skill name="CI/CD Pipelines" stat="Stamina" value={3} />
+        <Skill name="Systems Design" stat="Logic" value={4} />
+        <Skill name="Accessibility" stat="Lore" value={4} />
+        <Skill name="Storytelling" stat="Muse" value={3} />
+        <Skill name="Code Refactoring" stat="Focus" value={5} />
+        <Skill name="Responsive Design" stat="Agility" value={5} />
+        <Skill name="Test Automation" stat="Stamina" value={3} />
+        <Skill name="Data Structures" stat="Logic" value={4} />
+        <Skill name="Domain Modeling" stat="Lore" value={4} />
+        <Skill name="Creative Coding" stat="Muse" value={3} />
+      </div>
+    </Card>
+    <div class="flex flex-col gap-6 overflow-hidden">
+      <Card class="grow" padding={4}>
+        <h1
+          class="text-primary-400 mb-4 select-none text-center text-xl font-bold uppercase"
+        >
+          Features & Traits
+        </h1>
+        <div
+          class="flex max-h-96 grow flex-col justify-around gap-2 overflow-y-scroll"
+        >
+          <Feature
+            name="Rapid Execution"
+            stat="Agility"
+            description="You solve problems and complete tasks at relentless pace. When under time pressure, gain advantage on one productivity-based check per challenge."
+          />
+          <Feature
+            name="Self Study"
+            stat="Logic"
+            description="You gain new proficiencies twice as fast. When attempting a new skill, roll with advantage if you've researched it for one long rest."
+          />
+          <Feature
+            name="Task Ownership"
+            stat="Focus"
+            description="You thrive on new, complex tasks you can take under your belt. Once per sprint, you gain advantage on all rolls related to your task until it is finished."
+          />
+          <Feature
+            name="Codebase Fluency"
+            stat="Lore"
+            description="You're immediately comfortable with new codebases, frameworks, and tools. Once per week, you may identify the intent and structure of a core module or system at a glance."
+          />
+        </div>
+      </Card>
+      <Card
+        heading="Languages & Proficiencies"
+        data-aos-offset="-25"
+        padding={4}
+      >
+        <SkillsCarousel client:load />
+      </Card>
+    </div>
+  </div>
+  <Scroller
+    class="mb-4"
+    data-aos="zoom-in"
+    data-aos-offset="-25"
+    elementId="characterInventory"
+    client:load
+  >
+    Check out my Inventory:
+  </Scroller>
+</div>

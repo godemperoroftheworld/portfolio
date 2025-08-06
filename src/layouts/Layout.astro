@@ -8,9 +8,9 @@ import "vue3-toastify/dist/index.css";
 import "@/styles/base.css";
 import "aos/dist/aos.css";
 
-import ThemeToggle from "@/components/ThemeToggle.vue";
+import ThemeToggle from "@/components/client/ThemeToggle.vue";
 import DiceBox from "@/components/DiceBox.astro";
-import HeaderLink from "@/components/HeaderLink.vue";
+import HeaderLink from "@/components/client/HeaderLink.vue";
 
 interface Props {
   title: string;
@@ -61,7 +61,7 @@ const { title, description } = Astro.props;
       </HeaderLink>
       <ThemeToggle client:load client:only="vue" />
     </header>
-    <main class="relative flex flex-col items-center gap-8 p-4 pt-0">
+    <main class="relative flex flex-col items-center gap-8 px-4">
       <slot />
     </main>
     <DiceBox />

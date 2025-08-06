@@ -4,6 +4,7 @@ interface Props extends HTMLAttributes<"div"> {
   padding?: number;
   animate?: boolean;
   animation?: string;
+  heading?: string;
   "data-aos-delay"?: string;
   "data-aos-offset"?: string;
 }
@@ -13,6 +14,7 @@ const {
   class: className,
   animate = true,
   animation = "flip-up",
+  heading,
   ...rest
 } = Astro.props;
 ---
@@ -30,6 +32,13 @@ const {
           `p-${padding}`,
         ]}
       >
+        {
+          heading ? (
+            <h1 class="text-primary-400 mb-4 text-center text-lg font-bold uppercase">
+              {heading}
+            </h1>
+          ) : null
+        }
         <slot />
       </div>
     </div>

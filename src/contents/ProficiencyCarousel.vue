@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import Carousel from "@/components/Carousel.vue";
+import Carousel from "@/components/client/Carousel.vue";
+import LinkIcon from "@/components/client/LinkIcon.vue";
 
 import ReactIcon from "@/icons/ReactIcon.svg?component";
 import Vue from "@/icons/Vue.svg?component";
@@ -32,7 +33,6 @@ import CircleCI from "@/icons/CircleCI.svg?component";
 import Cypress from "@/icons/Cypress.svg?component";
 import Appium from "@/icons/Appium.svg?component";
 
-import LinkIcon from "@/components/LinkIcon.vue";
 import { type Component, computed } from "vue";
 
 interface Icon {
@@ -80,25 +80,27 @@ const iconsTwo = computed<Icon[]>(() => [
 </script>
 
 <template>
-  <Carousel
-    :options="{ loop: true, skipSnaps: true, align: 'start' }"
-    :scroll="{ playOnInit: true, speed: 1 }"
-    class="mx-auto mb-3"
-  >
-    <template v-for="({ icon, label }, idx) in icons" :key="idx">
-      <LinkIcon :icon="icon" :label="label" />
-    </template>
-  </Carousel>
-  <Carousel
-    :options="{
-      loop: true,
-      skipSnaps: true,
-    }"
-    :scroll="{ playOnInit: true, speed: -1 }"
-    class="mx-auto"
-  >
-    <template v-for="({ icon, label }, idx) in iconsTwo" :key="`${idx}-two`">
-      <LinkIcon :icon="icon" :label="label" />
-    </template>
-  </Carousel>
+  <div>
+    <Carousel
+      :options="{ loop: true, skipSnaps: true, align: 'start' }"
+      :scroll="{ playOnInit: true, speed: 0.75 }"
+      class="mx-auto mb-3"
+    >
+      <template v-for="({ icon, label }, idx) in icons" :key="idx">
+        <LinkIcon :icon="icon" :label="label" />
+      </template>
+    </Carousel>
+    <Carousel
+      :options="{
+        loop: true,
+        skipSnaps: true,
+      }"
+      :scroll="{ playOnInit: true, speed: -0.75 }"
+      class="mx-auto"
+    >
+      <template v-for="({ icon, label }, idx) in iconsTwo" :key="`${idx}-two`">
+        <LinkIcon :icon="icon" :label="label" />
+      </template>
+    </Carousel>
+  </div>
 </template>

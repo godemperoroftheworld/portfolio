@@ -1,0 +1,68 @@
+---
+import Card from "@/components/Card.astro";
+import LabeledValue from "@/components/LabeledValue.astro";
+import HandWritingBlock from "@/components/HandWritingBlock.astro";
+import Scroller from "@/components/client/Scroller.vue";
+---
+
+<div
+  id="characterProfile"
+  class="flex h-dvh min-h-dvh max-w-full flex-col justify-center gap-6 md:pt-16"
+>
+  <div class="flex items-center justify-center gap-6 max-md:flex-col-reverse">
+    <div
+      data-aos="fade-left"
+      data-aos-delay="300"
+      class="my-auto flex flex-col gap-1 max-md:w-full max-md:max-w-md max-md:px-8"
+    >
+      <LabeledValue label="Character Name" id="name">
+        Tenzin Pelletier
+      </LabeledValue>
+      <LabeledValue label="Pronouns" id="pronoun"> they/them </LabeledValue>
+      <LabeledValue label="Classes & Levels" id="class">
+        Software Artificer (Frontend) 3
+      </LabeledValue>
+      <LabeledValue label="Species" id="species">
+        Human (Variant)
+      </LabeledValue>
+      <LabeledValue label="Background" id="background">
+        Computer Science / Film
+      </LabeledValue>
+      <LabeledValue label="Alignment" id="alignment">
+        Lawful Good
+      </LabeledValue>
+    </div>
+    <Card class="aspect-square max-w-lg" animation="zoom-in">
+      <img src="/avatar.jpg" alt="Avatar" />
+    </Card>
+    <div class="flex w-80 min-w-64 flex-col justify-center gap-4 max-lg:hidden">
+      <HandWritingBlock label="Personality Traits" data-aos-delay="150">
+        I love TTRPGs and all forms of interactive storytelling (could you
+        tell?)
+        <br />
+        <br />
+        My dream is to have a bachelor's degree in everything.
+      </HandWritingBlock>
+      <HandWritingBlock label="Ideals" data-aos-delay="300">
+        People should always come before technological progress.
+      </HandWritingBlock>
+      <HandWritingBlock label="Bonds" data-aos-delay="450">
+        I want to my work to mean something, and to make someone's day a little
+        better.
+      </HandWritingBlock>
+      <HandWritingBlock label="Flaws" data-aos-delay="600">
+        I sometimes hyperfixate on one task, which can lead me to neglect other
+        work like documentation and pull request reviews.
+      </HandWritingBlock>
+    </div>
+  </div>
+  <Scroller
+    class="max-md:hidden"
+    data-aos="zoom-in"
+    data-aos-delay={750}
+    elementId="characterSheet"
+    client:load
+  >
+    Read my Character Sheet:
+  </Scroller>
+</div>
