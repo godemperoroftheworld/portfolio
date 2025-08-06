@@ -24,6 +24,7 @@ const { title, description } = Astro.props;
   class="h-dvh w-dvw bg-white text-black transition-colors ease-in-out dark:bg-black dark:text-white"
 >
   <head>
+    <title>{title}</title>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,21 +35,20 @@ const { title, description } = Astro.props;
         document.documentElement.classList.add("dark");
       }
     </script>
-    <title>{title}</title>
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
   </head>
-  <body>
+  <body class="relative">
     <header class="fixed left-0 top-0 z-10 h-16 w-dvw p-4">
       <ThemeToggle class="ml-auto" client:only="vue" />
     </header>
-    <main class="relative flex flex-col items-center p-4 pt-0">
+    <main class="relative flex flex-col items-center gap-8 p-4 pt-0">
       <slot />
     </main>
+    <DiceBox />
+    <script is:inline>
+      AOS.init({
+        once: true,
+      });
+    </script>
   </body>
 </html>
-<DiceBox />
-<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script is:inline>
-  AOS.init({
-    once: true,
-  });
-</script>

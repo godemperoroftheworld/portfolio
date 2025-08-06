@@ -52,7 +52,7 @@ const icons = computed<Icon[]>(
       { icon: CSharp, label: "CSharp" },
       { icon: Kotlin, label: "Kotlin" },
       { icon: Vue, label: "Vue" },
-      { icon: ReactIcon, label: "ReactIcon" },
+      { icon: ReactIcon, label: "React" },
       { icon: Astro, label: "Astro" },
       { icon: NextJS, label: "NextJS" },
       { icon: Nuxt, label: "Nuxt" },
@@ -83,7 +83,7 @@ const iconsTwo = computed<Icon[]>(() => [
   <Carousel
     :options="{ loop: true, skipSnaps: true, align: 'start' }"
     :scroll="{ playOnInit: true, speed: 1 }"
-    class="mx-auto mb-4"
+    class="mx-auto mb-3"
   >
     <template v-for="({ icon, label }, idx) in icons" :key="idx">
       <LinkIcon :icon="icon" :label="label" />

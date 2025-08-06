@@ -22,7 +22,7 @@ function scrollToSheet() {
     </a>
     <a
       @click="scrollToSheet"
-      class="mx-auto mt-2 block w-fit animate-bounce cursor-pointer transition-all duration-200 hover:scale-110"
+      class="mx-auto mt-4 block w-fit animate-bounce cursor-pointer transition-all duration-200 hover:scale-125"
     >
       <ChevronDown class="size-12" />
     </a>

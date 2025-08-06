@@ -4,37 +4,36 @@ import DiceRoller from "@/components/DiceRoller.vue";
 interface Props {
   label: string;
   value: number;
+  id: string;
 }
 
-const { label, value } = Astro.props;
+const { label, value, id } = Astro.props;
 const modifier = Math.floor((value - 10) / 2);
 ---
 
-<div class="relative w-28 h-26 mb-2">
-  <div class="cutout w-full h-full p-0.25 bg-primary-500">
+<div class="relative mb-2 h-24 w-24">
+  <div class="cutout p-0.25 bg-primary-500 h-full w-full">
     <div
-      class="cutout w-full h-full bg-black flex flex-col items-center justify-center px-2"
+      class="cutout flex h-full w-full flex-col items-center justify-center bg-black px-2"
     >
       <label
-        class="absolute top-1 text-primary-500 font-bold text-sm uppercase"
-        for="precision"
+        class="text-primary-500 absolute top-1 text-xs font-bold uppercase"
+        for={id}
       >
         {label}
       </label>
-      <span class="font-number oldstyle-nums text-3xl" id="precision"
-        >{value}</span
-      >
+      <span class="font-number text-2xl oldstyle-nums" id={id}>{value}</span>
     </div>
   </div>
   <div
-    class="cutout p-0.25 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 bg-primary-500 oldstyle-nums font-heading font-bold"
+    class="cutout p-0.25 bg-primary-500 font-heading absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 font-bold oldstyle-nums"
   >
     <DiceRoller
       modifier={modifier}
-      class="cutout bg-black h-8 w-8 flex items-center justify-center"
+      class="cutout flex h-7 w-7 items-center justify-center bg-black"
       client:visible
     >
-      <span class="-ml-1">
+      <span class="-ml-1 text-sm">
         {`+${modifier}`}
       </span>
     </DiceRoller>
