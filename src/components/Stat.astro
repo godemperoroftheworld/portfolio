@@ -40,19 +40,8 @@ const modifier = Math.floor((value - 10) / 2);
   </div>
 </div>
 
-<style>
+<style scoped>
   .cutout {
-    clip-path: polygon(
-      /* top edge */ var(--corner) 0%,
-      calc(100% - var(--corner)) 0%,
-      /* right edge */ 100% var(--corner),
-      100% calc(100% - var(--corner)),
-      /* bottom edge */ calc(100% - var(--corner)) 100%,
-      var(--corner) 100%,
-      /* left edge */ 0% calc(100% - var(--corner)),
-      0% var(--corner)
-    );
-
     --corner: 0.75em;
   }
 </style>

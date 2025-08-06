@@ -13,6 +13,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
   }
 }

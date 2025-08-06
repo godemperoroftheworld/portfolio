@@ -84,6 +84,8 @@
   --font-heading: "Cinzel Decorative", serif;
   --font-body: "Lora", serif;
   --font-number: "UnifrakturCook", system-ui;
+
+  --cutout-corner: 1em;
 }
 
 :root {
@@ -96,4 +98,23 @@ html {
 
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-heading);
+}
+
+@layer utilities {
+  .cutout {
+    clip-path: polygon(
+      /* top edge */
+      var(--cutout-corner) 0%,
+      calc(100% - var(--cutout-corner)) 0%,
+      /* right edge */
+      100% var(--cutout-corner),
+      100% calc(100% - var(--cutout-corner)),
+      /* bottom edge */
+      calc(100% - var(--cutout-corner)) 100%,
+      var(--cutout-corner) 100%,
+      /* left edge */
+      0% calc(100% - var(--cutout-corner)),
+      0% var(--cutout-corner)
+    );
+  }
 }
