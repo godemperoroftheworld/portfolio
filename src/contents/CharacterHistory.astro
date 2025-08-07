@@ -1,13 +1,10 @@
 ---
-import Card from "../components/Card.astro";
-import Mapbox from "@/components/client/Mapbox.vue";
-import type { LngLatLike } from "mapbox-gl";
-
-interface Step {
-  label: string;
-  description: string;
-  coordinate: LngLatLike;
-}
+import Card from "@/components/Card.astro";
+import Mapbox from "./history/HistoryMap.vue";
+import type { Step } from "./history/types.ts";
+import HistoryTimeline from "./history/HistoryTimeline.vue";
+import schoolIcon from "@/icons/School.svg?raw";
+import workIcon from "@/icons/Work.svg?raw";
 
 const steps: Step[] = [
   // Marianopolis College
@@ -15,71 +12,90 @@ const steps: Step[] = [
     label: "Marianopolis College",
     coordinate: { lat: 45.4812462, lng: -73.6115655 },
     description: "Lorem ipsum dolor amet",
+    icon: schoolIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // UWaterloo
   {
     label: "University of Waterloo",
     coordinate: { lat: 43.4723, lng: -80.5449 },
     description: "Lorem ipsum dolor amet",
+    icon: schoolIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Paramount Commerce
   {
     label: "Paramount Commerce",
     coordinate: { lat: 43.64365, lng: -79.40406 },
     description: "Lorem ipsum dolor amet",
+    icon: workIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Bunch.live
   {
     label: "Bunch.live",
     coordinate: { lat: 45.36378, lng: -73.29989 },
     description: "Lorem ipsum dolor amet",
+    icon: workIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Lifion by ADP
   {
     label: "Lifion by ADP",
     coordinate: { lat: 40.65705, lng: -73.98173 },
     description: "Lorem ipsum dolor amet",
+    icon: workIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Chalmers
   {
-    label: "Chalmers",
+    label: "Chalmers Universitat",
     coordinate: { lat: 57.6898, lng: 11.9742 },
     description: "Lorem ipsum dolor amet",
+    icon: schoolIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Vivid Seats
   {
     label: "Vivid Seats",
     coordinate: { lat: 43.64899, lng: -79.38895 },
     description: "Lorem ipsum dolor amet",
+    icon: workIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Hivestack
   {
     label: "Hivestack",
     coordinate: { lat: 45.50028, lng: -73.55396 },
     description: "Lorem ipsum dolor amet",
+    icon: workIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
   // Concordia
   {
     label: "Concordia University",
     coordinate: { lat: 45.4948, lng: -73.5779 },
     description: "Lorem ipsum dolor amet",
+    icon: schoolIcon,
+    date: [new Date("2017-09-01"), new Date("2019-06-30")],
   },
 ];
 ---
 
 <section
   id="characterHistory"
-  class="flex h-dvh min-h-dvh max-w-full flex-col justify-center"
+  class="flex h-dvh min-h-dvh max-w-full items-center justify-center gap-6"
 >
-  <div>
+  <div class="relative">
     <h1
       data-aos="fade-in"
-      class="text-primary-500 mx-auto mb-2 w-fit text-xl font-bold"
+      class="text-primary-500 absolute left-1/2 top-0 mx-auto mb-2 w-fit -translate-x-1/2 -translate-y-full text-xl font-bold"
     >
       Backstory
     </h1>
     <Card animation="zoom-in">
-      <Mapbox client:load class="w-4xl aspect-[4/3]" steps={steps} />
+      <Mapbox client:load class="w-3xl aspect-[4/3] max-w-full" steps={steps} />
     </Card>
   </div>
+  <HistoryTimeline client:load steps={steps} />
 </section>

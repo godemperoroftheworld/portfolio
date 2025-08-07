@@ -4,7 +4,10 @@ import { createApp, onMounted, ref, watch } from "vue";
 import MapPin from "@/icons/MapPin.png";
 import type { JSX } from "vue/jsx-runtime";
 import type { GeoJSON, LineString } from "geojson";
-import MapPane from "@/components/client/map/MapPane.vue";
+import MapPane from "@/contents/history/HistoryMapPane.vue";
+import { useStore } from "@nanostores/vue";
+import { historyStepStore } from "@/stores/historyStep.ts";
+import { useDebounce } from "@vueuse/core";
 
 interface Step {
   label: string;
@@ -17,7 +20,9 @@ interface Props {
 const { steps = [] } = defineProps<Props>();
 
 const map = ref<mapboxgl.Map>();
-const stepIndex = ref(0);
+const stepIndexRaw = useStore(historyStepStore);
+const stepIndex = ref(stepIndexRaw.value);
+const stepIndexDebounced = useDebounce(stepIndex, 1000);
 const hidePane = ref(false);
 
 function createMarkerNode(vnode: () => JSX.Element): HTMLElement {
@@ -30,7 +35,7 @@ function initMap(map: mapboxgl.Map) {
   // Add markers
   steps.forEach((step, idx) => {
     const node = createMarkerNode(() => (
-      <button class="block cursor-pointer" onClick={() => setStep(idx)}>
+      <button class="mb-4 block cursor-pointer" onClick={() => setStep(idx)}>
         <img class="h-12" src={MapPin.src} alt="" />
       </button>
     ));
@@ -65,32 +70,73 @@ function initMap(map: mapboxgl.Map) {
   });
 }
 
+// Step utils
 function increaseStep() {
-  setStep(stepIndex.value + 1);
+  setStep(stepIndexRaw.value + 1);
 }
 function decreaseStep() {
-  setStep(stepIndex.value - 1);
+  setStep(stepIndexRaw.value - 1);
 }
 function setStep(idx: number) {
-  hidePane.value = true;
-  setTimeout(() => {
-    stepIndex.value = idx;
-  }, 500);
+  historyStepStore.set(idx);
 }
-watch(stepIndex, value => {
-  updateMapLine(map.value!);
-  const target = mapboxgl.LngLat.convert(steps[value].coordinate);
+
+// Duration helper
+function calculateDuration(step: number) {
+  const isLastStep = step === stepIndexRaw.value;
+
+  const target = mapboxgl.LngLat.convert(steps[step].coordinate);
   const distance = map.value!.getCenter().distanceTo(target);
   const normalizedDistance = Math.log(Math.max(distance, 1));
-  const duration = normalizedDistance * 500;
-  const clampedDuration = Math.min(Math.max(duration, 500), 10000);
+
+  const duration = normalizedDistance * (isLastStep ? 500 : 300);
+  return Math.min(Math.max(duration, 500), isLastStep ? 8000 : 4000);
+}
+
+// Map flight helper
+function flyTo(step: number, duration: number) {
+  // Hide the pane for now
+  hidePane.value = true;
+  // Different logic when flying in intermediary step
+  const isLastStep = step === stepIndexRaw.value;
+  // Fly
   map.value!.flyTo({
-    center: steps[value].coordinate,
-    zoom: 16,
-    duration: clampedDuration,
-    easing: t => t * (2 - t),
+    center: steps[step].coordinate,
+    zoom: 12,
+    duration,
+    easing: isLastStep ? t => t * (2 - t) : t => t,
   });
-});
+  setTimeout(() => {
+    // Update routes
+    updateMapLine(map.value!);
+  }, duration * 0.5);
+  setTimeout(
+    () => {
+      // Restore pane
+      hidePane.value = false;
+    },
+    duration * (isLastStep ? 0.75 : 0.5)
+  );
+}
+function flyToStepIndex() {
+  if (stepIndex.value < stepIndexRaw.value) {
+    const duration = calculateDuration(stepIndex.value + 1);
+    flyTo(stepIndex.value + 1, duration);
+    stepIndex.value += 1;
+    setTimeout(() => {
+      flyToStepIndex();
+    }, duration + 100);
+  } else if (stepIndex.value > stepIndexRaw.value) {
+    const duration = calculateDuration(stepIndex.value - 1);
+    flyTo(stepIndex.value - 1, duration);
+    stepIndex.value -= 1;
+    setTimeout(() => {
+      flyToStepIndex();
+    }, duration + 100);
+  }
+}
+
+watch(stepIndexRaw, flyToStepIndex);
 
 function updateMapLine(map: mapboxgl.Map) {
   const source = map.getSource("route") as GeoJSONSource;
@@ -121,16 +167,19 @@ onMounted(() => {
     center: steps[0].coordinate,
     zoom: 16,
     renderWorldCopies: false,
+    attributionControl: false,
   });
+  map.value.addControl(
+    new mapboxgl.AttributionControl({
+      compact: true,
+    })
+  );
   map.value.on("load", () => {
     // resize
     map.value!.resize();
     // init map
     initMap(map.value!);
     updateMapLine(map.value!);
-  });
-  map.value.on("moveend", () => {
-    hidePane.value = false;
   });
 });
 </script>
@@ -139,10 +188,10 @@ onMounted(() => {
   <div v-bind="$attrs" id="map" class="relative">
     <MapPane
       :visible="!hidePane"
-      :show-previous="stepIndex > 0"
-      :show-next="stepIndex + 1 < steps.length"
-      :label="steps[stepIndex].label"
-      :description="steps[stepIndex].description"
+      :show-previous="stepIndexDebounced > 0"
+      :show-next="stepIndexDebounced + 1 < steps.length"
+      :label="steps[stepIndexDebounced].label"
+      :description="steps[stepIndexDebounced].description"
       @next="increaseStep"
       @previous="decreaseStep"
     />
@@ -154,6 +203,10 @@ onMounted(() => {
   .mapboxgl-canvas-container {
     height: 100%;
     width: 100%;
+  }
+
+  .mapbox-improve-map {
+    display: none;
   }
 }
 </style>
