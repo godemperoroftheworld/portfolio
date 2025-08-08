@@ -85,9 +85,9 @@ const steps: Step[] = [
 
 <section
   id="characterHistory"
-  class="flex h-dvh min-h-dvh max-w-full items-center justify-center pt-16"
+  class="flex h-dvh min-h-dvh w-full items-center justify-center pt-16"
 >
-  <div class="flex h-full max-w-full gap-6">
+  <div class="flex h-full max-w-full gap-6 max-md:w-full">
     <div class="min-w-md relative my-auto h-fit shrink max-md:hidden">
       <h1
         data-aos="fade-in"
@@ -102,16 +102,22 @@ const steps: Step[] = [
           steps={steps}
         />
       </Card>
-      <HistoryMapCard client:load class="mt-6 lg:hidden" steps={steps} />
+      <HistoryMapCard
+        data-aos="zoom-in"
+        client:load
+        class="mt-6 lg:hidden"
+        steps={steps}
+      />
     </div>
     <HistoryTimeline
-      class="shrink-0 py-8 max-md:hidden"
+      class="shrink-0 py-8 max-sm:mx-auto max-sm:h-fit sm:max-md:hidden"
       data-aos="fade-right"
       client:load
       steps={steps}
     />
     <HistoryTimeline
-      class="h-full max-md:py-8 sm:max-md:h-[calc(100%-8rem)] md:hidden"
+      class="h-full max-md:py-8 max-sm:hidden sm:max-md:h-[calc(100%-8rem)] md:hidden"
+      data-aos="zoom-in"
       client:load
       alternate={true}
       steps={steps}

@@ -51,10 +51,10 @@ watch(stepIndex, value => {
   <div
     ref="list"
     style="scrollbar-width: thin"
-    class="relative w-fit overflow-x-visible overflow-y-scroll"
+    class="relative overflow-x-visible overflow-y-scroll"
     :class="{ 'px-4': !alternate }"
   >
-    <div class="relative h-full">
+    <div class="relative min-h-full">
       <div
         :class="{ 'sm:ml-70 absolute left-0 top-0 ml-60': alternate }"
         class="bg-primary-500 absolute left-0 top-0 min-h-full w-px shrink-0 bg-clip-content"
@@ -67,8 +67,8 @@ watch(stepIndex, value => {
         />
       </div>
       <ol
-        :class="{ 'alternate sm:pl-70 gap-0! py-4 pl-60 pr-4': alternate }"
-        class="flex h-full flex-col justify-center gap-6"
+        :class="{ 'alternate sm:pl-70 gap-0! pb-4 pl-60 pr-4': alternate }"
+        class="flex h-full flex-col justify-center gap-6 pt-8"
       >
         <li
           class="sm:w-70 group pointer-events-none relative w-60 cursor-pointer"

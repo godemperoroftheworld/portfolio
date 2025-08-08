@@ -64,7 +64,7 @@ import Scroller from "@/components/client/Scroller.vue";
           Features & Traits
         </h1>
         <div
-          class="flex max-h-96 grow flex-col justify-around gap-2 overflow-y-scroll"
+          class="flex grow flex-col justify-around gap-2 overflow-y-scroll md:max-h-96"
         >
           <Feature
             name="Rapid Execution"
@@ -98,7 +98,7 @@ import Scroller from "@/components/client/Scroller.vue";
     </div>
   </div>
   <Scroller
-    class="mb-4"
+    class="mb-4 max-md:hidden"
     data-aos="zoom-in"
     data-aos-offset="-25"
     elementId="characterHistory"
