@@ -1,6 +1,6 @@
 <script setup lang="tsx">
-import mapboxgl, { GeoJSONSource, type LngLatLike } from "mapbox-gl";
-import { createApp, onMounted, ref, watch } from "vue";
+import mapboxgl, { GeoJSONSource } from "mapbox-gl";
+import { createApp, onMounted, ref } from "vue";
 import MapPin from "@/icons/MapPin.png";
 import type { JSX } from "vue/jsx-runtime";
 import type { GeoJSON, LineString } from "geojson";
@@ -8,12 +8,9 @@ import MapPane from "@/contents/history/HistoryMapPane.vue";
 import { useStore } from "@nanostores/vue";
 import { historyStepStore } from "@/stores/historyStep.ts";
 import { useDebounce } from "@vueuse/core";
+import type { Step } from "@/contents/history/types.ts";
+import emitter from "@/contents/history/events.ts";
 
-interface Step {
-  label: string;
-  description: string;
-  coordinate: LngLatLike;
-}
 interface Props {
   steps?: Step[];
 }
@@ -21,8 +18,7 @@ const { steps = [] } = defineProps<Props>();
 
 const map = ref<mapboxgl.Map>();
 const stepIndexRaw = useStore(historyStepStore);
-const stepIndex = ref(stepIndexRaw.value);
-const stepIndexDebounced = useDebounce(stepIndex, 1000);
+const stepIndex = useDebounce(stepIndexRaw, 1000);
 const hidePane = ref(false);
 
 function createMarkerNode(vnode: () => JSX.Element): HTMLElement {
@@ -77,7 +73,8 @@ function increaseStep() {
 function decreaseStep() {
   setStep(stepIndexRaw.value - 1);
 }
-function setStep(idx: number) {
+async function setStep(idx: number) {
+  directFlight(idx);
   historyStepStore.set(idx);
 }
 
@@ -94,50 +91,28 @@ function calculateDuration(step: number) {
 }
 
 // Map flight helper
-function flyTo(step: number, duration: number) {
+function directFlight(step: number) {
   // Hide the pane for now
-  hidePane.value = true;
-  // Different logic when flying in intermediary step
-  const isLastStep = step === stepIndexRaw.value;
+  if (step !== stepIndexRaw.value) {
+    hidePane.value = true;
+  }
+  // Calculate duration
+  const duration = calculateDuration(step);
   // Fly
   map.value!.flyTo({
     center: steps[step].coordinate,
     zoom: 12,
-    duration,
-    easing: isLastStep ? t => t * (2 - t) : t => t,
+    duration: duration,
   });
   setTimeout(() => {
     // Update routes
     updateMapLine(map.value!);
   }, duration * 0.5);
-  setTimeout(
-    () => {
-      // Restore pane
-      hidePane.value = false;
-    },
-    duration * (isLastStep ? 0.75 : 0.5)
-  );
+  setTimeout(() => {
+    // Restore pane
+    hidePane.value = false;
+  }, duration * 0.75);
 }
-function flyToStepIndex() {
-  if (stepIndex.value < stepIndexRaw.value) {
-    const duration = calculateDuration(stepIndex.value + 1);
-    flyTo(stepIndex.value + 1, duration);
-    stepIndex.value += 1;
-    setTimeout(() => {
-      flyToStepIndex();
-    }, duration + 100);
-  } else if (stepIndex.value > stepIndexRaw.value) {
-    const duration = calculateDuration(stepIndex.value - 1);
-    flyTo(stepIndex.value - 1, duration);
-    stepIndex.value -= 1;
-    setTimeout(() => {
-      flyToStepIndex();
-    }, duration + 100);
-  }
-}
-
-watch(stepIndexRaw, flyToStepIndex);
-
 function updateMapLine(map: mapboxgl.Map) {
   const source = map.getSource("route") as GeoJSONSource;
   const filteredSteps = steps.slice(
@@ -159,6 +134,8 @@ function updateMapLine(map: mapboxgl.Map) {
 }
 
 onMounted(() => {
+  // Events
+  emitter.on("flyTo", directFlight);
   // init map
   mapboxgl.accessToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
   map.value = new mapboxgl.Map({
@@ -188,12 +165,11 @@ onMounted(() => {
   <div v-bind="$attrs" id="map" class="relative">
     <MapPane
       :visible="!hidePane"
-      :show-previous="stepIndexDebounced > 0"
-      :show-next="stepIndexDebounced + 1 < steps.length"
-      :label="steps[stepIndexDebounced].label"
-      :description="steps[stepIndexDebounced].description"
-      @next="increaseStep"
+      :step="steps[stepIndex]"
+      :show-previous="stepIndex > 0"
+      :show-next="stepIndex + 1 < steps.length"
       @previous="decreaseStep"
+      @next="increaseStep"
     />
   </div>
 </template>

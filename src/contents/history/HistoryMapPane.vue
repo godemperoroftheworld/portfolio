@@ -1,19 +1,18 @@
 <script setup lang="ts">
+import type { Step } from "@/contents/history/types.ts";
+
 interface Props {
   visible: boolean;
+  step: Step;
   showPrevious: boolean;
   showNext: boolean;
-  label: string;
-  dateRange?: [Date, Date];
-  description: string;
 }
 interface Emits {
   next: [];
   previous: [];
 }
 
-const { visible, showNext, showPrevious, label, dateRange, description } =
-  defineProps<Props>();
+const { visible, step, showPrevious, showNext } = defineProps<Props>();
 const emits = defineEmits<Emits>();
 </script>
 
@@ -31,12 +30,12 @@ const emits = defineEmits<Emits>();
       <div
         class="cutout font-body animate__animated flex h-72 w-72 flex-col bg-black p-4"
       >
-        <h2 class="text-lg">{{ label }}</h2>
-        <h4 v-if="dateRange" class="italic">
-          {{ dateRange[0].toDateString() }} - {{ dateRange[1].toDateString() }}
+        <h2 class="text-lg">{{ step.label }}</h2>
+        <h4 v-if="step.date" class="italic">
+          {{ step.date[0].toDateString() }} - {{ step.date[1].toDateString() }}
         </h4>
         <div class="grow">
-          {{ description }}
+          {{ step.description }}
         </div>
         <div
           v-if="showNext || showPrevious"

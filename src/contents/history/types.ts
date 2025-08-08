@@ -7,3 +7,6 @@ export interface Step {
   icon: string;
   date: [Date, Date];
 }
+export type MapEvents = {
+  flyTo: number;
+};

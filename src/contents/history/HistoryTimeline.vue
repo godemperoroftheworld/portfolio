@@ -4,6 +4,7 @@ import { historyStepStore } from "@/stores/historyStep.ts";
 import DOMPurify from "isomorphic-dompurify";
 import { useStore } from "@nanostores/vue";
 import { useTemplateRef, watch } from "vue";
+import emitter from "@/contents/history/events.ts";
 
 interface Props {
   steps: Step[];
@@ -17,6 +18,7 @@ function sanitizedHTML(step: Step) {
   return DOMPurify.sanitize(step.icon);
 }
 function onClickStep(idx: number) {
+  emitter.emit("flyTo", idx);
   historyStepStore.set(idx);
 }
 
@@ -57,7 +59,10 @@ watch(stepIndex, value => {
       >
         <!-- Point -->
         <div
-          class="bg-primary-500 absolute -left-[0.5px] top-2.5 size-3 shrink-0 -translate-x-1/2 rounded-full transition-transform duration-200 group-hover:scale-125"
+          :class="{
+            'animate__heartBeat scale-125': idx === stepIndex,
+          }"
+          class="animate__animated iteration-infinite bg-primary-500 absolute -left-[0.5px] top-2.5 size-3 shrink-0 -translate-x-1/2 rounded-full transition-transform duration-200 group-hover:scale-150"
         />
         <!-- Content -->
         <div
