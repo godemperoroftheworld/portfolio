@@ -1,7 +1,7 @@
 ---
 import Card from "@/components/Card.astro";
 import Mapbox from "./history/HistoryMap.vue";
-import HistoryMapCard from "./history/HistoryMapCard.vue";
+import HistoryMapCard from "./history/details/HistoryMapCard.vue";
 import type { Step } from "./history/types.ts";
 import HistoryTimeline from "./history/HistoryTimeline.vue";
 import schoolIcon from "@/icons/School.svg?raw";
@@ -85,7 +85,7 @@ const steps: Step[] = [
 
 <section
   id="characterHistory"
-  class="flex h-dvh min-h-dvh w-full items-center justify-center pt-16"
+  class="flex h-dvh min-h-fit w-full snap-center items-center justify-center pt-16"
 >
   <div class="flex h-full max-w-full gap-6 max-md:w-full">
     <div class="min-w-md relative my-auto h-fit shrink max-md:hidden">
@@ -98,7 +98,7 @@ const steps: Step[] = [
       <Card animation="zoom-in">
         <Mapbox
           client:load
-          class="w-xl lg:w-2xl xl:w-3xl aspect-[4/3] max-w-full"
+          class="w-xl lg:w-2xl xl:w-4xl aspect-[4/3] max-w-full"
           steps={steps}
         />
       </Card>
@@ -110,16 +110,9 @@ const steps: Step[] = [
       />
     </div>
     <HistoryTimeline
-      class="shrink-0 py-8 max-sm:mx-auto max-sm:h-fit sm:max-md:hidden"
+      class="my-auto shrink-0 max-md:mx-auto max-md:h-full max-md:w-full"
       data-aos="fade-right"
       client:load
-      steps={steps}
-    />
-    <HistoryTimeline
-      class="h-full max-md:py-8 max-sm:hidden sm:max-md:h-[calc(100%-8rem)] md:hidden"
-      data-aos="zoom-in"
-      client:load
-      alternate={true}
       steps={steps}
     />
   </div>

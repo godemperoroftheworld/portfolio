@@ -4,7 +4,7 @@ import { createApp, onBeforeUnmount, onMounted, ref } from "vue";
 import MapPin from "@/icons/MapPin.png";
 import type { JSX } from "vue/jsx-runtime";
 import type { GeoJSON, LineString } from "geojson";
-import MapPane from "@/contents/history/HistoryMapPane.vue";
+import MapPane from "@/contents/history/details/HistoryMapPane.vue";
 import { useStore } from "@nanostores/vue";
 import { historyStepStore } from "@/stores/historyStep.ts";
 import { useDebounce } from "@vueuse/core";
@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
         data-aos="flip-up"
         data-aos-delay="300"
         data-aos-duration="500"
-        class="z-2 absolute left-2 top-2 max-lg:hidden"
+        class="z-2 absolute left-2 top-2 h-72 max-lg:hidden"
         :visible="!hidePane"
         :step="steps[stepIndex]"
         :show-previous="stepIndex > 0"

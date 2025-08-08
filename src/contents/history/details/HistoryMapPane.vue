@@ -32,7 +32,7 @@ function previous() {
 <template>
   <div v-show="visible" class="cutout p-0.25 bg-primary-500">
     <div
-      class="font-body cutout animate__animated flex h-72 w-full flex-col bg-black p-4 text-base text-base"
+      class="font-body cutout animate__animated flex h-full w-full flex-col bg-black p-4 text-base text-base"
     >
       <h2 class="text-lg font-bold">{{ step.label }}</h2>
       <h3 v-if="step.date" class="font-body! text-silver-300 italic">

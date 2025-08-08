@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HistoryMapPane from "@/contents/history/HistoryMapPane.vue";
+import HistoryMapPane from "@/contents/history/details/HistoryMapPane.vue";
 import type { Step } from "@/contents/history/types.ts";
 import { useStore } from "@nanostores/vue";
 import { historyStepStore } from "@/stores/historyStep.ts";
