@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Step } from "@/contents/history/types.ts";
+import { historyStepStore } from "@/stores/historyStep.ts";
+import { useStore } from "@nanostores/vue";
+import emitter from "@/contents/history/events.ts";
 
 interface Props {
   visible: boolean;
@@ -14,46 +17,42 @@ interface Emits {
 
 const { visible, step, showPrevious, showNext } = defineProps<Props>();
 const emits = defineEmits<Emits>();
+const storeValue = useStore(historyStepStore);
+
+function next() {
+  historyStepStore.set(storeValue.value + 1);
+  emitter.emit("flyTo", storeValue.value + 1);
+}
+function previous() {
+  historyStepStore.set(storeValue.value - 1);
+  emitter.emit("flyTo", storeValue.value - 1);
+}
 </script>
 
 <template>
-  <transition
-    enter-active-class="animate__animated animate__flipInX"
-    leave-active-class="animate__animated animate__flipOutX"
-  >
+  <div v-show="visible" class="cutout p-0.25 bg-primary-500">
     <div
-      data-aos="flip-up"
-      data-aos-delay="300"
-      v-show="visible"
-      class="cutout z-2 p-0.25 bg-primary-500 absolute left-2 top-2"
+      class="font-body cutout animate__animated flex h-72 w-full flex-col bg-black p-4 text-base text-base"
     >
+      <h2 class="text-lg font-bold">{{ step.label }}</h2>
+      <h3 v-if="step.date" class="font-body! text-silver-300 italic">
+        {{ step.date[0].toDateString() }} - {{ step.date[1].toDateString() }}
+      </h3>
+      <div class="mt-4 grow text-sm">
+        {{ step.description }}
+      </div>
       <div
-        class="cutout font-body animate__animated flex h-72 w-72 flex-col bg-black p-4"
+        v-if="showNext || showPrevious"
+        class="font-heading text-primary-500 mt-4 flex items-center justify-between font-bold"
+        :class="{ 'justify-end': !showPrevious }"
       >
-        <h2 class="text-lg">{{ step.label }}</h2>
-        <h4 v-if="step.date" class="italic">
-          {{ step.date[0].toDateString() }} - {{ step.date[1].toDateString() }}
-        </h4>
-        <div class="grow">
-          {{ step.description }}
-        </div>
-        <div
-          v-if="showNext || showPrevious"
-          class="font-heading mt-4 flex items-center justify-between"
-          :class="{ 'justify-end': !showPrevious }"
-        >
-          <button
-            class="cursor-pointer"
-            v-if="showPrevious"
-            @click="emits('previous')"
-          >
-            Previous
-          </button>
-          <button class="cursor-pointer" v-if="showNext" @click="emits('next')">
-            Next
-          </button>
-        </div>
+        <button class="cursor-pointer" v-if="showPrevious" @click="previous">
+          Previous
+        </button>
+        <button class="cursor-pointer" v-if="showNext" @click="next">
+          Next
+        </button>
       </div>
     </div>
-  </transition>
+  </div>
 </template>

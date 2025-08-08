@@ -1,6 +1,6 @@
 <script setup lang="tsx">
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
-import { createApp, onMounted, ref } from "vue";
+import { createApp, onBeforeUnmount, onMounted, ref } from "vue";
 import MapPin from "@/icons/MapPin.png";
 import type { JSX } from "vue/jsx-runtime";
 import type { GeoJSON, LineString } from "geojson";
@@ -66,34 +66,20 @@ function initMap(map: mapboxgl.Map) {
   });
 }
 
-// Step utils
-function increaseStep() {
-  setStep(stepIndexRaw.value + 1);
-}
-function decreaseStep() {
-  setStep(stepIndexRaw.value - 1);
-}
-async function setStep(idx: number) {
-  directFlight(idx);
-  historyStepStore.set(idx);
-}
-
 // Duration helper
 function calculateDuration(step: number) {
-  const isLastStep = step === stepIndexRaw.value;
-
   const target = mapboxgl.LngLat.convert(steps[step].coordinate);
   const distance = map.value!.getCenter().distanceTo(target);
   const normalizedDistance = Math.log(Math.max(distance, 1));
 
-  const duration = normalizedDistance * (isLastStep ? 500 : 300);
-  return Math.min(Math.max(duration, 500), isLastStep ? 8000 : 4000);
+  const duration = normalizedDistance * 500;
+  return Math.min(Math.max(duration, 500), 6000);
 }
 
 // Map flight helper
 function directFlight(step: number) {
   // Hide the pane for now
-  if (step !== stepIndexRaw.value) {
+  if (step !== stepIndex.value) {
     hidePane.value = true;
   }
   // Calculate duration
@@ -101,7 +87,7 @@ function directFlight(step: number) {
   // Fly
   map.value!.flyTo({
     center: steps[step].coordinate,
-    zoom: 12,
+    zoom: 14,
     duration: duration,
   });
   setTimeout(() => {
@@ -159,18 +145,31 @@ onMounted(() => {
     updateMapLine(map.value!);
   });
 });
+
+onBeforeUnmount(() => {
+  emitter.off("flyTo", directFlight);
+});
 </script>
 
 <template>
   <div v-bind="$attrs" id="map" class="relative">
-    <MapPane
-      :visible="!hidePane"
-      :step="steps[stepIndex]"
-      :show-previous="stepIndex > 0"
-      :show-next="stepIndex + 1 < steps.length"
-      @previous="decreaseStep"
-      @next="increaseStep"
-    />
+    <transition
+      enter-active-class="animate__animated animate__flipInX"
+      leave-active-class="animate__animated animate__flipOutX"
+    >
+      <MapPane
+        data-aos="flip-up"
+        data-aos-delay="300"
+        data-aos-duration="500"
+        class="z-2 absolute left-2 top-2 max-lg:hidden"
+        :visible="!hidePane"
+        :step="steps[stepIndex]"
+        :show-previous="stepIndex > 0"
+        :show-next="stepIndex + 1 < steps.length"
+        @previous="decreaseStep"
+        @next="increaseStep"
+      />
+    </transition>
   </div>
 </template>
 

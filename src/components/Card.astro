@@ -28,7 +28,7 @@ const {
     <div class="cutout p-0.25 bg-primary-500 h-full">
       <div
         class:list={[
-          "cutout bg-silver-950 text-silver-200 relative flex h-full flex-col overflow-hidden",
+          "cutout bg-silver-950 text-silver-100 relative flex h-full flex-col overflow-hidden",
           `p-${padding}`,
         ]}
       >
@@ -44,20 +44,3 @@ const {
     </div>
   </div>
 </div>
-
-<style>
-  .cutout {
-    clip-path: polygon(
-      /* top edge */ var(--corner) 0%,
-      calc(100% - var(--corner)) 0%,
-      /* right edge */ 100% var(--corner),
-      100% calc(100% - var(--corner)),
-      /* bottom edge */ calc(100% - var(--corner)) 100%,
-      var(--corner) 100%,
-      /* left edge */ 0% calc(100% - var(--corner)),
-      0% var(--corner)
-    );
-
-    --corner: 1em;
-  }
-</style>
