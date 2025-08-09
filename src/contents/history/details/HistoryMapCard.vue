@@ -24,8 +24,9 @@ const showNext = computed(() => {
 
 <template>
   <div class="cutout p-0.25 bg-primary-500">
-    <div class="cutout p-0.25 bg-black">
+    <div class="cutout p-0.25 h-full bg-black">
       <HistoryMapPane
+        class="h-full"
         visible
         :step="step"
         :show-previous="showPrevious"

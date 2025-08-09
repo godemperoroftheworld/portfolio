@@ -87,11 +87,11 @@ const steps: Step[] = [
   id="characterHistory"
   class="flex h-dvh min-h-fit w-full snap-center items-center justify-center pt-16"
 >
-  <div class="flex h-full max-w-full gap-6 max-md:w-full">
-    <div class="min-w-md relative my-auto h-fit shrink max-md:hidden">
+  <div class="flex h-full max-w-full gap-6 max-md:w-full max-md:flex-col">
+    <div class="min-w-md relative my-auto flex flex-col gap-6 max-md:hidden">
       <h1
         data-aos="fade-in"
-        class="text-primary-500 absolute left-1/2 top-0 mx-auto mb-2 w-fit -translate-x-1/2 -translate-y-full text-xl font-bold"
+        class="text-primary-500 absolute -top-2 left-1/2 mx-auto w-fit -translate-x-1/2 -translate-y-full text-2xl font-bold"
       >
         Backstory
       </h1>
@@ -105,12 +105,18 @@ const steps: Step[] = [
       <HistoryMapCard
         data-aos="zoom-in"
         client:load
-        class="mt-6 lg:hidden"
+        class="h-64 lg:hidden"
         steps={steps}
       />
     </div>
+    <h1
+      data-aos="fade-in"
+      class="text-primary-500 mx-auto w-fit text-2xl font-bold md:hidden"
+    >
+      Backstory
+    </h1>
     <HistoryTimeline
-      class="my-auto shrink-0 max-md:mx-auto max-md:h-full max-md:w-full"
+      class="my-auto shrink-0 max-md:mx-auto max-md:h-fit max-md:min-h-full max-md:w-full max-sm:-ml-4 max-sm:w-dvw"
       data-aos="fade-right"
       client:load
       steps={steps}

@@ -10,22 +10,17 @@ interface Props {
   showPrevious: boolean;
   showNext: boolean;
 }
-interface Emits {
-  next: [];
-  previous: [];
-}
 
 const { visible, step, showPrevious, showNext } = defineProps<Props>();
-const emits = defineEmits<Emits>();
 const storeValue = useStore(historyStepStore);
 
 function next() {
   historyStepStore.set(storeValue.value + 1);
-  emitter.emit("flyTo", storeValue.value + 1);
+  emitter.emit("flyTo", storeValue.value);
 }
 function previous() {
   historyStepStore.set(storeValue.value - 1);
-  emitter.emit("flyTo", storeValue.value - 1);
+  emitter.emit("flyTo", storeValue.value);
 }
 </script>
 

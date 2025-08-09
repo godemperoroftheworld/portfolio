@@ -15,7 +15,7 @@ function onClick() {
 <template>
   <div
     v-bind="$attrs"
-    class="font-heading text-primary-500 mx-auto mt-4 w-fit text-lg font-bold"
+    class="font-heading text-primary-500 mx-auto w-fit text-lg font-bold"
   >
     <a @click="onClick" class="peer block w-fit cursor-pointer">
       <slot />
