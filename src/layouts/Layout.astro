@@ -63,6 +63,13 @@ const { title, description } = Astro.props;
       >
         Backstory
       </HeaderLink>
+      <HeaderLink
+        class="max-md:hidden"
+        client:load
+        elementId="characterInventory"
+      >
+        Inventory
+      </HeaderLink>
       <ThemeToggle client:load />
     </header>
     <main class="relative flex flex-col items-center gap-8 px-4">

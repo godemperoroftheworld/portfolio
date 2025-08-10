@@ -38,7 +38,7 @@ function previous() {
       </div>
       <div
         v-if="showNext || showPrevious"
-        class="font-heading text-primary-500 mt-4 flex items-center justify-between font-bold"
+        class="font-heading text-primary-500 mt-4 flex items-center justify-between text-sm font-bold"
         :class="{ 'justify-end': !showPrevious }"
       >
         <button class="cursor-pointer" v-if="showPrevious" @click="previous">
