@@ -21,6 +21,7 @@ import Mapbox from "@/icons/Mapbox.svg?raw";
 import Page from "@/icons/Page.svg?raw";
 
 import InventoryCard from "./inventory/InventoryCard.astro";
+import Scroller from "@/components/client/Scroller.vue";
 
 interface InventoryCardProps {
   title: string;
@@ -87,15 +88,18 @@ const cards: InventoryCardProps[] = [
   id="characterInventory"
   class="flex min-h-dvh max-w-full snap-start flex-col gap-6 pt-16 md:h-dvh md:snap-center"
 >
-  <div class="my-auto">
+  <div class="my-auto flex flex-col gap-6">
     <h1
       data-aos="fade-in"
-      class="text-primary-500 mb-4 text-center text-2xl font-bold"
+      class="text-primary-500 -mb-2 text-center text-2xl font-bold"
     >
       Inventory
     </h1>
     <div class="flex w-full flex-wrap justify-center gap-6">
       {cards.map(card => <InventoryCard {...card} />)}
     </div>
+    <Scroller data-aos="zoom-in" elementId="sendARaven" client:load>
+      Check my Inventory:
+    </Scroller>
   </div>
 </section>

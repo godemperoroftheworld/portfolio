@@ -5,17 +5,34 @@ import DOMPurify from "isomorphic-dompurify";
 export interface LinkIconProps {
   icon: string;
   label: string;
+  href?: string;
+  large?: boolean;
 }
-const { icon, label } = defineProps<LinkIconProps>();
+const { icon, label, href, large } = defineProps<LinkIconProps>();
 
 const sanitizedIcon = computed(() => {
   return DOMPurify.sanitize(icon);
 });
+
+function onClick() {
+  window.open(href, "_blank");
+}
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center">
-    <div v-html="sanitizedIcon" class="h-10 w-10 fill-white" />
+  <div
+    :class="{
+      'cursor-pointer transition-transform duration-200 hover:scale-110':
+        !!href,
+    }"
+    class="pointer-events-auto flex flex-col items-center justify-center"
+    @click="onClick"
+  >
+    <div
+      v-html="sanitizedIcon"
+      :class="{ 'size-10': !large, 'size-16': large }"
+      class="size-10 fill-white"
+    />
     <span class="text-center text-sm">{{ label }}</span>
   </div>
 </template>

@@ -1,6 +1,6 @@
 ---
 import type { LinkIconProps } from "@/components/client/LinkIcon.vue";
-import Card from "../../components/Card.astro";
+import Card from "@/components/Card.astro";
 import InventoryCarousel from "./InventoryCarousel.vue";
 import DOMPurify from "isomorphic-dompurify";
 
@@ -20,7 +20,7 @@ if (url) {
 ---
 
 <div class:list={classes}>
-  <Card class="h-96 w-72" padding={4} heading={title}>
+  <Card class="h-96 w-72" padding={4} heading={title} titleClass="text-white">
     <a
       href={url}
       target="_blank"

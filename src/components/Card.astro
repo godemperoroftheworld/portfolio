@@ -5,6 +5,7 @@ interface Props extends HTMLAttributes<"div"> {
   animate?: boolean;
   animation?: string;
   heading?: string;
+  titleClass?: string;
   "data-aos-delay"?: string;
   "data-aos-offset"?: string;
 }
@@ -15,6 +16,7 @@ const {
   animate = true,
   animation = "flip-up",
   heading,
+  titleClass = undefined,
   ...rest
 } = Astro.props;
 ---
@@ -34,7 +36,12 @@ const {
       >
         {
           heading ? (
-            <h1 class="text-primary-400 mb-4 text-center text-lg font-bold uppercase">
+            <h1
+              class:list={[
+                "text-primary-400 mb-4 text-center text-lg font-bold uppercase",
+                titleClass,
+              ]}
+            >
               {heading}
             </h1>
           ) : null

@@ -1,0 +1,81 @@
+---
+import LinkIcon from "@/components/client/LinkIcon.vue";
+import Typed from "@/components/client/Typed.vue";
+
+import Mail from "@/icons/Mail.svg?raw";
+import LetterboxdTwo from "@/icons/LetterboxdTwo.svg?raw";
+import Flickr from "@/icons/Flickr.svg?raw";
+import GitHub from "@/icons/GitHub.svg?raw";
+import LinkedIn from "@/icons/LinkedIn.svg?raw";
+---
+
+<section
+  id="sendARaven"
+  class="flex min-h-dvh max-w-full snap-start flex-col gap-6 py-16 md:h-dvh md:snap-center"
+>
+  <div class="my-auto">
+    <h1 class="text-primary-500 mb-4 text-center text-2xl font-bold">
+      Send a Raven
+    </h1>
+    <Typed
+      client:visible
+      delay={1000}
+      class="mb-12 text-lg"
+      text="So, you're interested in my character?"
+    />
+    <Typed
+      client:visible
+      delay={5000}
+      text="Let's get in touch."
+      class="text-success-500 mb-4 text-xl font-bold"
+    />
+    <div
+      data-aos="fade-up"
+      data-aos-delay="7500"
+      data-aos-duration="500"
+      class="mx-auto mb-4 flex w-fit flex-wrap justify-center gap-6"
+    >
+      <LinkIcon
+        large
+        client:visible
+        label="E-Mail"
+        icon={Mail}
+        href="mailto:pelletier@tenzin.live"
+      />
+      <LinkIcon
+        large
+        client:visible
+        label="GitHub"
+        icon={GitHub}
+        href="https://github.com/godemperoroftheworld/"
+      />
+      <LinkIcon
+        large
+        client:visible
+        label="LinkedIn"
+        icon={LinkedIn}
+        href="https://www.linkedin.com/in/t2pellet/"
+      />
+      <LinkIcon
+        large
+        client:visible
+        label="Flickr"
+        icon={Flickr}
+        href="https://www.flickr.com/photos/t2pellet/"
+      />
+      <LinkIcon
+        large
+        client:visible
+        label="Letterboxd"
+        icon={LetterboxdTwo}
+        href="https://letterboxd.com/godemperofearth/"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  [data-aos-delay="7500"].aos-animate {
+    transition-delay: 7500ms;
+  }
+</style>

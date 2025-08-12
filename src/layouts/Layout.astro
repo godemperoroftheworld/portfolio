@@ -44,7 +44,7 @@ const { title, description } = Astro.props;
   </head>
   <body class="relative">
     <header
-      class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-6 p-4 md:bg-black/75"
+      class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-4 p-4 md:bg-black/75"
     >
       <HeaderLink
         class="max-md:hidden"
@@ -69,6 +69,9 @@ const { title, description } = Astro.props;
         elementId="characterInventory"
       >
         Inventory
+      </HeaderLink>
+      <HeaderLink class="max-md:hidden" client:load elementId="sendARaven">
+        Contact
       </HeaderLink>
       <ThemeToggle client:load />
     </header>
