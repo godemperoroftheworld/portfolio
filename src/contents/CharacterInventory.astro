@@ -55,7 +55,7 @@ const cards: InventoryCardProps[] = [
     title: "Divestrael",
     icon: Palestine,
     description:
-      "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people, allowing you to take a picture of a product and finding out if you should boycott, according to whom, and why.",
+      "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people.",
     links: [
       { label: "TypeScript", icon: TypeScript },
       { label: "Tailwind", icon: Tailwind },
@@ -95,11 +95,20 @@ const cards: InventoryCardProps[] = [
     >
       Inventory
     </h1>
-    <div class="flex w-full flex-wrap justify-center gap-6">
+    <div
+      class="flex w-full snap-x snap-mandatory justify-center gap-6 max-md:-ml-4 max-md:-mt-4 max-md:w-dvw max-md:overflow-x-scroll max-md:py-4 max-sm:pl-64"
+    >
+      <div class="h-1 w-96 shrink-0 md:hidden"></div>
       {cards.map(card => <InventoryCard {...card} />)}
+      <div class="h-1 w-4 shrink-0 md:hidden"></div>
     </div>
-    <Scroller data-aos="zoom-in" elementId="sendARaven" client:load>
-      Check my Inventory:
+    <Scroller
+      data-aos-delay="200"
+      data-aos="zoom-in"
+      elementId="sendARaven"
+      client:load
+    >
+      Send me a Raven!
     </Scroller>
   </div>
 </section>

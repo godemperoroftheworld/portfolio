@@ -1,7 +1,7 @@
 ---
 import type { LinkIconProps } from "@/components/client/LinkIcon.vue";
 import Card from "@/components/Card.astro";
-import InventoryCarousel from "./InventoryCarousel.vue";
+import InventoryCarousel from "./InventoryCardLinks.vue";
 import DOMPurify from "isomorphic-dompurify";
 
 interface Props {
@@ -13,7 +13,9 @@ interface Props {
 }
 const { title, icon, description, links, url } = Astro.props;
 
-const classes = ["transition-transform duration-200 hover:scale-105"];
+const classes = [
+  "snap-center transition-transform duration-200 hover:scale-105",
+];
 if (url) {
   classes.push("cursor-pointer");
 }
