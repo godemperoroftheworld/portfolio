@@ -1,16 +1,101 @@
 ---
+import type { LinkIconProps } from "@/components/client/LinkIcon.vue";
 
+import TypeScript from "@/icons/TypeScript.svg?raw";
+import Tailwind from "@/icons/Tailwind.svg?raw";
+import Vue from "@/icons/Vue.svg?raw";
+import Nuxt from "@/icons/Nuxt.svg?raw";
+import Express from "@/icons/Express.svg?raw";
+import Flask from "@/icons/Flask.svg?raw";
+import MongoDB from "@/icons/Mongo.svg?raw";
+import Letterboxd from "@/icons/Letterboxd.svg?raw";
+import Palestine from "@/icons/Palestine.svg?raw";
+import NextJS from "@/icons/Nextjs.svg?raw";
+import React from "@/icons/ReactIcon.svg?raw";
+import Fastify from "@/icons/Fastify.svg?raw";
+import Prisma from "@/icons/Prisma.svg?raw";
+import Python from "@/icons/Python.svg?raw";
+import Portfolio from "@/icons/User.svg?raw";
+import AstroIcon from "@/icons/Astro.svg?raw";
+import Mapbox from "@/icons/Mapbox.svg?raw";
+import Page from "@/icons/Page.svg?raw";
+
+import InventoryCard from "./inventory/InventoryCard.astro";
+
+interface InventoryCardProps {
+  title: string;
+  icon: string;
+  description: string;
+  links: LinkIconProps[];
+  url: string;
+}
+
+const cards: InventoryCardProps[] = [
+  {
+    title: "Letterblend",
+    icon: Letterboxd,
+    description:
+      "Letterblend is a web app allowing you to blend your watchlist with " +
+      "your friends. Can filter by category, ask it to pick for you, and " +
+      "share the link to your friends.",
+    links: [
+      { label: "TypeScript", icon: TypeScript },
+      { label: "Tailwind", icon: Tailwind },
+      { label: "Vue", icon: Vue },
+      { label: "Nuxt", icon: Nuxt },
+      { label: "Express", icon: Express },
+      { label: "Python", icon: Python },
+      { label: "Flask", icon: Flask },
+      { label: "MongoDB", icon: MongoDB },
+    ],
+    url: "https://letterblend.vercel.app",
+  },
+  {
+    title: "Divestrael",
+    icon: Palestine,
+    description:
+      "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people, allowing you to take a picture of a product and finding out if you should boycott, according to whom, and why.",
+    links: [
+      { label: "TypeScript", icon: TypeScript },
+      { label: "Tailwind", icon: Tailwind },
+      { label: "React", icon: React },
+      { label: "NextJS", icon: NextJS },
+      { icon: Fastify, label: "Fastify" },
+      { icon: Prisma, label: "Prisma" },
+      { label: "MongoDB", icon: MongoDB },
+    ],
+    url: "https://divestrael.vercel.app",
+  },
+  {
+    title: "Portfolio",
+    icon: Portfolio,
+    description: "My portfolio website. You're on it right now!",
+    links: [
+      { label: "TypeScript", icon: TypeScript },
+      { label: "Tailwind", icon: Tailwind },
+      { label: "Vue", icon: Vue },
+      { icon: AstroIcon, label: "Astro" },
+      { icon: Mapbox, label: "Mapbox" },
+      { icon: Page, label: "PagesCMS" },
+    ],
+    url: null,
+  },
+];
 ---
 
 <section
   id="characterInventory"
   class="flex min-h-dvh max-w-full snap-start flex-col gap-6 pt-16 md:h-dvh md:snap-center"
 >
-  <h1
-    data-aos="fade-in"
-    class="text-primary-500 my-auto text-center text-2xl font-bold"
-  >
-    Inventory
-  </h1>
-  <div class="my-auto"></div>
+  <div class="my-auto">
+    <h1
+      data-aos="fade-in"
+      class="text-primary-500 mb-4 text-center text-2xl font-bold"
+    >
+      Inventory
+    </h1>
+    <div class="flex w-full flex-wrap justify-center gap-6">
+      {cards.map(card => <InventoryCard {...card} />)}
+    </div>
+  </div>
 </section>

@@ -2,41 +2,44 @@
 import Carousel from "@/components/client/Carousel.vue";
 import LinkIcon from "@/components/client/LinkIcon.vue";
 
-import ReactIcon from "@/icons/ReactIcon.svg?component";
-import Vue from "@/icons/Vue.svg?component";
-import TypeScript from "@/icons/TypeScript.svg?component";
-import Tanstack from "@/icons/Tanstack.svg?component";
-import Astro from "@/icons/Astro.svg?component";
-import NodeJS from "@/icons/Nodejs.svg?component";
-import NextJS from "@/icons/Nextjs.svg?component";
-import Nuxt from "@/icons/Nuxt.svg?component";
-import Express from "@/icons/Express.svg?component";
-import Fastify from "@/icons/Fastify.svg?component";
-import Prisma from "@/icons/Prisma.svg?component";
-import Java from "@/icons/Java.svg?component";
-import Spring from "@/icons/Spring.svg?component";
-import Tailwind from "@/icons/Tailwind.svg?component";
-import Strapi from "@/icons/Strapi.svg?component";
-import Docker from "@/icons/Docker.svg?component";
-import CSharp from "@/icons/CSharp.svg?component";
-import Mongo from "@/icons/Mongo.svg?component";
-import PostgreSQL from "@/icons/Postgresql.svg?component";
-import Kotlin from "@/icons/Kotlin.svg?component";
-import HTML from "@/icons/HTML.svg?component";
-import CSS from "@/icons/CSS.svg?component";
-import Vite from "@/icons/Vite.svg?component";
-import Vitest from "@/icons/Vitest.svg?component";
-import Jest from "@/icons/Jest.svg?component";
-import Git from "@/icons/Git.svg?component";
-import GithubActions from "@/icons/GithubActions.svg?component";
-import CircleCI from "@/icons/CircleCI.svg?component";
-import Cypress from "@/icons/Cypress.svg?component";
-import Appium from "@/icons/Appium.svg?component";
+import ReactIcon from "@/icons/ReactIcon.svg?raw";
+import Vue from "@/icons/Vue.svg?raw";
+import TypeScript from "@/icons/TypeScript.svg?raw";
+import Tanstack from "@/icons/Tanstack.svg?raw";
+import Astro from "@/icons/Astro.svg?raw";
+import NodeJS from "@/icons/Nodejs.svg?raw";
+import NextJS from "@/icons/Nextjs.svg?raw";
+import Nuxt from "@/icons/Nuxt.svg?raw";
+import Express from "@/icons/Express.svg?raw";
+import Fastify from "@/icons/Fastify.svg?raw";
+import Prisma from "@/icons/Prisma.svg?raw";
+import Java from "@/icons/Java.svg?raw";
+import Spring from "@/icons/Spring.svg?raw";
+import Tailwind from "@/icons/Tailwind.svg?raw";
+import Strapi from "@/icons/Strapi.svg?raw";
+import Docker from "@/icons/Docker.svg?raw";
+import CSharp from "@/icons/CSharp.svg?raw";
+import Mongo from "@/icons/Mongo.svg?raw";
+import PostgreSQL from "@/icons/Postgresql.svg?raw";
+import Kotlin from "@/icons/Kotlin.svg?raw";
+import HTML from "@/icons/HTML.svg?raw";
+import CSS from "@/icons/CSS.svg?raw";
+import Vite from "@/icons/Vite.svg?raw";
+import Vitest from "@/icons/Vitest.svg?raw";
+import Jest from "@/icons/Jest.svg?raw";
+import Git from "@/icons/Git.svg?raw";
+import GithubActions from "@/icons/GithubActions.svg?raw";
+import CircleCI from "@/icons/CircleCI.svg?raw";
+import Cypress from "@/icons/Cypress.svg?raw";
+import Appium from "@/icons/Appium.svg?raw";
+import Python from "@/icons/Python.svg?raw";
+import Flask from "@/icons/Flask.svg?raw";
+import Mapbox from "@/icons/Mapbox.svg?raw";
 
-import { type Component, computed } from "vue";
+import { computed } from "vue";
 
 interface Icon {
-  icon: Component;
+  icon: string;
   label: string;
 }
 
@@ -51,6 +54,7 @@ const icons = computed<Icon[]>(
       { icon: Java, label: "Java" },
       { icon: CSharp, label: "CSharp" },
       { icon: Kotlin, label: "Kotlin" },
+      { icon: Python, label: "Python" },
       { icon: Vue, label: "Vue" },
       { icon: ReactIcon, label: "React" },
       { icon: Astro, label: "Astro" },
@@ -59,6 +63,7 @@ const icons = computed<Icon[]>(
       { icon: Express, label: "Express" },
       { icon: Fastify, label: "Fastify" },
       { icon: Spring, label: "Spring" },
+      { icon: Flask, label: "Flask" },
     ] as Icon[]
 );
 const iconsTwo = computed<Icon[]>(() => [
@@ -67,6 +72,7 @@ const iconsTwo = computed<Icon[]>(() => [
   { icon: PostgreSQL, label: "PostgreSQL" },
   { icon: Tanstack, label: "Tanstack" },
   { icon: Strapi, label: "Strapi" },
+  { icon: Mapbox, label: "Mapbox" },
   { icon: GithubActions, label: "Actions" },
   { icon: CircleCI, label: "CircleCI" },
   { icon: Git, label: "Git" },

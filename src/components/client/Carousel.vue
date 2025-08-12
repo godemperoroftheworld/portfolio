@@ -25,6 +25,9 @@ const [emblaRef] = emblaCarouselVue(options, [
 
 const children = computed(() => {
   const result = slots.default ? slots.default() : [];
+  if (!result.length) return result;
+  // Extract children
+  // Wrapped -> unwrap
   if (result.length === 1 && result[0].children) {
     return result[0].children;
   }

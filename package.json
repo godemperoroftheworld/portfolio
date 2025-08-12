@@ -35,7 +35,6 @@
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
     "embla-carousel-wheel-gestures": "^8.0.2",
-    "install": "^0.13.0",
     "isomorphic-dompurify": "^2.26.0",
     "mapbox-gl": "^3.14.0",
     "mitt": "^3.0.1",

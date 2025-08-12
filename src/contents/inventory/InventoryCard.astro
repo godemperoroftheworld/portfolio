@@ -1,0 +1,39 @@
+---
+import type { LinkIconProps } from "@/components/client/LinkIcon.vue";
+import Card from "../../components/Card.astro";
+import InventoryCarousel from "./InventoryCarousel.vue";
+import DOMPurify from "isomorphic-dompurify";
+
+interface Props {
+  title: string;
+  icon: string;
+  description: string;
+  links: LinkIconProps[];
+  url: string;
+}
+const { title, icon, description, links, url } = Astro.props;
+
+const classes = ["transition-transform duration-200 hover:scale-105"];
+if (url) {
+  classes.push("cursor-pointer");
+}
+---
+
+<div class:list={classes}>
+  <Card class="h-96 w-72" padding={4} heading={title}>
+    <a
+      href={url}
+      target="_blank"
+      class="flex h-full flex-col items-center gap-4"
+    >
+      <div
+        set:html={DOMPurify.sanitize(icon)}
+        class="text-primary-500 svg-wrapper size-24"
+      />
+      <div class="max-h-30 grow overflow-y-scroll text-center">
+        {description}
+      </div>
+      <InventoryCarousel class="max-w-full" client:load links={links} />
+    </a>
+  </Card>
+</div>

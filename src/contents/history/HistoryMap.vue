@@ -166,8 +166,6 @@ onBeforeUnmount(() => {
         :step="steps[stepIndex]"
         :show-previous="stepIndex > 0"
         :show-next="stepIndex + 1 < steps.length"
-        @previous="decreaseStep"
-        @next="increaseStep"
       />
     </transition>
   </div>
