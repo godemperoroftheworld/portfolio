@@ -5,11 +5,12 @@ import Feature from "@/components/Feature.astro";
 import Skill from "@/components/Skill.astro";
 import SkillsCarousel from "@/contents/sheet/ProficiencyCarousel.vue";
 import Scroller from "@/components/client/Scroller.vue";
+import DiceBox from "../components/DiceBox.astro";
 ---
 
 <section
   id="characterSheet"
-  class="flex min-h-dvh max-w-full snap-start flex-col gap-6 pt-16 md:h-dvh md:snap-center"
+  class="relative flex min-h-dvh max-w-full snap-start flex-col gap-6 pt-16 md:h-dvh md:snap-center"
 >
   <div class="my-auto">
     <div class="my-auto flex gap-6 max-md:flex-col lg:max-w-5xl">
@@ -108,4 +109,5 @@ import Scroller from "@/components/client/Scroller.vue";
       Read my Backstory:
     </Scroller>
   </div>
+  <DiceBox />
 </section>
