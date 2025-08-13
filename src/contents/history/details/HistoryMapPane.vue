@@ -3,6 +3,7 @@ import type { Step } from "@/contents/history/types.ts";
 import { historyStepStore } from "@/stores/historyStep.ts";
 import { useStore } from "@nanostores/vue";
 import emitter from "@/contents/history/events.ts";
+import { computed } from "vue";
 
 interface Props {
   visible: boolean;
@@ -13,6 +14,13 @@ interface Props {
 
 const { visible, step, showPrevious, showNext } = defineProps<Props>();
 const storeValue = useStore(historyStepStore);
+
+const stepDateString = computed(() => {
+  if (step.date.length > 1) {
+    return `${step.date[0].toDateString()} - ${step.date[1]!.toDateString()}`;
+  }
+  return `${step.date[0].toDateString()} - Present`;
+});
 
 function next() {
   historyStepStore.set(storeValue.value + 1);
@@ -31,7 +39,7 @@ function previous() {
     >
       <h2 class="text-lg font-bold">{{ step.label }}</h2>
       <h3 v-if="step.date" class="font-body! text-silver-300 italic">
-        {{ step.date[0].toDateString() }} - {{ step.date[1].toDateString() }}
+        {{ stepDateString }}
       </h3>
       <div class="mt-4 max-h-56 grow text-sm">
         {{ step.description }}

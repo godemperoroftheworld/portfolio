@@ -63,7 +63,7 @@ function onClickStep(idx: number) {
             </div>
             <span class="text-silver-300 ml-10 block text-sm italic">
               {{ step.date[0].toDateString() }} -
-              {{ step.date[1].toDateString() }}
+              {{ step.date[1]?.toDateString() ?? "Present" }}
             </span>
             <div
               :class="{ hidden: idx !== stepIndex }"

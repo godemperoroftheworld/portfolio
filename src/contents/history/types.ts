@@ -5,7 +5,7 @@ export interface Step {
   description: string;
   coordinate: LngLatLike;
   icon: string;
-  date: [Date, Date];
+  date: [Date] | [Date, Date];
 }
 export type MapEvents = {
   flyTo: number;
