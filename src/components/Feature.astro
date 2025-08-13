@@ -12,7 +12,9 @@ const { name, stat, description } = Astro.props;
   <div>
     <div class="font-heading text-primary-500 shrink-0 text-sm">
       <strong>{name}</strong>
-      <span class="font-body text-silver-300 italic">({stat})</span>
+      <span class="font-body text-silver-500 dark:text-silver-300 italic"
+        >({stat})</span
+      >
     </div>
   </div>
   <span>{description}</span>

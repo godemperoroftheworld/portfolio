@@ -18,18 +18,6 @@
   --color-primary-900: #5e4b0d;
   --color-primary-950: #362800;
 
-  --color-secondary-50: #eaffe8;
-  --color-secondary-100: #d3ffcf;
-  --color-secondary-200: #a2ff9a;
-  --color-secondary-300: #5bff53;
-  --color-secondary-400: #00f900;
-  --color-secondary-500: #00df00;
-  --color-secondary-600: #00b200;
-  --color-secondary-700: #008700;
-  --color-secondary-800: #006b00;
-  --color-secondary-900: #005700;
-  --color-secondary-950: #003200;
-
   --color-silver-50: #fafafa;
   --color-silver-100: #f5f5f5;
   --color-silver-200: #e5e5e5;
@@ -86,6 +74,21 @@
   --font-number: "UnifrakturCook", system-ui;
 
   --cutout-corner: 1em;
+}
+
+html:not(.dark) {
+  --color-primary: oklch(23.022% 0.13006 273.18);
+  --color-primary-50: oklch(45.469% 0.26951 271.56);
+  --color-primary-100: oklch(43.544% 0.27065 269.96);
+  --color-primary-200: oklch(39.732% 0.24507 270.28);
+  --color-primary-300: oklch(35.705% 0.21766 270.77);
+  --color-primary-400: oklch(31.519% 0.18957 271.06);
+  --color-primary-500: oklch(27.269% 0.15999 271.95);
+  --color-primary-600: oklch(23.022% 0.13006 273.18);
+  --color-primary-700: oklch(18.432% 0.09707 275.68);
+  --color-primary-800: oklch(13.41% 0.06222 280.99);
+  --color-primary-900: oklch(6.0402% 0.03367 292.48);
+  --color-primary-950: oklch(0% 0 none);
 }
 
 :root {

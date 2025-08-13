@@ -66,7 +66,9 @@ function onClickStep(idx: number) {
                 {{ step.label }}
               </span>
             </div>
-            <span class="text-silver-300 ml-10 block text-sm italic">
+            <span
+              class="text-silver-600 dark:text-silver-300 ml-10 block text-sm italic"
+            >
               {{ step.date[0].toDateString() }} -
               {{ step.date[1]?.toDateString() ?? "Present" }}
             </span>

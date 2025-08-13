@@ -14,7 +14,7 @@ const modifier = Math.floor((value - 10) / 2);
 <div class="relative mb-2 h-20 w-20">
   <div class="cutout p-0.25 bg-primary-500 h-full w-full">
     <div
-      class="cutout flex h-full w-full flex-col items-center justify-center bg-black px-2"
+      class="cutout flex h-full w-full flex-col items-center justify-center bg-white px-2 dark:bg-black"
     >
       <label
         class="text-primary-500 absolute top-1 text-sm font-bold uppercase"
@@ -22,7 +22,10 @@ const modifier = Math.floor((value - 10) / 2);
       >
         {label}
       </label>
-      <span class="font-number text-2xl oldstyle-nums" id={id}>{value}</span>
+      <span
+        class="font-number text-2xl oldstyle-nums text-black dark:text-white"
+        id={id}>{value}</span
+      >
     </div>
   </div>
   <div
@@ -31,7 +34,7 @@ const modifier = Math.floor((value - 10) / 2);
   >
     <DiceRoller
       modifier={modifier}
-      class="cutout flex h-7 w-7 items-center justify-center bg-black"
+      class="cutout flex h-7 w-7 items-center justify-center bg-white dark:bg-black"
       client:visible
     >
       <span class="-ml-1 text-sm">

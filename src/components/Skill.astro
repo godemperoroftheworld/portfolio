@@ -15,12 +15,14 @@ const { name, value, stat } = Astro.props;
   </div>
   <div class="flex w-6 justify-center border-b border-b-white">
     <DiceRoller class="px-2" modifier={value} client:visible>
-      <span class="text-primary-500 -ml-1 text-center italic oldstyle-nums"
-        >+{value}</span
-      >
+      <span class="text-primary-500 -ml-1 text-center italic oldstyle-nums">
+        +{value}
+      </span>
     </DiceRoller>
   </div>
   <span>
-    {name}<i class="text-silver-300 select-none text-sm"> ({stat})</i>
+    {name}<i class="text-silver-500 dark:text-silver-300 select-none text-sm">
+      ({stat})</i
+    >
   </span>
 </div>

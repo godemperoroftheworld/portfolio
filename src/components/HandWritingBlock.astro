@@ -27,4 +27,11 @@ const { label, ...rest } = Astro.props;
     background-size: 100% 1.2em;
     background-position-y: 1em;
   }
+
+  :root:not(.dark) .line-paper {
+    background-image: linear-gradient(
+      var(--color-silver-400) 0.1em,
+      transparent 0.1em
+    );
+  }
 </style>

@@ -2,13 +2,12 @@
 import { useDark } from "@vueuse/core";
 import { Switch } from "@headlessui/vue";
 import { onBeforeMount } from "vue";
-import MoonIcon from '@/icons/MoonIcon.svg?component'
-import SunIcon from '@/icons/SunIcon.svg?component'
+import MoonIcon from "@/icons/MoonIcon.svg?component";
+import SunIcon from "@/icons/SunIcon.svg?component";
 
 const isDark = useDark({
   disableTransition: false,
 });
-
 
 onBeforeMount(() => {
   if (isDark.value) {
@@ -16,14 +15,19 @@ onBeforeMount(() => {
   } else {
     document.documentElement.classList.remove("dark");
   }
-})
+});
 </script>
 
 <template>
-  <Switch v-model="isDark" class="w-16 h-8 relative flex items-center bg-secondary-600 dark:bg-primary-500 rounded-full cursor-pointer select-none z-1">
+  <Switch
+    v-model="isDark"
+    class="bg-primary-500 z-1 relative flex h-8 w-16 cursor-pointer select-none items-center rounded-full"
+  >
     <span class="sr-only">Toggle Dark mode</span>
-    <span class="absolute bg-white dark:bg-black rounded-full h-6 w-6 transition-all left-1 dark:left-9 pointer-events-none" />
-    <MoonIcon class="absolute right-2 w-4 h-4 text-black dark:text-white" />
-    <SunIcon class="absolute left-2 w-4 h-4 text-black" />
+    <span
+      class="pointer-events-none absolute left-1 h-6 w-6 rounded-full bg-white transition-all dark:left-9 dark:bg-black"
+    />
+    <MoonIcon class="absolute right-2 h-4 w-4 text-white" />
+    <SunIcon class="absolute left-2 h-4 w-4 text-black" />
   </Switch>
 </template>

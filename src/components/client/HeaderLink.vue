@@ -35,7 +35,7 @@ onMounted(async () => {
   <a
     class="text-primary-500 hover:bg-silver-700/75 block cursor-pointer p-2 font-bold uppercase"
     :class="{
-      'text-primary-300!': elementVisible,
+      'text-primary-100!': elementVisible,
     }"
     @click="() => scrollToElement(elementId)"
   >
