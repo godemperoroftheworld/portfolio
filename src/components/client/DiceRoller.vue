@@ -1,14 +1,34 @@
 <script setup lang="ts">
 import diceBox from "@/utils/dice.ts";
 import { toast } from "vue3-toastify";
+import { breakpointsTailwind, refDebounced, useWindowSize } from "@vueuse/core";
+import { computed, onMounted, toRef, watch } from "vue";
 
 interface Props {
   modifier: number;
 }
 const { modifier } = defineProps<Props>();
 
+const { width } = useWindowSize();
+const scale = refDebounced(
+  toRef(() => {
+    if (width.value > breakpointsTailwind.md) {
+      return 4;
+    }
+    return 3;
+  }),
+  500
+);
+
+watch(scale, value => {
+  diceBox.config.scale = value;
+});
+onMounted(() => {
+  diceBox.config.scale = scale.value;
+});
+
 async function onClick() {
-  const [result] = await diceBox.add({ qty: 1, sides: 20 });
+  const [result] = await diceBox.add({ qty: 1, sides: 20 }, { scale });
   toast.dark(`Result: ${result.value + modifier}`);
 }
 </script>

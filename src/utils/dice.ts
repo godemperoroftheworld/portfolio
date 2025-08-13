@@ -1,4 +1,5 @@
 import DiceBox from "@3d-dice/dice-box";
+import { isClient } from "@vueuse/core";
 
 const diceBox = new DiceBox({
   container: "#dice-box",
@@ -8,7 +9,7 @@ const diceBox = new DiceBox({
   offscreen: false,
 });
 
-if (!import.meta.env.SSR) {
+if (isClient) {
   diceBox.init();
 }
 
