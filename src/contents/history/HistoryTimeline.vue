@@ -57,7 +57,12 @@ function onClickStep(idx: number) {
                 v-html="sanitizedHTML(step)"
                 class="outline-primary-500 flex size-8 items-center justify-center rounded-full p-1.5 outline"
               />
-              <span class="font-heading text-primary-500">
+              <span
+                :class="
+                  idx === stepIndex ? 'text-primary-300' : 'text-primary-500'
+                "
+                class="font-heading"
+              >
                 {{ step.label }}
               </span>
             </div>
