@@ -2,7 +2,7 @@
 import diceBox from "@/utils/dice.ts";
 import { toast } from "vue3-toastify";
 import { breakpointsTailwind, refDebounced, useWindowSize } from "@vueuse/core";
-import { computed, onMounted, toRef, watch } from "vue";
+import { onMounted, toRef, watch } from "vue";
 
 interface Props {
   modifier: number;
