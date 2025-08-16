@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import LinkIcon, { type LinkIconProps } from "@/components/client/LinkIcon.vue";
-import Carousel from "@/components/client/Carousel.vue";
+import LinkIcon, {
+  type LinkIconProps,
+} from "@/components/ui/client/LinkIcon.vue";
+import Carousel from "@/components/ui/client/Carousel.vue";
 
 interface Props {
   links: LinkIconProps[];

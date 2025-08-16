@@ -1,15 +1,15 @@
 <script setup lang="tsx">
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 import { createApp, onBeforeUnmount, onMounted, ref } from "vue";
-import MapPin from "@/icons/MapPin.png";
+import MapPin from "@/assets/icons/MapPin.png";
 import type { JSX } from "vue/jsx-runtime";
 import type { GeoJSON, LineString } from "geojson";
-import MapPane from "@/contents/history/details/HistoryMapPane.vue";
+import MapPane from "@/components/history/details/HistoryMapPane.vue";
 import { useStore } from "@nanostores/vue";
 import { historyStepStore } from "@/stores/historyStep.ts";
 import { useDebounce } from "@vueuse/core";
-import type { Step } from "@/contents/history/types.ts";
-import emitter from "@/contents/history/events.ts";
+import type { Step } from "@/components/history/types.ts";
+import emitter from "@/components/history/events.ts";
 
 interface Props {
   steps?: Step[];

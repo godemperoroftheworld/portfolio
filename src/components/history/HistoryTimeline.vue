@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Step } from "@/contents/history/types.ts";
+import type { Step } from "@/components/history/types.ts";
 import { historyStepStore } from "@/stores/historyStep.ts";
 import DOMPurify from "isomorphic-dompurify";
 import { useStore } from "@nanostores/vue";
-import emitter from "@/contents/history/events.ts";
+import emitter from "@/components/history/events.ts";
 
 interface Props {
   steps: Step[];

@@ -2,8 +2,8 @@
 import { useDark } from "@vueuse/core";
 import { Switch } from "@headlessui/vue";
 import { onBeforeMount } from "vue";
-import MoonIcon from "@/icons/MoonIcon.svg?component";
-import SunIcon from "@/icons/SunIcon.svg?component";
+import MoonIcon from "@/assets/icons/MoonIcon.svg?component";
+import SunIcon from "@/assets/icons/SunIcon.svg?component";
 
 const isDark = useDark({
   disableTransition: false,

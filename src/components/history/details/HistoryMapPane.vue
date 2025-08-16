@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Step } from "@/contents/history/types.ts";
+import type { Step } from "@/components/history/types.ts";
 import { historyStepStore } from "@/stores/historyStep.ts";
 import { useStore } from "@nanostores/vue";
-import emitter from "@/contents/history/events.ts";
+import emitter from "@/components/history/events.ts";
 import { computed } from "vue";
 
 interface Props {

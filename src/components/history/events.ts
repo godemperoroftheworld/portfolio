@@ -1,5 +1,5 @@
 import mitt, { type Emitter } from "mitt";
-import type { MapEvents } from "@/contents/history/types.ts";
+import type { MapEvents } from "@/components/history/types.ts";
 
 const emitter: Emitter<MapEvents> = mitt<MapEvents>();
 

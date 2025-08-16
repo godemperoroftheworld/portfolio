@@ -1,12 +1,12 @@
 ---
-import Card from "@/components/Card.astro";
+import Card from "@/components/ui/Card.astro";
 import Mapbox from "./history/HistoryMap.vue";
 import HistoryMapCard from "./history/details/HistoryMapCard.vue";
 import type { Step } from "./history/types.ts";
 import HistoryTimeline from "./history/HistoryTimeline.vue";
-import schoolIcon from "@/icons/School.svg?raw";
-import workIcon from "@/icons/Work.svg?raw";
-import Scroller from "@/components/client/Scroller.vue";
+import schoolIcon from "@/assets/icons/School.svg?raw";
+import workIcon from "@/assets/icons/Work.svg?raw";
+import Scroller from "@/components/ui/client/Scroller.vue";
 
 const steps: Step[] = [
   // Marianopolis College

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ChevronDown from "@/icons/ChevronDown.svg?component";
+import ChevronDown from "@/assets/icons/ChevronDown.svg?component";
 import scrollToElement from "@/utils/scroll.ts";
 
 interface Props {

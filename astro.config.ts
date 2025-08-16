@@ -15,4 +15,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), svgLoader(), vueJsx()],
   },
+  output: "server",
 });

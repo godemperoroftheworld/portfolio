@@ -3532,6 +3532,7 @@ __metadata:
     animate.css: ^4.1.1
     aos: ^2.3.4
     astro: ^5.12.7
+    astro-sveltia-cms: ^0.1.0
     commitizen: ^4.3.0
     commitlint: ^19.8.1
     cz-conventional-changelog: ^3.3.0
@@ -3559,6 +3560,15 @@ __metadata:
     vue3-toastify: ^0.2.8
   languageName: unknown
   linkType: soft
+
+"astro-sveltia-cms@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "astro-sveltia-cms@npm:0.1.0"
+  peerDependencies:
+    astro: ^2.0.0 || ^3.0.0
+  checksum: 0ea6ac2d84c3a7d88b09815e4a057299f36732eac3802cd3bd89f0205ea5c7225daba45d0a25a7b8b1ebdae47892009ccc0d35ee1bdadff3cb816b2d3e4626d0
+  languageName: node
+  linkType: hard
 
 "astro@npm:^5.12.7":
   version: 5.12.7
