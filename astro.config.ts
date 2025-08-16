@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vue from "@astrojs/vue";
 import svgLoader from "vite-svg-loader";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +13,11 @@ export default defineConfig({
     sitemap(),
     vue({ devtools: true, appEntrypoint: "/src/pages/_app" }),
   ],
+
   vite: {
     plugins: [tailwindcss(), svgLoader(), vueJsx()],
   },
+
+  output: "server",
+  adapter: vercel(),
 });
