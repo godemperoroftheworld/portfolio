@@ -1,0 +1,17 @@
+picture: /src/assets/avatar.jpg
+facts:
+  - label: Character Name
+    value: Tenzin Pelletier
+  - label: Pronouns
+    value: they/them
+  - label: Classes & Levels
+    value: Software Artificer (Frontend) 3
+  - label: Species
+    value: Human (Variant)
+  - label: Background
+    value: Computer Science / Film
+  - label: Alignment
+    value: Chaotic Good
+traits:
+  - label: Personality Traits
+    value: I'm passionate about interactive storytelling. It's a big part of who I am.
