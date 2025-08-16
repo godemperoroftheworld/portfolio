@@ -58,12 +58,12 @@ Inside of AstroPaper, you'll see the following folders and files:
 │   ├── content/
 │   │   |  blog/
 │   │   |    └── some-blog-posts.md
-│   │   └── config.ts
+│   │   └── content.config.ts
 │   ├── layouts/
 │   └── pages/
 │   └── styles/
 │   └── utils/
-│   └── config.ts
+│   └── content.config.ts
 │   └── types.ts
 └── package.json
 ```

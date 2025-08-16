@@ -8,7 +8,9 @@ const { label, ...rest } = Astro.props;
 ---
 
 <Card padding={2} {...rest}>
-  <div class="line-paper m-2 mx-3 italic leading-[1.2] max-xl:text-sm">
+  <div
+    class="line-paper m-2 mx-3 flex flex-col gap-[1.15rem] italic leading-[1.2] max-xl:text-sm"
+  >
     <slot />
   </div>
   <h1

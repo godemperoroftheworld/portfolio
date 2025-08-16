@@ -1,0 +1,63 @@
+{
+  "picture": "/src/assets/avatar.jpg",
+  "facts": [
+    {
+      "label": "Character Name",
+      "value": "Tenzin Pelletier",
+      "id": "name"
+    },
+    {
+      "label": "Pronouns",
+      "value": "they/them",
+      "id": "pronouns"
+    },
+    {
+      "label": "Classes & Levels",
+      "value": "Software Artificer (Frontend) 3",
+      "id": "class"
+    },
+    {
+      "label": "Species",
+      "value": "Human (Variant)",
+      "id": "species"
+    },
+    {
+      "label": "Background",
+      "value": "Computer Science / Film",
+      "id": "background"
+    },
+    {
+      "label": "Alignment",
+      "value": "Chaotic Good",
+      "id": "alignment"
+    }
+  ],
+  "traits": [
+    {
+      "label": "Personality Traits",
+      "value": [
+        "I'm passionate about interactive storytelling. It's a big part of who I am.",
+        "I'm a lifelong learner at heart. I can never know enough."
+      ]
+    },
+    {
+      "label": "Ideals",
+      "value": [
+        "People's actual needs should be what drives technological innovation."
+      ]
+    },
+    {
+      "label": "Bonds",
+      "value": [
+        "I want to my work to mean something, and to make someone's day a little better."
+      ]
+    },
+    {
+      "label": "Flaws",
+      "value": [
+        "My hyper-focus on my major tasks can lead to lapses in my ancillary responsibilities."
+      ]
+    }
+  ],
+  "scroller": "charactersheet"
+}

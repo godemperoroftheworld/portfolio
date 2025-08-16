@@ -7,10 +7,30 @@ backend:
   auth_endpoint: oauth
 media_folder: "src/assets"
 public_folder: "src/assets"
+output:
+  encode_file_path: true
+collections:
+  - name: scroller
+    label: Scroller
+    folder: src/content/scroller
+    create: true
+    identifier_field: target
+    fields:
+      - label: Target
+        name: target
+        widget: select
+        options:
+          - characterSheet
+          - characterHistory
+          - characterInventory
+          - sendARaven
+      - label: Title
+        name: title
+        widget: string
 singletons:
   - name: "profile"
     label: "Profile"
-    file: src/content/profile.yml
+    file: src/content/profile/profile.json
     fields:
       - label: Picture
         name: picture
@@ -30,7 +50,9 @@ singletons:
             name: value
             widget: list
             field:
-              label: ""
-              name: content
               widget: string
+      - label: Scroller
+        name: scroller
+        widget: relation
+        collection: scroller
 
