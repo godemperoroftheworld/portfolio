@@ -1,8 +1,11 @@
 ---
+import { Image } from "astro:assets";
+
 import Card from "@/components/ui/Card.astro";
 import LabeledValue from "@/components/ui/LabeledValue.astro";
 import HandWritingBlock from "@/components/ui/HandWritingBlock.astro";
 import Scroller from "@/components/ui/client/Scroller.vue";
+import Avatar from "@/assets/avatar.jpg";
 ---
 
 <section
@@ -33,7 +36,7 @@ import Scroller from "@/components/ui/client/Scroller.vue";
       </LabeledValue>
     </div>
     <Card class="aspect-square max-w-lg" animation="zoom-in">
-      <img src="/avatar.jpg" alt="Avatar" />
+      <Image src={Avatar} alt="Avatar" />
     </Card>
     <div class="flex w-80 min-w-64 flex-col justify-center gap-4 max-lg:hidden">
       <HandWritingBlock label="Personality Traits" data-aos-delay="150">
