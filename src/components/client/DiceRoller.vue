@@ -37,7 +37,7 @@ async function onClick() {
   <button
     v-bind="$attrs"
     @click="onClick"
-    class="hover:bg-silver-700/75 active:bg-silver-900/75 cursor-pointer select-none"
+    class="hover:bg-silver-500/50 dark:hover:bg-silver-700/75 active:bg-silver-900/75 cursor-pointer select-none"
   >
     <slot />
   </button>
