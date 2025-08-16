@@ -26,4 +26,8 @@ singletons:
         widget: list
         fields:
           - { label: Label, name: label, widget: string }
-          - { label: Value, name: value, widget: string }
+          - label: Value
+            name: value
+            widget: list
+            fields:
+              - { label: "", name: content, widget: string }
