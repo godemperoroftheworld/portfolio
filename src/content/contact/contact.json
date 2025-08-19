@@ -1,0 +1,6 @@
+{
+  "title": "Send a Raven",
+  "lineOneText": "So, you're interested in my character?",
+  "lineTwoText": "Let's get in touch.",
+  "links": ["e-mail", "linkedin", "github", "letterboxd", "flickr"]
+}

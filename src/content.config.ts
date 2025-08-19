@@ -16,7 +16,7 @@ const links = defineCollection({
   schema: z.object({
     icon: z.string(),
     label: z.string(),
-    url: z.string().optional(),
+    href: z.string().optional(),
     large: z.boolean().optional(),
   }),
 });
@@ -146,6 +146,17 @@ const inventory = defineCollection({
   }),
 });
 
+/* CONTACT */
+const contact = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    lineOneText: z.string(),
+    lineTwoText: z.string(),
+    links: z.array(reference("links")),
+  }),
+});
+
 export const collections = {
   scroller,
   stats,
@@ -154,4 +165,5 @@ export const collections = {
   sheet,
   history,
   inventory,
+  contact,
 };

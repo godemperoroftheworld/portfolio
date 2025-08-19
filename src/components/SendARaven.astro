@@ -2,11 +2,11 @@
 import LinkIcon from "@/components/ui/client/LinkIcon.vue";
 import Typed from "@/components/ui/client/Typed.vue";
 
-import Mail from "@/assets/icons/Mail.svg?raw";
-import LetterboxdTwo from "@/assets/icons/LetterboxdTwo.svg?raw";
-import Flickr from "@/assets/icons/Flickr.svg?raw";
-import GitHub from "@/assets/icons/GitHub.svg?raw";
-import LinkedIn from "@/assets/icons/LinkedIn.svg?raw";
+import { getEntries, getEntry } from "astro:content";
+
+const contact = await getEntry("contact", "contact")!;
+const icons = await getEntries(contact.data.links)!;
+console.log(JSON.stringify(icons[0]));
 ---
 
 <section
@@ -18,18 +18,18 @@ import LinkedIn from "@/assets/icons/LinkedIn.svg?raw";
       data-aos="fade-up"
       class="flicker-in-2 text-primary-500 mb-4 text-center text-2xl font-bold"
     >
-      Send a Raven
+      {contact.data.title}
     </h1>
     <Typed
       client:visible
       delay={1000}
       class="mb-12 text-lg"
-      text="So, you're interested in my character?"
+      text={contact.data.lineOneText}
     />
     <Typed
       client:visible
       delay={5000}
-      text="Let's get in touch."
+      text={contact.data.lineTwoText}
       class="text-success-500 mb-4 text-xl font-bold"
     />
     <div
@@ -38,41 +38,18 @@ import LinkedIn from "@/assets/icons/LinkedIn.svg?raw";
       data-aos-duration="500"
       class="mx-auto mb-4 flex w-fit flex-wrap justify-center gap-6 gap-y-4"
     >
-      <LinkIcon
-        large
-        client:visible
-        label="E-Mail"
-        icon={Mail}
-        href="mailto:pelletier@tenzin.live"
-      />
-      <LinkIcon
-        large
-        client:visible
-        label="GitHub"
-        icon={GitHub}
-        href="https://github.com/godemperoroftheworld/"
-      />
-      <LinkIcon
-        large
-        client:visible
-        label="LinkedIn"
-        icon={LinkedIn}
-        href="https://www.linkedin.com/in/t2pellet/"
-      />
-      <LinkIcon
-        large
-        client:visible
-        label="Flickr"
-        icon={Flickr}
-        href="https://www.flickr.com/photos/t2pellet/"
-      />
-      <LinkIcon
-        large
-        client:visible
-        label="Letterboxd"
-        icon={LetterboxdTwo}
-        href="https://letterboxd.com/godemperofearth/"
-      />
+      {
+        icons.map(i => (
+          <LinkIcon
+            large
+            client:visible
+            label="E-Mail"
+            icon={i.data.icon}
+            label={i.data.label}
+            href={i.data.href}
+          />
+        ))
+      }
     </div>
   </div>
 </section>

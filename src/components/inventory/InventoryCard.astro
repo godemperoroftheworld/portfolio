@@ -12,7 +12,7 @@ interface Props {
 }
 const { title, icon, description, links, url } = Astro.props;
 
-const IconComponent = await import(`${icon}?component`);
+const IconComponent = await import(/* @vue-ignore */ `${icon}?component`);
 const icons = await getEntries(links);
 
 const classes = [
