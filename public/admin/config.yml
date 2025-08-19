@@ -9,15 +9,22 @@ media_folder: "src/assets"
 public_folder: "src/assets"
 output:
   encode_file_path: true
+i18n:
+  default_locale: en
+  locales:
+    - en
+    - fr
+  structure: multiple_folders
 collections:
   - name: stats
     label: Stats
     folder: src/content/stats
     create: true
+    i18n: true
     identifier_field: id
     fields:
       - { label: ID, name: id, widget: string }
-      - { label: Label, name: label, widget: string }
+      - { label: Label, name: label, widget: string, i18n: true }
       - { label: Value, name: value, widget: number }
   - name: links
     label: Links
@@ -33,6 +40,7 @@ collections:
     label: Scroller
     folder: src/content/scroller
     create: true
+    i18n: true
     identifier_field: target
     fields:
       - label: Target
@@ -46,6 +54,7 @@ collections:
       - label: Title
         name: title
         widget: string
+        i18n: true
 singletons:
   - name: "profile"
     label: "Profile"
