@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "title": "Stats"
+  },
+  "skills": {
+    "title": "Skills",
+    "entries": [
+      {
+        "name": "Unit Testing",
+        "stat": "focus",
+        "value": 5
+      },
+      {
+        "name": "Kanban",
+        "stat": "agility",
+        "value": 5
+      },
+      {
+        "name": "CI/CD Pipelines",
+        "stat": "stamina",
+        "value": 3
+      },
+      {
+        "name": "Systems Design",
+        "stat": "logic",
+        "value": 4
+      },
+      {
+        "name": "Accessibility",
+        "stat": "lore",
+        "value": 4
+      },
+      {
+        "name": "Storytelling",
+        "stat": "muse",
+        "value": 3
+      },
+      {
+        "name": "Code Refactoring",
+        "stat": "focus",
+        "value": 5
+      },
+      {
+        "name": "Responsive Design",
+        "stat": "agility",
+        "value": 5
+      },
+      {
+        "name": "Test Automation",
+        "stat": "stamina",
+        "value": 3
+      },
+      {
+        "name": "Data Structures",
+        "stat": "logic",
+        "value": 4
+      },
+      {
+        "name": "Domain Modeling",
+        "stat": "lore",
+        "value": 4
+      },
+      {
+        "name": "Creative Coding",
+        "stat": "muse",
+        "value": 3
+      }
+    ]
+  },
+  "features": {
+    "title": "Features & Traits",
+    "entries": [
+      {
+        "name": "Rapid Execution",
+        "stat": "agility",
+        "description": "You solve problems and complete tasks at relentless pace. When under time pressure, gain advantage on one productivity-based check per challenge."
+      },
+      {
+        "name": "Self Study",
+        "stat": "logic",
+        "description": "You gain new proficiencies twice as fast. When attempting a new skill, roll with advantage if you've researched it for one long rest."
+      },
+      {
+        "name": "Task Ownership",
+        "stat": "focus",
+        "description": "You thrive on new, complex tasks you can take under your belt. Once per sprint, you gain advantage on all rolls related to your task until it is finished."
+      },
+      {
+        "name": "Codebase Fluecy",
+        "stat": "lore",
+        "description": "You're immediately comfortable with new codebases, frameworks, and tools. Once per week, you may identify the intent and structure of a core module or system at a glance."
+      }
+    ]
+  },
+  "proficiencies": {
+    "title": "Languages & Proficiencies",
+    "value": [
+      "typescript",
+      "html",
+      "css",
+      "tailwind",
+      "nodejs",
+      "java",
+      "csharp",
+      "kotlin",
+      "python",
+      "vue",
+      "react",
+      "astro",
+      "nextjs",
+      "nuxt",
+      "express",
+      "fastify",
+      "spring",
+      "flask"
+    ],
+    "valueTwo": [
+      "prisma",
+      "mongodb",
+      "postgresql",
+      "tanstack",
+      "strapi",
+      "mapbox",
+      "githubactions",
+      "git",
+      "docker",
+      "vite",
+      "vitest",
+      "jest",
+      "appium",
+      "appium-1"
+    ]
+  },
+  "scroller": "characterhistory"
+}

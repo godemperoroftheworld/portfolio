@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import DOMPurify from "isomorphic-dompurify";
+import { computedAsync } from "@vueuse/core";
 
 export interface LinkIconProps {
   icon: string;
@@ -10,8 +10,9 @@ export interface LinkIconProps {
 }
 const { icon, label, href, large } = defineProps<LinkIconProps>();
 
-const sanitizedIcon = computed(() => {
-  return DOMPurify.sanitize(icon);
+const iconParsed = computedAsync(async () => {
+  const imported = await import(/* @vite-ignore */ `${icon}?raw`);
+  return DOMPurify.sanitize(imported.default);
 });
 
 function onClick() {
@@ -29,7 +30,7 @@ function onClick() {
     @click="onClick"
   >
     <div
-      v-html="sanitizedIcon"
+      v-html="iconParsed"
       :class="{ 'size-10': !large, 'size-16': large }"
       class="group-[.card]/card:fill-silver-700 group-[.card]/card:text-silver-700 group-[.card]/card:dark:fill-silver-100 group-[.card]/card:dark:text-silver-100 size-10 fill-black text-black dark:fill-white dark:text-white"
     />

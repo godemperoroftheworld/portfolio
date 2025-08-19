@@ -2,87 +2,16 @@
 import Carousel from "@/components/ui/client/Carousel.vue";
 import LinkIcon from "@/components/ui/client/LinkIcon.vue";
 
-import ReactIcon from "@/assets/icons/ReactIcon.svg?raw";
-import Vue from "@/assets/icons/Vue.svg?raw";
-import TypeScript from "@/assets/icons/TypeScript.svg?raw";
-import Tanstack from "@/assets/icons/Tanstack.svg?raw";
-import Astro from "@/assets/icons/Astro.svg?raw";
-import NodeJS from "@/assets/icons/Nodejs.svg?raw";
-import NextJS from "@/assets/icons/Nextjs.svg?raw";
-import Nuxt from "@/assets/icons/Nuxt.svg?raw";
-import Express from "@/assets/icons/Express.svg?raw";
-import Fastify from "@/assets/icons/Fastify.svg?raw";
-import Prisma from "@/assets/icons/Prisma.svg?raw";
-import Java from "@/assets/icons/Java.svg?raw";
-import Spring from "@/assets/icons/Spring.svg?raw";
-import Tailwind from "@/assets/icons/Tailwind.svg?raw";
-import Strapi from "@/assets/icons/Strapi.svg?raw";
-import Docker from "@/assets/icons/Docker.svg?raw";
-import CSharp from "@/assets/icons/CSharp.svg?raw";
-import Mongo from "@/assets/icons/Mongo.svg?raw";
-import PostgreSQL from "@/assets/icons/Postgresql.svg?raw";
-import Kotlin from "@/assets/icons/Kotlin.svg?raw";
-import HTML from "@/assets/icons/HTML.svg?raw";
-import CSS from "@/assets/icons/CSS.svg?raw";
-import Vite from "@/assets/icons/Vite.svg?raw";
-import Vitest from "@/assets/icons/Vitest.svg?raw";
-import Jest from "@/assets/icons/Jest.svg?raw";
-import Git from "@/assets/icons/Git.svg?raw";
-import GithubActions from "@/assets/icons/GithubActions.svg?raw";
-import CircleCI from "@/assets/icons/CircleCI.svg?raw";
-import Cypress from "@/assets/icons/Cypress.svg?raw";
-import Appium from "@/assets/icons/Appium.svg?raw";
-import Python from "@/assets/icons/Python.svg?raw";
-import Flask from "@/assets/icons/Flask.svg?raw";
-import Mapbox from "@/assets/icons/Mapbox.svg?raw";
-
-import { computed } from "vue";
-
 interface Icon {
-  icon: string;
   label: string;
+  src: string;
+}
+interface Props {
+  icons: Icon[];
+  iconsTwo: Icon[];
 }
 
-const icons = computed<Icon[]>(
-  () =>
-    [
-      { icon: TypeScript, label: "TypeScript" },
-      { icon: HTML, label: "HTML" },
-      { icon: CSS, label: "CSS" },
-      { icon: Tailwind, label: "TailwindCSS" },
-      { icon: NodeJS, label: "NodeJS" },
-      { icon: Java, label: "Java" },
-      { icon: CSharp, label: "CSharp" },
-      { icon: Kotlin, label: "Kotlin" },
-      { icon: Python, label: "Python" },
-      { icon: Vue, label: "Vue" },
-      { icon: ReactIcon, label: "React" },
-      { icon: Astro, label: "Astro" },
-      { icon: NextJS, label: "NextJS" },
-      { icon: Nuxt, label: "Nuxt" },
-      { icon: Express, label: "Express" },
-      { icon: Fastify, label: "Fastify" },
-      { icon: Spring, label: "Spring" },
-      { icon: Flask, label: "Flask" },
-    ] as Icon[]
-);
-const iconsTwo = computed<Icon[]>(() => [
-  { icon: Prisma, label: "Prisma" },
-  { icon: Mongo, label: "Mongo" },
-  { icon: PostgreSQL, label: "PostgreSQL" },
-  { icon: Tanstack, label: "Tanstack" },
-  { icon: Strapi, label: "Strapi" },
-  { icon: Mapbox, label: "Mapbox" },
-  { icon: GithubActions, label: "Actions" },
-  { icon: CircleCI, label: "CircleCI" },
-  { icon: Git, label: "Git" },
-  { icon: Docker, label: "Docker" },
-  { icon: Vite, label: "Vite" },
-  { icon: Vitest, label: "Vitest" },
-  { icon: Jest, label: "Jest" },
-  { icon: Cypress, label: "Cypress" },
-  { icon: Appium, label: "Appium" },
-]);
+const { icons, iconsTwo } = defineProps<Props>();
 </script>
 
 <template>
@@ -92,8 +21,8 @@ const iconsTwo = computed<Icon[]>(() => [
       :scroll="{ playOnInit: true, speed: 0.75 }"
       class="mx-auto mb-3"
     >
-      <template v-for="({ icon, label }, idx) in icons" :key="idx">
-        <LinkIcon :icon="icon" :label="label" />
+      <template v-for="({ src, label }, idx) in icons" :key="idx">
+        <LinkIcon :icon="src" :label="label" />
       </template>
     </Carousel>
     <Carousel
@@ -104,8 +33,8 @@ const iconsTwo = computed<Icon[]>(() => [
       :scroll="{ playOnInit: true, speed: -0.75 }"
       class="mx-auto"
     >
-      <template v-for="({ icon, label }, idx) in iconsTwo" :key="`${idx}-two`">
-        <LinkIcon :icon="icon" :label="label" />
+      <template v-for="({ src, label }, idx) in iconsTwo" :key="`${idx}-two`">
+        <LinkIcon :icon="src" :label="label" />
       </template>
     </Carousel>
   </div>

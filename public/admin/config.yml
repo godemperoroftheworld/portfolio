@@ -10,6 +10,25 @@ public_folder: "src/assets"
 output:
   encode_file_path: true
 collections:
+  - name: stats
+    label: Stats
+    folder: src/content/stats
+    create: true
+    identifier_field: id
+    fields:
+      - { label: ID, name: id, widget: string }
+      - { label: Label, name: label, widget: string }
+      - { label: Value, name: value, widget: number }
+  - name: links
+    label: Links
+    folder: src/content/links
+    create: true
+    identifier_field: label
+    fields:
+      - { label: Icon, name: icon, widget: image }
+      - { label: Label, name: label, widget: string }
+      - { label: URL, name: href, widget: string, required: false }
+      - { label: "Is Large?", name: large, widget: boolean, required: false }
   - name: scroller
     label: Scroller
     folder: src/content/scroller
@@ -55,4 +74,56 @@ singletons:
         name: scroller
         widget: relation
         collection: scroller
-
+  - name: sheet
+    label: Sheet
+    file: src/content/sheet/sheet.json
+    fields:
+      - label: Stats
+        name: stats
+        widget: object
+        fields:
+          - { label: Title, name: title, widget: string }
+      - label: Skills
+        name: skills
+        widget: object
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Entries
+            name: entries
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Stat, name: stat, widget: relation, collection: stats }
+      - label: Features
+        name: features
+        widget: object
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Entries
+            name: entries
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Stat, name: stat, widget: relation, collection: stats }
+              - { label: Description, name: description, widget: string }
+      - label: Proficiencies
+        name: proficiencies
+        widget: object
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Value
+            name: value
+            widget: list
+            field:
+             widget: relation
+             collection: links
+          - label: "Value (Two)"
+            name: valueTwo
+            widget: list
+            field:
+              widget: relation
+              collection: links
+      - label: Scroller
+        name: scroller
+        widget: relation
+        collection: scroller

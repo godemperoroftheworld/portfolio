@@ -1,4 +1,5 @@
 ---
+import { getEntry } from "astro:content";
 interface Props {
   name: string;
   stat: string;
@@ -6,15 +7,16 @@ interface Props {
 }
 
 const { name, stat, description } = Astro.props;
+const entry = await getEntry("stats", stat);
 ---
 
 <div>
   <div>
     <div class="font-heading text-primary-500 shrink-0 text-sm">
       <strong>{name}</strong>
-      <span class="font-body text-silver-500 dark:text-silver-300 italic"
-        >({stat})</span
-      >
+      <span class="font-body text-silver-500 dark:text-silver-300 italic">
+        ({entry?.data.label})
+      </span>
     </div>
   </div>
   <span>{description}</span>

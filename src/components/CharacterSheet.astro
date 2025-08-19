@@ -6,6 +6,15 @@ import Skill from "@/components/ui/Skill.astro";
 import SkillsCarousel from "@/components/sheet/ProficiencyCarousel.vue";
 import Scroller from "@/components/ui/client/Scroller.vue";
 import DiceBox from "@/components/ui/DiceBox.astro";
+import { getEntry, getCollection, getEntries } from "astro:content";
+
+const sheet = await getEntry("sheet", "sheet")!;
+const stats = await getCollection("stats")!;
+const icons = await getEntries(sheet.data.proficiencies.value);
+const iconsTwo = await getEntries(sheet.data.proficiencies.valueTwo);
+const scroller = await getEntry("scroller", sheet.data.scroller)!;
+
+console.log(JSON.stringify(icons[0].data));
 ---
 
 <section
@@ -18,44 +27,34 @@ import DiceBox from "@/components/ui/DiceBox.astro";
         <h1
           class="text-primary-500 mb-4 select-none text-center text-xl font-bold uppercase"
         >
-          Stats
+          {sheet.data.stats.title}
         </h1>
         <div
           class="flex h-full flex-wrap justify-center gap-3 md:flex-col md:justify-around"
         >
-          <!-- STR -->
-          <Stat label="Focus" value={16} id="Focus" />
-          <!-- DEX -->
-          <Stat label="Agility" value={17} id="agility" />
-          <!-- CON -->
-          <Stat label="Stamina" value={12} id="stamina" />
-          <!-- INT -->
-          <Stat label="Logic" value={15} id="logic" />
-          <!-- WIS -->
-          <Stat label="Lore" value={14} id="lore" />
-          <!-- CHA -->
-          <Stat label="Muse" value={13} id="Muse" />
+          {
+            stats.map(stat => (
+              <Stat
+                label={stat.data.label}
+                value={stat.data.value}
+                id={stat.data.id}
+              />
+            ))
+          }
         </div>
       </Card>
       <Card class="shrink-0 grow" padding={4}>
         <h1
           class="text-primary-500 mb-4 select-none text-center text-xl font-bold uppercase"
         >
-          Skills
+          {sheet.data.skills.title}
         </h1>
         <div class="flex h-full w-fit flex-col justify-around gap-4">
-          <Skill name="Unit Testing" stat="Focus" value={5} />
-          <Skill name="Kanban" stat="Agility" value={5} />
-          <Skill name="CI/CD Pipelines" stat="Stamina" value={3} />
-          <Skill name="Systems Design" stat="Logic" value={4} />
-          <Skill name="Accessibility" stat="Lore" value={4} />
-          <Skill name="Storytelling" stat="Muse" value={3} />
-          <Skill name="Code Refactoring" stat="Focus" value={5} />
-          <Skill name="Responsive Design" stat="Agility" value={5} />
-          <Skill name="Test Automation" stat="Stamina" value={3} />
-          <Skill name="Data Structures" stat="Logic" value={4} />
-          <Skill name="Domain Modeling" stat="Lore" value={4} />
-          <Skill name="Creative Coding" stat="Muse" value={3} />
+          {
+            sheet.data.skills.entries.map(skill => (
+              <Skill name={skill.name} stat={skill.stat.id} />
+            ))
+          }
         </div>
       </Card>
       <div class="flex flex-col gap-6 overflow-hidden">
@@ -63,31 +62,20 @@ import DiceBox from "@/components/ui/DiceBox.astro";
           <h1
             class="text-primary-500 mb-4 select-none text-center text-xl font-bold uppercase"
           >
-            Features & Traits
+            {sheet.data.features.title}
           </h1>
           <div
             class="flex grow flex-col justify-around gap-2 overflow-y-scroll md:max-h-96"
           >
-            <Feature
-              name="Rapid Execution"
-              stat="Agility"
-              description="You solve problems and complete tasks at relentless pace. When under time pressure, gain advantage on one productivity-based check per challenge."
-            />
-            <Feature
-              name="Self Study"
-              stat="Logic"
-              description="You gain new proficiencies twice as fast. When attempting a new skill, roll with advantage if you've researched it for one long rest."
-            />
-            <Feature
-              name="Task Ownership"
-              stat="Focus"
-              description="You thrive on new, complex tasks you can take under your belt. Once per sprint, you gain advantage on all rolls related to your task until it is finished."
-            />
-            <Feature
-              name="Codebase Fluency"
-              stat="Lore"
-              description="You're immediately comfortable with new codebases, frameworks, and tools. Once per week, you may identify the intent and structure of a core module or system at a glance."
-            />
+            {
+              sheet.data.features.entries.map(feature => (
+                <Feature
+                  name={feature.name}
+                  stat={feature.stat.id}
+                  description={feature.description}
+                />
+              ))
+            }
           </div>
         </Card>
         <Card
@@ -95,7 +83,17 @@ import DiceBox from "@/components/ui/DiceBox.astro";
           data-aos-offset="-25"
           padding={4}
         >
-          <SkillsCarousel client:load />
+          <SkillsCarousel
+            icons={icons.map(i => ({
+              src: i.data.icon,
+              label: i.data.label,
+            }))}
+            iconsTwo={iconsTwo.map(i => ({
+              src: i.data.icon,
+              label: i.data.label,
+            }))}
+            client:load
+          />
         </Card>
       </div>
     </div>
@@ -103,10 +101,11 @@ import DiceBox from "@/components/ui/DiceBox.astro";
       class="mt-6 max-md:hidden"
       data-aos="zoom-in"
       data-aos-offset="-25"
-      elementId="characterHistory"
+      data-aos-delay={300}
+      elementId={scroller.data.target}
       client:load
     >
-      Read my Backstory:
+      {scroller.data.title}
     </Scroller>
   </div>
   <DiceBox />

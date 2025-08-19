@@ -1,13 +1,16 @@
 ---
 import DiceRoller from "@/components/ui/client/DiceRoller.vue";
+import { getEntry } from "astro:content";
 
 interface Props {
   name: string;
-  value: number;
   stat: string;
 }
 
-const { name, value, stat } = Astro.props;
+const { name, stat } = Astro.props;
+const statData = await getEntry("stats", stat);
+
+const value = Math.floor(((statData?.data.value ?? 10) - 10) / 2) + 2;
 ---
 
 <div class="flex gap-2">
