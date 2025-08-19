@@ -1,16 +1,19 @@
 ---
-import type { LinkIconProps } from "@/components/ui/client/LinkIcon.vue";
 import Card from "@/components/ui/Card.astro";
 import InventoryCarousel from "./InventoryCardLinks.vue";
+import { getEntries, type ReferenceDataEntry } from "astro:content";
 
 interface Props {
   title: string;
   icon: string;
   description: string;
-  links: LinkIconProps[];
+  links: ReferenceDataEntry<"links", string>[];
   url?: string;
 }
 const { title, icon, description, links, url } = Astro.props;
+
+const IconComponent = await import(`${icon}?component`);
+const icons = await getEntries(links);
 
 const classes = [
   "snap-center transition-transform duration-200 hover:scale-105",
@@ -18,8 +21,6 @@ const classes = [
 if (url) {
   classes.push("cursor-pointer");
 }
-
-const IconComponent = await import(`${icon}?component`);
 ---
 
 <div class:list={classes}>
@@ -35,7 +36,14 @@ const IconComponent = await import(`${icon}?component`);
       <div class="max-h-30 grow overflow-y-scroll text-center">
         {description}
       </div>
-      <InventoryCarousel class="max-w-full" client:load links={links} />
+      <InventoryCarousel
+        class="max-w-full"
+        client:load
+        links={icons.map(i => ({
+          label: i.data.label,
+          icon: i.data.icon,
+        }))}
+      />
     </a>
   </Card>
 </div>

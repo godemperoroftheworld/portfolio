@@ -7,38 +7,14 @@
       "description": "Letterblend is a web app allowing you to blend your watchlist with your friends. Can filter by category, ask it to pick for you, and share the link to your friends.",
       "url": "https://letterblend.vercel.app",
       "links": [
-        {
-          "label": "TypeScript",
-          "icon": "/src/assets/icons/TypeScript.svg"
-        },
-        {
-          "label": "Tailwind",
-          "icon": "/src/assets/icons/Tailwind.svg"
-        },
-        {
-          "label": "Vue",
-          "icon": "/src/assets/icons/Vue.svg"
-        },
-        {
-          "label": "Nuxt",
-          "icon": "/src/assets/icons/Nuxt.svg"
-        },
-        {
-          "label": "Express",
-          "icon": "/src/assets/icons/Express.svg"
-        },
-        {
-          "label": "Python",
-          "icon": "/src/assets/icons/Python.svg"
-        },
-        {
-          "label": "Flask",
-          "icon": "/src/assets/icons/Flask.svg"
-        },
-        {
-          "label": "Mongo",
-          "icon": "/src/assets/icons/Mongo.svg"
-        }
+        "typescript",
+        "tailwind",
+        "vue",
+        "nuxt",
+        "express",
+        "python",
+        "flask",
+        "mongodb"
       ]
     },
     {
@@ -47,66 +23,21 @@
       "description": "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people.",
       "url": "https://divestrael.vercel.app",
       "links": [
-        {
-          "label": "TypeScript",
-          "icon": "/src/assets/icons/TypeScript.svg"
-        },
-        {
-          "label": "Tailwind",
-          "icon": "/src/assets/icons/Tailwind.svg"
-        },
-        {
-          "label": "React",
-          "icon": "/src/assets/icons/ReactIcon.svg"
-        },
-        {
-          "label": "NextJS",
-          "icon": "/src/assets/icons/Nextjs.svg"
-        },
-        {
-          "label": "Fastify",
-          "icon": "/src/assets/icons/Fastify.svg"
-        },
-        {
-          "label": "Prisma",
-          "icon": "/src/assets/icons/Prisma.svg"
-        },
-        {
-          "label": "Mongo",
-          "icon": "/src/assets/icons/Mongo.svg"
-        }
+        "typescript",
+        "tailwind",
+        "react",
+        "nextjs",
+        "fastify",
+        "prisma",
+        "mongodb"
       ]
     },
     {
       "title": "Portfolio",
       "icon": "/src/assets/icons/User.svg",
       "description": "My portfolio website. You're on it right now!",
-      "links": [
-        {
-          "label": "TypeScript",
-          "icon": "/src/assets/icons/TypeScript.svg"
-        },
-        {
-          "label": "Tailwind",
-          "icon": "/src/assets/icons/Tailwind.svg"
-        },
-        {
-          "label": "Vue",
-          "icon": "/src/assets/icons/Vue.svg"
-        },
-        {
-          "label": "Astro",
-          "icon": "/src/assets/icons/Astro.svg"
-        },
-        {
-          "label": "Mapbox",
-          "icon": "/src/assets/icons/Mapbox.svg"
-        },
-        {
-          "label": "Sveltia",
-          "icon": "/src/assets/icons/Decap.svg"
-        }
-      ]
+      "url": "",
+      "links": ["typescript", "tailwind", "vue", "astro", "mapbox", "sveltia"]
     }
   ],
   "scroller": "sendaraven"

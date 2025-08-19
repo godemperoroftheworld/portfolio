@@ -135,12 +135,7 @@ const projectSchema = z.object({
   icon: z.string(),
   description: z.string(),
   url: z.string().optional(),
-  links: z.array(
-    z.object({
-      label: z.string(),
-      icon: z.string(),
-    })
-  ),
+  links: z.array(reference("links")),
 });
 const inventory = defineCollection({
   type: "data",

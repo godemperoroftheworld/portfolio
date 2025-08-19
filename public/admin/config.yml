@@ -162,7 +162,20 @@ singletons:
           - label: Links
             name: links
             widget: list
-            fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Icon, name: icon, widget: image }
+            field:
+              widget: relation
+              collection: links
       - { label: Scroller, name: scroller, widget: relation, collection: scroller }
+  - name: contact
+    label: Contact
+    file: src/content/contact/contact.json
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: "Line One Text", name: lineOneText, widget: string }
+      - { label: "Line Two Text", name: lineTwoText, widget: string }
+      - label: Links
+        name: links
+        widget: list
+        field:
+          widget: relation
+          collection: links
