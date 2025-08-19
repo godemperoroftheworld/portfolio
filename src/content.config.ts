@@ -97,10 +97,43 @@ const sheet = defineCollection({
   }),
 });
 
+/* HISTORY */
+const stepSchema = z.object({
+  label: z.string(),
+  description: z.string(),
+  coordinate: z
+    .string()
+    .transform(s => JSON.parse(s))
+    .pipe(
+      z.object({
+        type: z.literal("Point"),
+        coordinates: z.tuple([z.number(), z.number()]), // [lng, lat]
+      })
+    ),
+  icon: z.string(),
+  startDate: z
+    .string()
+    .transform(s => new Date(s))
+    .pipe(z.date()),
+  endDate: z
+    .string()
+    .transform(s => (s ? new Date(s) : undefined))
+    .pipe(z.date().optional()),
+});
+const history = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    events: z.array(stepSchema),
+    scroller: z.string(),
+  }),
+});
+
 export const collections = {
   scroller,
   stats,
   links,
   profile,
   sheet,
+  history,
 };

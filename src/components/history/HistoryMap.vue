@@ -26,6 +26,10 @@ function createMarkerNode(vnode: () => JSX.Element): HTMLElement {
   createApp({ render: vnode }).mount(el);
   return el;
 }
+function setStep(idx: number) {
+  historyStepStore.set(idx);
+  emitter.emit("flyTo", idx);
+}
 
 function initMap(map: mapboxgl.Map) {
   // Add markers

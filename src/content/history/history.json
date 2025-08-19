@@ -1,0 +1,78 @@
+{
+  "title": "Backstory",
+  "events": [
+    {
+      "label": "Marianopolis College",
+      "description": "My CEGEP, where I got my DEC in Pure and Applied Sciences. Stressful times, but I learnt a lot! Sadly, lots of the science knowledge has started to slip away.",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.6122102,45.4812387]}",
+      "icon": "/src/assets/icons/School.svg",
+      "startDate": "2012-09-01T00:00:00",
+      "endDate": "2019-06-30T00:00:00"
+    },
+    {
+      "label": "University of Waterloo",
+      "description": "My (first) university, where I got a BAC in Computer Science. As much as I disliked the culture, coming here was the right choice for me, if only for co-op and forcing me to move away.",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-80.5452429,43.4701994]}",
+      "icon": "/src/assets/icons/School.svg",
+      "startDate": "2019-09-01T00:00:00",
+      "endDate": "2023-12-30T00:00:00"
+    },
+    {
+      "label": "Paramount Commerce",
+      "description": "My first work placement! Not the best job, but the first internship hardly ever is! I was just grateful to have the opportunity. Learned lots about unit/e2e testing and test automation.",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-79.4039803,43.6344814]}",
+      "icon": "/src/assets/icons/Work.svg",
+      "startDate": "2021-09-01T00:00:00",
+      "endDate": "2021-04-30T00:00:00"
+    },
+    {
+      "label": "Bunch.live",
+      "description": "Game development was super fun! I loved learning Unity and C#, and I got addicted to MacBooks. The people I worked with were lovely! I would love to do a little solo game project some day...",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.2997675,45.3638876]}",
+      "icon": "/src/assets/icons/Work.svg",
+      "startDate": "2021-09-01T00:00:00",
+      "endDate": "2021-12-30T00:00:00"
+    },
+    {
+      "label": "Lifion by ADP",
+      "description": "My first time working in frontend! Had no idea this would become my thing, but I quickly grew to love it! Worked with React and Redux. Sadly I didn't get to go to the New York office because of Covid!",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.9816359,40.6571608]}",
+      "icon": "/src/assets/icons/Work.svg",
+      "startDate": "2022-05-01T00:00:00",
+      "endDate": "2022-08-30T00:00:00"
+    },
+    {
+      "label": "Chalmers Universitat",
+      "description": "I went on exchange here! I've been yearning for Europe ever since. It was one of most transformative experiences of my life– so much of who I am, I began to discover there.",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[11.9765259,57.6897462]}",
+      "icon": "/src/assets/icons/School.svg",
+      "startDate": "2022-09-01T00:00:00",
+      "endDate": "2023-01-12T00:00:00"
+    },
+    {
+      "label": "Vivid Seats",
+      "description": "My final work placement. Would've ended up here full time if I didn't have to move to Toronto! It's definitely where I found my confidence in what I do. Worked with React, Next.js, Optimizely. Great manager!",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-79.3888686,43.6490263]}",
+      "icon": "/src/assets/icons/Work.svg",
+      "startDate": "2023-01-16T00:00:00",
+      "endDate": "2023-08-30T00:00:00"
+    },
+    {
+      "label": "Hivestack",
+      "description": "Where I'm working now! The people are really great here. It's the first time I've had \"work friends\". The situation with our parent company is quite problematic to me though.",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.5741289,45.4983583]}",
+      "icon": "/src/assets/icons/Work.svg",
+      "startDate": "2024-01-08T00:00:00",
+      "endDate": ""
+    },
+    {
+      "label": "Concordia University",
+      "description": "My current university! Doing a second BAC in Film Studies. It's a nice change of pace, and film was always a passion of mine. My amazing manager lets me make up the hours I miss!",
+      "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.5785815,45.4952441]}",
+      "icon": "/src/assets/icons/School.svg",
+      "startDate": "2025-01-01T00:00:00",
+      "endDate": ""
+    }
+  ],
+  "scroller": "characterinventory"
+}

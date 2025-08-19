@@ -13,8 +13,6 @@ const stats = await getCollection("stats")!;
 const icons = await getEntries(sheet.data.proficiencies.value);
 const iconsTwo = await getEntries(sheet.data.proficiencies.valueTwo);
 const scroller = await getEntry("scroller", sheet.data.scroller)!;
-
-console.log(JSON.stringify(icons[0].data));
 ---
 
 <section
