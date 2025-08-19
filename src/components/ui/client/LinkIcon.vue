@@ -10,7 +10,9 @@ export interface LinkIconProps {
 const { icon, label, href, large } = defineProps<LinkIconProps>();
 
 function onClick() {
-  window.open(href, "_blank");
+  if (href) {
+    window.open(href, "_blank");
+  }
 }
 </script>
 
