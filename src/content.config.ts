@@ -129,6 +129,28 @@ const history = defineCollection({
   }),
 });
 
+/* CONTACT */
+const projectSchema = z.object({
+  title: z.string(),
+  icon: z.string(),
+  description: z.string(),
+  url: z.string().optional(),
+  links: z.array(
+    z.object({
+      label: z.string(),
+      icon: z.string(),
+    })
+  ),
+});
+const inventory = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    projects: z.array(projectSchema),
+    scroller: z.string(),
+  }),
+});
+
 export const collections = {
   scroller,
   stats,
@@ -136,4 +158,5 @@ export const collections = {
   profile,
   sheet,
   history,
+  inventory,
 };

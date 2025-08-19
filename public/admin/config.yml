@@ -146,3 +146,23 @@ singletons:
         name: scroller
         widget: relation
         collection: scroller
+  - name: inventory
+    label: Inventory
+    file: src/content/inventory/inventory.json
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Projects
+        name: projects
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Icon, name: icon, widget: image }
+          - { label: Description, name: description, widget: string }
+          - { label: URL, name: url, widget: string, required: false }
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Icon, name: icon, widget: image }
+      - { label: Scroller, name: scroller, widget: relation, collection: scroller }

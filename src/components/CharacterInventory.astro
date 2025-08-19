@@ -1,87 +1,10 @@
 ---
-import type { LinkIconProps } from "@/components/ui/client/LinkIcon.vue";
-
-import TypeScript from "@/assets/icons/TypeScript.svg?raw";
-import Tailwind from "@/assets/icons/Tailwind.svg?raw";
-import Vue from "@/assets/icons/Vue.svg?raw";
-import Nuxt from "@/assets/icons/Nuxt.svg?raw";
-import Express from "@/assets/icons/Express.svg?raw";
-import Flask from "@/assets/icons/Flask.svg?raw";
-import MongoDB from "@/assets/icons/Mongo.svg?raw";
-import Letterboxd from "@/assets/icons/Letterboxd.svg?raw";
-import Palestine from "@/assets/icons/Palestine.svg?raw";
-import NextJS from "@/assets/icons/Nextjs.svg?raw";
-import React from "@/assets/icons/ReactIcon.svg?raw";
-import Fastify from "@/assets/icons/Fastify.svg?raw";
-import Prisma from "@/assets/icons/Prisma.svg?raw";
-import Python from "@/assets/icons/Python.svg?raw";
-import Portfolio from "@/assets/icons/User.svg?raw";
-import AstroIcon from "@/assets/icons/Astro.svg?raw";
-import Mapbox from "@/assets/icons/Mapbox.svg?raw";
-import Page from "@/assets/icons/Page.svg?raw";
-
 import InventoryCard from "./inventory/InventoryCard.astro";
 import Scroller from "@/components/ui/client/Scroller.vue";
+import { getEntry } from "astro:content";
 
-interface InventoryCardProps {
-  title: string;
-  icon: string;
-  description: string;
-  links: LinkIconProps[];
-  url: string;
-}
-
-const cards: InventoryCardProps[] = [
-  {
-    title: "Letterblend",
-    icon: Letterboxd,
-    description:
-      "Letterblend is a web app allowing you to blend your watchlist with " +
-      "your friends. Can filter by category, ask it to pick for you, and " +
-      "share the link to your friends.",
-    links: [
-      { label: "TypeScript", icon: TypeScript },
-      { label: "Tailwind", icon: Tailwind },
-      { label: "Vue", icon: Vue },
-      { label: "Nuxt", icon: Nuxt },
-      { label: "Express", icon: Express },
-      { label: "Python", icon: Python },
-      { label: "Flask", icon: Flask },
-      { label: "MongoDB", icon: MongoDB },
-    ],
-    url: "https://letterblend.vercel.app",
-  },
-  {
-    title: "Divestrael",
-    icon: Palestine,
-    description:
-      "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people.",
-    links: [
-      { label: "TypeScript", icon: TypeScript },
-      { label: "Tailwind", icon: Tailwind },
-      { label: "React", icon: React },
-      { label: "NextJS", icon: NextJS },
-      { icon: Fastify, label: "Fastify" },
-      { icon: Prisma, label: "Prisma" },
-      { label: "MongoDB", icon: MongoDB },
-    ],
-    url: "https://divestrael.vercel.app",
-  },
-  {
-    title: "Portfolio",
-    icon: Portfolio,
-    description: "My portfolio website. You're on it right now!",
-    links: [
-      { label: "TypeScript", icon: TypeScript },
-      { label: "Tailwind", icon: Tailwind },
-      { label: "Vue", icon: Vue },
-      { icon: AstroIcon, label: "Astro" },
-      { icon: Mapbox, label: "Mapbox" },
-      { icon: Page, label: "PagesCMS" },
-    ],
-    url: null,
-  },
-];
+const inventory = await getEntry("inventory", "inventory")!;
+const scroller = await getEntry("scroller", inventory.data.scroller)!;
 ---
 
 <section
@@ -99,16 +22,26 @@ const cards: InventoryCardProps[] = [
       class="flex w-full snap-x snap-mandatory justify-center gap-6 max-md:-ml-4 max-md:-mt-4 max-md:w-dvw max-md:overflow-x-scroll max-md:py-4 max-sm:pl-64"
     >
       <div class="h-1 w-96 shrink-0 md:hidden"></div>
-      {cards.map(card => <InventoryCard {...card} />)}
+      {
+        inventory.data.projects.map(card => (
+          <InventoryCard
+            title={card.title}
+            description={card.description}
+            url={card.url}
+            icon={card.icon}
+            links={card.links}
+          />
+        ))
+      }
       <div class="h-1 w-4 shrink-0 md:hidden"></div>
     </div>
     <Scroller
       data-aos-delay="200"
       data-aos="zoom-in"
-      elementId="sendARaven"
+      elementId={scroller.data.target}
       client:load
     >
-      Send me a Raven!
+      {scroller.data.title}
     </Scroller>
   </div>
 </section>
