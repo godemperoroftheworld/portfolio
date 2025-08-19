@@ -6,7 +6,6 @@ import { getEntries, getEntry } from "astro:content";
 
 const contact = await getEntry("contact", "contact")!;
 const icons = await getEntries(contact.data.links)!;
-console.log(JSON.stringify(icons[0]));
 ---
 
 <section
