@@ -17,14 +17,14 @@ function onClick() {
     v-bind="$attrs"
     class="font-heading text-primary-500 mx-auto w-fit text-lg font-bold"
   >
-    <a @click="onClick" class="peer block w-fit cursor-pointer">
+    <button @click="onClick" class="peer block w-fit cursor-pointer">
       <slot />
-    </a>
-    <a
+    </button>
+    <button
       @click="onClick"
       class="mx-auto mt-4 block w-fit animate-bounce cursor-pointer transition-all duration-200 hover:scale-125 peer-hover:scale-125"
     >
       <ChevronDown class="size-12" />
-    </a>
+    </button>
   </div>
 </template>

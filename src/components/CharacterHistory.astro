@@ -43,7 +43,7 @@ const steps = history.data.events.map(event => ({
       </div>
       <HistoryMapCard
         data-aos="zoom-in"
-        client:load
+        client:only="vue"
         class="mt-6 h-64 lg:hidden"
         steps={steps}
       />
