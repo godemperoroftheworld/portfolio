@@ -6,13 +6,23 @@ import vue from "@astrojs/vue";
 import svgLoader from "vite-svg-loader";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import vercel from "@astrojs/vercel";
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.SITE_URL,
+  site: process.env.SITE_URL || "http://localhost:4321",
   integrations: [
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en-CA",
+          fr: "fr-CA",
+        },
+      },
+    }),
     vue({ devtools: true, appEntrypoint: "/src/pages/_app" }),
+    robotsTxt(),
   ],
   vite: {
     plugins: [tailwindcss(), svgLoader(), vueJsx()],

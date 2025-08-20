@@ -3875,6 +3875,7 @@ __metadata:
     animate.css: ^4.1.1
     aos: ^2.3.4
     astro: ^5.12.7
+    astro-robots-txt: ^1.0.0
     astro-seo: ^0.8.4
     commitizen: ^4.3.0
     commitlint: ^19.8.1
@@ -3903,6 +3904,16 @@ __metadata:
     vue3-toastify: ^0.2.8
   languageName: unknown
   linkType: soft
+
+"astro-robots-txt@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "astro-robots-txt@npm:1.0.0"
+  dependencies:
+    valid-filename: ^4.0.0
+    zod: ^3.22.2
+  checksum: dc1a9efbe993ffd90c1382f39b992bd6cbd62d82bdb392f5476afc5c18bcbf1e712c5e13875344b8793766e09504c0e8e0713309e8b8c32df343f5f31f8d44ea
+  languageName: node
+  linkType: hard
 
 "astro-seo@npm:^0.8.4":
   version: 0.8.4
@@ -6018,6 +6029,13 @@ __metadata:
   version: 1.0.0
   resolution: "file-uri-to-path@npm:1.0.0"
   checksum: b648580bdd893a008c92c7ecc96c3ee57a5e7b6c4c18a9a09b44fb5d36d79146f8e442578bc0e173dc027adf3987e254ba1dfd6e3ec998b7c282873010502144
+  languageName: node
+  linkType: hard
+
+"filename-reserved-regex@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "filename-reserved-regex@npm:3.0.0"
+  checksum: 1803e19ce64d7cb88ee5a1bd3ce282470a5c263987269222426d889049fc857e302284fa71937de9582eba7a9f39539557d45e0562f2fa51cade8efc68c65dd9
   languageName: node
   linkType: hard
 
@@ -11758,6 +11776,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"valid-filename@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "valid-filename@npm:4.0.0"
+  dependencies:
+    filename-reserved-regex: ^3.0.0
+  checksum: 7486511751ade6ff9df254aec0aaad7c7461ff767e71e0bb2083f597d29c0e464919232594c53438b395e14166244dd8e69716cd661d8e7449ff0c916f9792cc
+  languageName: node
+  linkType: hard
+
 "validate-npm-package-license@npm:^3.0.4":
   version: 3.0.4
   resolution: "validate-npm-package-license@npm:3.0.4"
@@ -12617,7 +12644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.24.4":
+"zod@npm:^3.22.2, zod@npm:^3.24.4":
   version: 3.25.76
   resolution: "zod@npm:3.25.76"
   checksum: c9a403a62b329188a5f6bd24d5d935d2bba345f7ab8151d1baa1505b5da9f227fb139354b043711490c798e91f3df75991395e40142e6510a4b16409f302b849

@@ -33,6 +33,7 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "astro": "^5.12.7",
+    "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
