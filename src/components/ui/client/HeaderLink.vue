@@ -32,7 +32,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <a
+  <button
     class="text-primary-500 hover:bg-silver-500/50 dark:hover:bg-silver-700/75 block cursor-pointer p-2 font-bold uppercase"
     :class="{
       'text-primary-100!': elementVisible,
@@ -40,5 +40,5 @@ onMounted(async () => {
     @click="() => scrollToElement(elementId)"
   >
     <slot />
-  </a>
+  </button>
 </template>
