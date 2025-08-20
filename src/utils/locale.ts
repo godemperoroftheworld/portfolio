@@ -1,7 +1,8 @@
 import { type AstroGlobal } from "astro";
 
-type Locale = "en" | "fr";
-const DEFAULT_LOCALE: Locale = "en";
+export type Locale = "en" | "fr";
+export const DEFAULT_LOCALE: Locale = "en";
+export const locales: Locale[] = ["en", "fr"];
 
 export function localizePath<T extends string>(
   astro: AstroGlobal,

@@ -21,7 +21,8 @@ onBeforeMount(() => {
 <template>
   <Switch
     v-model="isDark"
-    class="bg-primary-500 z-1 relative flex h-8 w-16 cursor-pointer select-none items-center rounded-full"
+    style="--cutout-corner: 0.5em"
+    class="bg-primary-500 z-1 cutout relative flex h-8 w-16 cursor-pointer select-none items-center"
   >
     <span class="sr-only">Toggle Dark mode</span>
     <span

@@ -13,6 +13,7 @@ import "animate.css";
 import "@/styles/base.css";
 
 import ThemeToggle from "@/components/ui/client/ThemeToggle.vue";
+import LanguageToggle from "@/components/ui/client/LanguageToggle.vue";
 import HeaderLink from "@/components/ui/client/HeaderLink.vue";
 import { getCollection } from "astro:content";
 import { getLocaleFilter } from "../utils/locale";
@@ -60,6 +61,7 @@ const sections = await getCollection("section", getLocaleFilter(Astro));
           </HeaderLink>
         ))
       }
+      <LanguageToggle class="ml-4" locale={Astro.currentLocale} client:load />
       <ThemeToggle client:load />
     </header>
     <main class="relative flex flex-col items-center gap-8 px-4">
