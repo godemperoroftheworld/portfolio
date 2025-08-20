@@ -12,6 +12,8 @@
     "paths": {
       "@/*": ["*"],
       "@assets/*": ["assets/*"]
-    }
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
   }
 }

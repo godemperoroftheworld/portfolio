@@ -1,7 +1,7 @@
 <script setup lang="tsx">
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 import { createApp, onBeforeUnmount, onMounted, ref } from "vue";
-import MapPin from "@/assets/icons/MapPin.png";
+import MapPin from "@/assets/MapPin.png";
 import type { JSX } from "vue/jsx-runtime";
 import type { GeoJSON, LineString } from "geojson";
 import MapPane from "@/components/history/details/HistoryMapPane.vue";
