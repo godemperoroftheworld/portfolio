@@ -31,7 +31,7 @@ if (url) {
       class="flex h-full flex-col items-center gap-4"
     >
       <div class="svg-wrapper text-primary-500 size-24">
-        <Icon path={icon} />
+        <Icon path={icon} client:load />
       </div>
       <div class="max-h-30 grow overflow-y-scroll text-center">
         {description}
