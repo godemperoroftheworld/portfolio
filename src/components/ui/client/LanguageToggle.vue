@@ -39,11 +39,14 @@ const selectedLocale = computed({
     <div class="relative" style="--cutout-corner: 0.5em">
       <div class="cutout p-0.25 bg-primary-500">
         <ListboxButton
-          class="cutout w-16 cursor-pointer bg-white px-2 py-1 font-bold uppercase dark:bg-black"
+          class="cutout flex h-8 w-16 cursor-pointer items-center justify-around bg-white px-2 py-1 font-bold uppercase dark:bg-black"
         >
-          {{ LOCALE_MAP[locale] }}
-          {{ " " }}
-          {{ locale }}
+          <div class="h-4 leading-[1.2]">
+            {{ LOCALE_MAP[locale] }}
+          </div>
+          <div class="h-4 leading-[1.2]">
+            {{ locale }}
+          </div>
         </ListboxButton>
       </div>
       <transition
@@ -66,13 +69,14 @@ const selectedLocale = computed({
                 'bg-silver-500/50 dark:bg-silver-700/75': active,
                 'font-bold': selected,
               }"
-              class="flex h-8 cursor-pointer select-none items-center px-2 uppercase"
+              class="flex h-8 cursor-pointer select-none items-center justify-around px-2 uppercase"
             >
-              <span class="h-fit leading-none">
+              <div class="h-4 leading-[1.2]">
                 {{ LOCALE_MAP[availableLocale] }}
-                {{ " " }}
+              </div>
+              <div class="h-4 leading-[1.2]">
                 {{ availableLocale }}
-              </span>
+              </div>
             </div>
           </ListboxOption>
         </ListboxOptions>
