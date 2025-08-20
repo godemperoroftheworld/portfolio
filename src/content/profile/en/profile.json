@@ -1,5 +1,5 @@
 {
-  "picture": "/src/assets/avatar.jpg",
+  "picture": "@assets/avatar.jpg",
   "facts": [
     {
       "label": "Character Name",

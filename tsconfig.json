@@ -1,7 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "plugins": [
@@ -10,10 +8,10 @@
       }
     ],
     "types": ["vue3-toastify/global"],
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"]
-    },
-    "jsx": "preserve",
-    "jsxImportSource": "vue"
+      "@/*": ["*"],
+      "@assets/*": ["assets/*"]
+    }
   }
 }
