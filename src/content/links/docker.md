@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Docker.svg
+icon: "@assets/icons/Docker.svg"
 label: Docker
 href: ""
 large: false

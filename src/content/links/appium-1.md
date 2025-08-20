@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Appium.svg
+icon: "@assets/icons/Appium.svg"
 label: Appium
 href: ""
 large: false

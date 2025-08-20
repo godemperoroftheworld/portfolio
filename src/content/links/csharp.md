@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/CSharp.svg
+icon: "@assets/icons/CSharp.svg"
 label: CSharp
 href: ""
 large: false

@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Tailwind.svg
+icon: "@assets/icons/Tailwind.svg"
 label: Tailwind
 href: ""
 large: false

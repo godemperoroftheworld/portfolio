@@ -5,7 +5,7 @@
       "label": "Marianopolis College",
       "description": "Mon cégep, où j'ai obtenu mon DEC en sciences pures et appliquées. J'ai vécu des moments stressants, mais j'ai beaucoup appris ! Malheureusement, une grande partie de mes connaissances scientifiques ont commencé à m'échapper.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.6122102,45.4812387]}",
-      "icon": "/src/assets/icons/School.svg",
+      "icon": "@assets/icons/School.svg",
       "startDate": "2012-09-01T00:00:00",
       "endDate": "2019-06-30T00:00:00"
     },
@@ -13,7 +13,7 @@
       "label": "University of Waterloo",
       "description": "Ma (première) université, où j'ai obtenu un baccalauréat en informatique. Même si je n'aimais pas la culture, venir ici était le bon choix pour moi, ne serait-ce que pour l'alternance et pour m'obliger à déménager.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-80.5452429,43.4701994]}",
-      "icon": "/src/assets/icons/School.svg",
+      "icon": "@assets/icons/School.svg",
       "startDate": "2019-09-01T00:00:00",
       "endDate": "2023-12-30T00:00:00"
     },
@@ -21,7 +21,7 @@
       "label": "Paramount Commerce",
       "description": "Mon premier stage ! Ce n'est pas le meilleur emploi, mais un premier stage l'est rarement ! J'étais simplement reconnaissant d'avoir eu cette opportunité. J'ai beaucoup appris sur les tests unitaires/e2e et l'automatisation des tests.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-79.4039803,43.6344814]}",
-      "icon": "/src/assets/icons/Work.svg",
+      "icon": "@assets/icons/Work.svg",
       "startDate": "2021-09-01T00:00:00",
       "endDate": "2021-04-30T00:00:00"
     },
@@ -29,7 +29,7 @@
       "label": "Bunch.live",
       "description": "Développer des jeux était super amusant ! J'ai adoré apprendre Unity et C#, et je suis devenu accro aux MacBook. Les gens avec qui j'ai travaillé étaient adorables ! J'adorerais réaliser un petit projet de jeu solo un jour…",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.2997675,45.3638876]}",
-      "icon": "/src/assets/icons/Work.svg",
+      "icon": "@assets/icons/Work.svg",
       "startDate": "2021-09-01T00:00:00",
       "endDate": "2021-12-30T00:00:00"
     },
@@ -37,7 +37,7 @@
       "label": "Lifion by ADP",
       "description": "C'était ma première expérience en front-end ! Je n'imaginais pas que ce serait mon truc, mais j'ai vite pris goût à ça ! J'ai travaillé avec React et Redux. Malheureusement, je n'ai pas pu aller au bureau de New York à cause du Covid !",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.9816359,40.6571608]}",
-      "icon": "/src/assets/icons/Work.svg",
+      "icon": "@assets/icons/Work.svg",
       "startDate": "2022-05-01T00:00:00",
       "endDate": "2022-08-30T00:00:00"
     },
@@ -45,7 +45,7 @@
       "label": "Chalmers Universitat",
       "description": "J'ai participé à un échange ici ! Depuis, j'ai toujours rêvé d'Europe. Ce fut l'une des expériences les plus transformatrices de ma vie : j'y ai découvert une grande partie de ma personnalité.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[11.9765259,57.6897462]}",
-      "icon": "/src/assets/icons/School.svg",
+      "icon": "@assets/icons/School.svg",
       "startDate": "2022-09-01T00:00:00",
       "endDate": "2023-01-12T00:00:00"
     },
@@ -53,7 +53,7 @@
       "label": "Vivid Seats",
       "description": "Mon stage de fin d'études. J'aurais fini ici à temps plein si je n'avais pas dû déménager à Toronto ! C'est vraiment là que j'ai trouvé ma confiance en moi. J'ai travaillé avec React, Next.js, Optimizely. Super manager !",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-79.3888686,43.6490263]}",
-      "icon": "/src/assets/icons/Work.svg",
+      "icon": "@assets/icons/Work.svg",
       "startDate": "2023-01-16T00:00:00",
       "endDate": "2023-08-30T00:00:00"
     },
@@ -61,7 +61,7 @@
       "label": "Hivestack",
       "description": "Là où je travaille maintenant ! Les gens sont vraiment géniaux ici. C'est la première fois que j'ai des « amis de travail ». La situation avec notre maison mère est cependant assez problématique pour moi.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.5741289,45.4983583]}",
-      "icon": "/src/assets/icons/Work.svg",
+      "icon": "@assets/icons/Work.svg",
       "startDate": "2024-01-08T00:00:00",
       "endDate": ""
     },
@@ -69,7 +69,7 @@
       "label": "Concordia University",
       "description": "Mon université actuelle ! Je prépare un deuxième baccalauréat en études cinématographiques. C'est un changement de rythme agréable, et le cinéma a toujours été une de mes passions. Mon manager génial me permet de rattraper les heures que je manque !",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.5785815,45.4952441]}",
-      "icon": "/src/assets/icons/School.svg",
+      "icon": "@assets/icons/School.svg",
       "startDate": "2025-01-01T00:00:00",
       "endDate": ""
     }

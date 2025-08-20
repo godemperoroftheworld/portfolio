@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Vitest.svg
+icon: "@assets/icons/Vitest.svg"
 label: Vitest
 href: ""
 large: false

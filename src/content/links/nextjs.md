@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Nextjs.svg
+icon: "@assets/icons/Nextjs.svg"
 label: NextJS
 href: ""
 large: false

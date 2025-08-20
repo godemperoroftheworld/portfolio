@@ -3,7 +3,7 @@
   "projects": [
     {
       "title": "Letterblend",
-      "icon": "/src/assets/icons/Letterboxd.svg",
+      "icon": "@assets/icons/Letterboxd.svg",
       "description": "Letterblend is a web app allowing you to blend your watchlist with your friends. Can filter by category, ask it to pick for you, and share the link to your friends.",
       "url": "https://letterblend.vercel.app",
       "links": [
@@ -19,7 +19,7 @@
     },
     {
       "title": "Divestrael",
-      "icon": "/src/assets/icons/Palestine.svg",
+      "icon": "@assets/icons/Palestine.svg",
       "description": "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people.",
       "url": "https://divestrael.vercel.app",
       "links": [
@@ -34,7 +34,7 @@
     },
     {
       "title": "Portfolio",
-      "icon": "/src/assets/icons/User.svg",
+      "icon": "@assets/icons/User.svg",
       "description": "My portfolio website. You're on it right now!",
       "url": "",
       "links": ["typescript", "tailwind", "vue", "astro", "mapbox", "sveltia"]

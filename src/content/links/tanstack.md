@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Tanstack.svg
+icon: "@assets/icons/Tanstack.svg"
 label: Tanstack
 href: ""
 large: false

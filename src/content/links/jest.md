@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Jest.svg
+icon: "@assets/icons/Jest.svg"
 label: Jest
 href: ""
 large: false

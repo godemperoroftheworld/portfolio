@@ -2,6 +2,7 @@
 import Card from "@/components/ui/Card.astro";
 import InventoryCarousel from "./InventoryCardLinks.vue";
 import { getEntries, type ReferenceDataEntry } from "astro:content";
+import Icon from "@/components/ui/client/Icon.vue";
 
 interface Props {
   title: string;
@@ -12,7 +13,6 @@ interface Props {
 }
 const { title, icon, description, links, url } = Astro.props;
 
-const IconComponent = await import(/* @vue-ignore */ `${icon}?component`);
 const icons = await getEntries(links);
 
 const classes = [
@@ -31,7 +31,7 @@ if (url) {
       class="flex h-full flex-col items-center gap-4"
     >
       <div class="svg-wrapper text-primary-500 size-24">
-        <IconComponent />
+        <Icon path={icon} />
       </div>
       <div class="max-h-30 grow overflow-y-scroll text-center">
         {description}

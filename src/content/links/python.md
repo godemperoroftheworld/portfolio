@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Python.svg
+icon: "@assets/icons/Python.svg"
 label: Python
 href: ""
 large: false

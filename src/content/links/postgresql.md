@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Postgresql.svg
+icon: "@assets/icons/Postgresql.svg"
 label: PostgreSQL
 href: ""
 large: false

@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/Selenium.svg
+icon: "@assets/icons/Selenium.svg"
 label: Selenium
 href: ""
 large: false

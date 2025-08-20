@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/GithubActions.svg
+icon: "@assets/icons/GithubActions.svg"
 label: GithubActions
 href: ""
 large: false

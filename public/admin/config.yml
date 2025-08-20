@@ -6,7 +6,7 @@ backend:
   base_url: https://t2pellet.vercel.app
   auth_endpoint: oauth
 media_folder: "src/assets"
-public_folder: "src/assets"
+public_folder: "@assets"
 output:
   encode_file_path: true
 i18n:

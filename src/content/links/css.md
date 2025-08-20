@@ -1,5 +1,5 @@
 ---
-icon: /src/assets/icons/CSS.svg
+icon: "@assets/icons/CSS.svg"
 label: CSS
 href: ""
 large: false
