@@ -21,9 +21,8 @@ const scroller = await getEntry(
 >
   <div class="flex items-center justify-center gap-6 max-md:flex-col-reverse">
     <div
-      data-aos="fade-left"
-      data-aos-delay="300"
-      class="my-auto flex flex-col gap-1 max-md:w-full max-md:max-w-md max-md:px-8"
+      style="animation-delay: 450ms"
+      class="animate-fade-right my-auto flex flex-col gap-1 max-md:w-full max-md:max-w-md max-md:px-8"
     >
       {
         profile.data.facts.map(fact => (
@@ -33,7 +32,7 @@ const scroller = await getEntry(
         ))
       }
     </div>
-    <Card class="aspect-square max-w-lg" animation="zoom-in">
+    <Card class="animate animate-zoom-in aspect-square max-w-lg">
       <Image
         src={profile.data.picture}
         alt="Avatar"
@@ -49,7 +48,8 @@ const scroller = await getEntry(
         profile.data.traits.map((trait, idx) => (
           <HandWritingBlock
             label={trait.label}
-            data-aos-delay={150 * (idx + 1)}
+            class="animate-flip-in"
+            style={`animation-delay: ${150 * (idx + 2)}ms`}
           >
             {trait.value.map(value => (
               <span>{value}</span>
@@ -60,9 +60,8 @@ const scroller = await getEntry(
     </div>
   </div>
   <Scroller
-    class="max-md:hidden"
-    data-aos="zoom-in"
-    data-aos-delay={750}
+    style="animation-delay: 750ms"
+    class="animate-zoom-in max-md:hidden"
     elementId={scroller.data.target}
     client:load
   >

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "animate.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -105,8 +104,12 @@
       animation-timing-function:ease-out
     }
   }
+
+  /* ANIMISTA */
   @keyframes swing-in-top-bck{0%{-webkit-transform:rotateX(70deg);transform:rotateX(70deg);-webkit-transform-origin:top;transform-origin:top;opacity:0}100%{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);-webkit-transform-origin:top;transform-origin:top;opacity:1}}
   @keyframes swing-out-top-fwd{0%{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);-webkit-transform-origin:top;transform-origin:top;opacity:1}100%{-webkit-transform:rotateX(70deg);transform:rotateX(70deg);-webkit-transform-origin:top;transform-origin:top;opacity:0}}
+  @keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}
+  @keyframes fade-in-right{0%{transform:translateX(50px);opacity:0}100%{transform:translateX(0);opacity:1}}
 }
 
 html:not(.dark) {
@@ -174,5 +177,13 @@ h1,h2,h3,h4,h5,h6 {
 
   .animate-flip-out {
     animation: swing-out-top-fwd 0.75s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+  }
+
+  .animate-zoom-in {
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  .animate-fade-right {
+    animation: fade-in-right 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
 }
