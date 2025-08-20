@@ -7,7 +7,6 @@ import "@fontsource-variable/lora";
 import "@fontsource/unifrakturcook";
 // Base CSS Files
 import "vue3-toastify/dist/index.css";
-import "aos/dist/aos.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "animate.css";
 import "@/styles/base.css";
@@ -54,6 +53,7 @@ const sections = sectionsUnsorted.toSorted(
       }}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="stylesheet" href="/style/aos.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <script is:inline>
@@ -61,9 +61,8 @@ const sections = sectionsUnsorted.toSorted(
         document.documentElement.classList.add("dark");
       }
     </script>
-    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  </head>
-  <body class="relative">
+    <script is:inline src="/scripts/aos.js"></script>
+  </head><body class="relative">
     <header
       class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-4 bg-white/75 p-4 dark:bg-black/75"
     >

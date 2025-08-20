@@ -31,7 +31,6 @@
     "@vitejs/plugin-vue-jsx": "^5.0.1",
     "@vueuse/core": "^13.6.0",
     "animate.css": "^4.1.1",
-    "aos": "^2.3.4",
     "astro": "^5.12.7",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
