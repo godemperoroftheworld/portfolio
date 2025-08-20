@@ -10,6 +10,7 @@ import { historyStepStore } from "@/stores/historyStep.ts";
 import { useDebounce } from "@vueuse/core";
 import type { Step } from "@/components/history/types.ts";
 import emitter from "@/components/history/events.ts";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 interface Props {
   steps?: Step[];
@@ -36,7 +37,7 @@ function initMap(map: mapboxgl.Map) {
   steps.forEach((step, idx) => {
     const node = createMarkerNode(() => (
       <button class="mb-4 block cursor-pointer" onClick={() => setStep(idx)}>
-        <img class="w-6" src={MapPin.src} alt="" />
+        <img class="w-6" src={MapPin.src} alt="" loading="lazy" />
       </button>
     ));
     const marker = new mapboxgl.Marker(node).setLngLat(step.coordinate);
