@@ -26,7 +26,6 @@ collections:
       - { label: ID, name: id, widget: string, i18n: duplicate }
       - { label: Label, name: label, widget: string, i18n: true }
       - { label: Value, name: value, widget: number, i18n: duplicate }
-      - { label: Order, name: order, widget:  }
   - name: links
     label: Links
     folder: src/content/links
