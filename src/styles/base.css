@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "animate.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -74,6 +75,38 @@
   --font-number: "UnifrakturCook", system-ui;
 
   --cutout-corner: 1em;
+
+  @keyframes heartbeat{
+    from {
+      transform:scale(1);
+      -webkit-transform-origin:center center;
+      transform-origin:center center;
+      -webkit-animation-timing-function:ease-out;
+      animation-timing-function:ease-out
+    }
+    16% {
+      transform:scale(1.15);
+      -webkit-animation-timing-function:ease-in;
+      animation-timing-function:ease-in
+    }
+    28% {
+      transform:scale(1);
+      -webkit-animation-timing-function:ease-out;
+      animation-timing-function:ease-out
+    }
+    36% {
+      transform:scale(1.1);
+      -webkit-animation-timing-function:ease-in;
+      animation-timing-function:ease-in
+    }
+    45% {
+      transform:scale(1);
+      -webkit-animation-timing-function:ease-out;
+      animation-timing-function:ease-out
+    }
+  }
+  @keyframes swing-in-top-bck{0%{-webkit-transform:rotateX(70deg);transform:rotateX(70deg);-webkit-transform-origin:top;transform-origin:top;opacity:0}100%{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);-webkit-transform-origin:top;transform-origin:top;opacity:1}}
+  @keyframes swing-out-top-fwd{0%{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);-webkit-transform-origin:top;transform-origin:top;opacity:1}100%{-webkit-transform:rotateX(70deg);transform:rotateX(70deg);-webkit-transform-origin:top;transform-origin:top;opacity:0}}
 }
 
 html:not(.dark) {
@@ -129,5 +162,17 @@ h1,h2,h3,h4,h5,h6 {
     svg {
       @apply size-24;
     }
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite both;
+  }
+
+  .animate-flip-in {
+    animation: swing-in-top-bck 0.75s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  }
+
+  .animate-flip-out {
+    animation: swing-out-top-fwd 0.75s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
   }
 }

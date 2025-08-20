@@ -2,9 +2,9 @@
   <!-- Point -->
   <div
     :class="{
-      'animate__heartBeat scale-125': isActive,
+      'animate-heartbeat scale-125': isActive,
     }"
-    class="animate__animated iteration-infinite bg-primary-500 pointer-events-auto -ml-[0.3px] size-3 -translate-x-1/2 rounded-full transition-transform duration-200 group-hover:scale-150"
+    class="iteration-infinite bg-primary-500 pointer-events-auto -ml-[0.3px] size-3 -translate-x-1/2 rounded-full transition-transform duration-200 group-hover:scale-150"
   />
   <!-- Content -->
   <div

@@ -36,7 +36,11 @@ function initMap(map: mapboxgl.Map) {
   // Add markers
   steps.forEach((step, idx) => {
     const node = createMarkerNode(() => (
-      <button class="mb-4 block cursor-pointer" onClick={() => setStep(idx)}>
+      <button
+        class="mb-4 block cursor-pointer"
+        aria-label={step.label}
+        onClick={() => setStep(idx)}
+      >
         <img class="w-6" src={MapPin.src} alt="" loading="lazy" />
       </button>
     ));
@@ -159,8 +163,8 @@ onBeforeUnmount(() => {
 <template>
   <div v-bind="$attrs" id="map" class="relative">
     <transition
-      enter-active-class="animate__animated animate__flipInX"
-      leave-active-class="animate__animated animate__flipOutX"
+      enter-active-class="animate-flip-in"
+      leave-active-class="animate-flip-out"
     >
       <MapPane
         data-aos="flip-up"

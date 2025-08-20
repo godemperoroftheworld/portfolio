@@ -35,7 +35,7 @@ function previous() {
 <template>
   <div v-show="visible" class="cutout p-0.25 bg-primary-500">
     <div
-      class="font-body cutout animate__animated flex h-full w-full flex-col bg-white p-4 text-base dark:bg-black"
+      class="font-body cutout flex h-full w-full flex-col bg-white p-4 text-base dark:bg-black"
     >
       <h2 class="text-lg font-bold text-black dark:text-white">
         {{ step.label }}

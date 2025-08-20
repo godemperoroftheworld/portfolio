@@ -5,11 +5,12 @@ import "@fontsource/cinzel-decorative/700.css";
 import "@fontsource/cinzel-decorative/900.css";
 import "@fontsource-variable/lora";
 import "@fontsource/unifrakturcook";
-// Base CSS Files
-import "vue3-toastify/dist/index.css";
-import "animate.css";
+// Base styles
 import "@/styles/base.css";
 import "aos/dist/aos.css";
+
+// Extra styles
+import toastifyStyles from "vue3-toastify/dist/index.css?url";
 
 import ThemeToggle from "@/components/ui/client/ThemeToggle.vue";
 import LanguageToggle from "@/components/ui/client/LanguageToggle.vue";
@@ -51,6 +52,12 @@ const sections = sectionsUnsorted.toSorted(
         // extending the default link tags
         link: [{ rel: "icon", href: "/favicon.ico" }],
       }}
+    />
+    <link
+      rel="preload"
+      href={toastifyStyles}
+      as="style"
+      onload="this.rel='stylesheet'"
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
