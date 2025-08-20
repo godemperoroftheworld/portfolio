@@ -62,6 +62,9 @@ collections:
         widget: string
         required: false
         i18n: true
+      - label: Order
+        name: order
+        widget: hidden
 singletons:
   - name: "profile"
     label: "Profile"

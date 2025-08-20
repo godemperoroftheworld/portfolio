@@ -25,7 +25,10 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-const sections = await getCollection("section", getLocaleFilter(Astro));
+const sectionsUnsorted = await getCollection("section", getLocaleFilter(Astro));
+const sections = sectionsUnsorted.toSorted(
+  (a, b) => a.data.order - b.data.order
+);
 ---
 
 <html

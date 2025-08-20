@@ -32,6 +32,7 @@ const sectionSchema = z.object({
   ]),
   title: z.string(),
   prompt: z.string().optional(),
+  order: z.number(),
 });
 const section = defineCollection({
   type: "content",
