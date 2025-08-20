@@ -39,6 +39,15 @@ const section = defineCollection({
   schema: sectionSchema,
 });
 
+/* SEO */
+const seo = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
 /* PROFILE */
 const profile = defineCollection({
   type: "data",
@@ -169,4 +178,5 @@ export const collections = {
   history,
   inventory,
   contact,
+  seo,
 };

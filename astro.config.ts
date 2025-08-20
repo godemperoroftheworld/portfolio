@@ -9,11 +9,11 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
+  site: import.meta.env.SITE_URL,
   integrations: [
     sitemap(),
     vue({ devtools: true, appEntrypoint: "/src/pages/_app" }),
   ],
-
   vite: {
     plugins: [tailwindcss(), svgLoader(), vueJsx()],
   },

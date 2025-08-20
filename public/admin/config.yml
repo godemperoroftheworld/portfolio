@@ -66,6 +66,19 @@ collections:
         name: order
         widget: hidden
 singletons:
+  - name: seo
+    label: SEO
+    file: src/content/seo/{{locale}}/seo.json
+    i18n: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Description
+        name: description
+        widget: string
+        i18n: true
   - name: "profile"
     label: "Profile"
     file: src/content/profile/{{locale}}/profile.json

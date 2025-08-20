@@ -66,11 +66,13 @@ const selectedLocale = computed({
                 'bg-silver-500/50 dark:bg-silver-700/75': active,
                 'font-bold': selected,
               }"
-              class="flex cursor-pointer select-none items-center px-2 uppercase"
+              class="flex h-8 cursor-pointer select-none items-center px-2 uppercase"
             >
-              {{ LOCALE_MAP[availableLocale] }}
-              {{ " " }}
-              {{ availableLocale }}
+              <span class="h-fit leading-none">
+                {{ LOCALE_MAP[availableLocale] }}
+                {{ " " }}
+                {{ availableLocale }}
+              </span>
             </div>
           </ListboxOption>
         </ListboxOptions>

@@ -17,6 +17,7 @@ import LanguageToggle from "@/components/ui/client/LanguageToggle.vue";
 import HeaderLink from "@/components/ui/client/HeaderLink.vue";
 import { getCollection } from "astro:content";
 import { getLocaleFilter } from "../utils/locale";
+import { SEO } from "astro-seo";
 
 interface Props {
   title: string;
@@ -37,10 +38,23 @@ const sections = sectionsUnsorted.toSorted(
 >
   <head>
     <meta charset="utf-8" />
-    <title>{title}</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: "website",
+          image: "/avatar.jpg",
+        },
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+      }}
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <script is:inline>
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {

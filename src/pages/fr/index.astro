@@ -5,12 +5,13 @@ import CharacterSheet from "@/components/CharacterSheet.astro";
 import CharacterHistory from "@/components/CharacterHistory.astro";
 import CharacterInventory from "@/components/CharacterInventory.astro";
 import SendARaven from "@/components/SendARaven.astro";
+import { localizePath } from "../../utils/locale";
+import { getEntry } from "astro:content";
+
+const seo = await getEntry("seo", localizePath(Astro, "seo"))!;
 ---
 
-<Layout
-  title="Tenzin Pelletier"
-  description="Tenzin Pelletier's character description. Learn all about me!"
->
+<Layout title={seo.data.title} description={seo.data.description}>
   <CharacterProfile />
   <CharacterSheet />
   <CharacterHistory />
