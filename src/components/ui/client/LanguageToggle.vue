@@ -5,7 +5,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/vue";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { DEFAULT_LOCALE, type Locale, locales } from "@/utils/locale.ts";
 
 interface Props {
@@ -21,7 +21,10 @@ const LOCALE_MAP: Record<Locale, string> = {
 const selectedLocale = computed({
   get: () => locale,
   set(value) {
+    // Do nothing when selecting current locale
+    if (value === locale) return;
     let url = window.location.origin;
+    // No suffix for defualt locale
     const localeSuffix = value === DEFAULT_LOCALE ? "" : value;
     if (localeSuffix) {
       url += `/${localeSuffix}`;
@@ -43,25 +46,35 @@ const selectedLocale = computed({
           {{ locale }}
         </ListboxButton>
       </div>
-      <ListboxOptions class="absolute w-full bg-white pt-2 dark:bg-black">
-        <ListboxOption
-          v-slot="{ active, selected }"
-          class="hover:bg-silver-500/50 dark:hover:bg-silver-700/75 cursor-pointer px-2"
-          v-for="(availableLocale, idx) in locales"
-          :key="idx"
-          :value="availableLocale"
-          :disabled="availableLocale === locale"
-        >
-          <div
-            class="flex items-center uppercase"
-            :class="{ 'font-bold': selected }"
+      <transition
+        enter-active-class="transition duration-100 ease-in"
+        leave-active-class="transition duration-100 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+      >
+        <ListboxOptions class="absolute w-full bg-white pt-2 dark:bg-black">
+          <ListboxOption
+            v-slot="{ active, selected }"
+            v-for="(availableLocale, idx) in locales"
+            :key="idx"
+            :value="availableLocale"
           >
-            {{ LOCALE_MAP[availableLocale] }}
-            {{ " " }}
-            {{ availableLocale }}
-          </div>
-        </ListboxOption>
-      </ListboxOptions>
+            <div
+              :class="{
+                'bg-silver-500/50 dark:bg-silver-700/75': active,
+                'font-bold': selected,
+              }"
+              class="flex cursor-pointer select-none items-center px-2 uppercase"
+            >
+              {{ LOCALE_MAP[availableLocale] }}
+              {{ " " }}
+              {{ availableLocale }}
+            </div>
+          </ListboxOption>
+        </ListboxOptions>
+      </transition>
     </div>
   </Listbox>
 </template>
