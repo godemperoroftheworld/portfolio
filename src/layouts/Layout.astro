@@ -7,10 +7,10 @@ import "@fontsource-variable/lora";
 import "@fontsource/unifrakturcook";
 // Base styles
 import "@/styles/base.css";
-import "aos/dist/aos.css";
 
 // Extra styles
 import toastifyStyles from "vue3-toastify/dist/index.css?url";
+import aosStyles from "aos/dist/aos.css?url";
 
 import ThemeToggle from "@/components/ui/client/ThemeToggle.vue";
 import LanguageToggle from "@/components/ui/client/LanguageToggle.vue";
@@ -56,6 +56,12 @@ const sections = sectionsUnsorted.toSorted(
     <link
       rel="preload"
       href={toastifyStyles}
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href={aosStyles}
       as="style"
       onload="this.rel='stylesheet'"
     />
