@@ -14,16 +14,16 @@ const statData = await getEntry("stats", localizePath(Astro, stat))!;
 const value = Math.floor(((statData?.data.value ?? 10) - 10) / 2) + 2;
 ---
 
-<div class="flex gap-2">
+<div class="flex items-center gap-2">
   <div class="bg-primary-600 inline-block h-3 w-3 self-center rounded-full">
   </div>
-  <div class="flex w-6 justify-center border-b border-b-white">
-    <DiceRoller class="px-2" modifier={value} client:visible>
-      <span class="text-primary-500 -ml-1 text-center italic oldstyle-nums">
-        +{value}
-      </span>
-    </DiceRoller>
-  </div>
+  <DiceRoller
+    class="text-primary-500 mr-1 flex size-8 items-center justify-center border-b border-b-white text-lg italic oldstyle-nums"
+    modifier={value}
+    client:visible
+  >
+    +{value}
+  </DiceRoller>
   <span>
     {name}
     <i class="text-silver-500 dark:text-silver-300 select-none text-sm">
