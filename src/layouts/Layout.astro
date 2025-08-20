@@ -65,18 +65,20 @@ const sections = sectionsUnsorted.toSorted(
     <header
       class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-4 bg-white/75 p-4 dark:bg-black/75"
     >
-      {
-        sections.map(section => (
-          <HeaderLink
-            class="max-md:hidden"
-            elementId={section.data.target}
-            client:load
-          >
-            {section.data.title}
-          </HeaderLink>
-        ))
-      }
-      <LanguageToggle class="ml-4" locale={Astro.currentLocale} client:load />
+      <nav class="mr-4 flex items-center justify-end gap-4">
+        {
+          sections.map(section => (
+            <HeaderLink
+              class="max-md:hidden"
+              elementId={section.data.target}
+              client:load
+            >
+              {section.data.title}
+            </HeaderLink>
+          ))
+        }
+      </nav>
+      <LanguageToggle locale={Astro.currentLocale} client:load />
       <ThemeToggle client:load />
     </header>
     <main class="relative flex flex-col items-center gap-8 px-4">
