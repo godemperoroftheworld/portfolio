@@ -34,7 +34,7 @@ const scroller = await getEntry(
       }
     </div>
     <Card class="aspect-square max-w-lg" animation="zoom-in">
-      <Image src={profile.data.picture} alt="Avatar" />
+      <Image src={profile.data.picture} alt="Avatar" loading="eager" />
     </Card>
     <div class="flex w-80 min-w-64 flex-col justify-center gap-4 max-lg:hidden">
       {
