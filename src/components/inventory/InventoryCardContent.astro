@@ -1,0 +1,29 @@
+---
+import InventoryCarousel from "./InventoryCardLinks.vue";
+import Icon from "@/components/ui/client/Icon.vue";
+import { getEntries, type ReferenceDataEntry } from "astro:content";
+
+interface Props {
+  icon: string;
+  description: string;
+  links: ReferenceDataEntry<"links", string>[];
+}
+const { icon, description, links } = Astro.props;
+
+const icons = await getEntries(links);
+---
+
+<div class="svg-wrapper text-primary-500 size-24">
+  <Icon path={icon} client:load />
+</div>
+<div class="max-h-30 grow overflow-y-scroll text-center">
+  {description}
+</div>
+<InventoryCarousel
+  class="max-w-full"
+  client:load
+  links={icons.map(i => ({
+    label: i.data.label,
+    icon: i.data.icon,
+  }))}
+/>

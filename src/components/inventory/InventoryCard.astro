@@ -1,8 +1,7 @@
 ---
 import Card from "@/components/ui/Card.astro";
-import InventoryCarousel from "./InventoryCardLinks.vue";
-import { getEntries, type ReferenceDataEntry } from "astro:content";
-import Icon from "@/components/ui/client/Icon.vue";
+import { type ReferenceDataEntry } from "astro:content";
+import InventoryCardContent from "./InventoryCardContent.astro";
 
 interface Props {
   title: string;
@@ -12,8 +11,6 @@ interface Props {
   url?: string;
 }
 const { title, icon, description, links, url } = Astro.props;
-
-const icons = await getEntries(links);
 
 const classes = [
   "snap-center transition-transform duration-200 hover:scale-105",
@@ -25,25 +22,28 @@ if (url) {
 
 <div class:list={classes}>
   <Card class="h-96 w-72" padding={4} heading={title} titleClass="text-white">
-    <a
-      href={url || undefined}
-      target="_blank"
-      class="flex h-full flex-col items-center gap-4"
-    >
-      <div class="svg-wrapper text-primary-500 size-24">
-        <Icon path={icon} client:load />
-      </div>
-      <div class="max-h-30 grow overflow-y-scroll text-center">
-        {description}
-      </div>
-      <InventoryCarousel
-        class="max-w-full"
-        client:load
-        links={icons.map(i => ({
-          label: i.data.label,
-          icon: i.data.icon,
-        }))}
-      />
-    </a>
+    {
+      url ? (
+        <a
+          href={url}
+          target="_blank"
+          class="flex h-full flex-col items-center gap-4"
+        >
+          <InventoryCardContent
+            links={links}
+            description={description}
+            icon={icon}
+          />
+        </a>
+      ) : (
+        <div class="flex h-full flex-col items-center gap-4">
+          <InventoryCardContent
+            links={links}
+            description={description}
+            icon={icon}
+          />
+        </div>
+      )
+    }
   </Card>
 </div>
