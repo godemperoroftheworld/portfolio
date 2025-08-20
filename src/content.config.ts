@@ -21,19 +21,21 @@ const links = defineCollection({
   }),
 });
 
-/* SCROLLER */
-const scrollerSchema = z.object({
+/* SECTION */
+const sectionSchema = z.object({
   target: z.enum([
+    "characterProfile",
     "characterSheet",
     "characterHistory",
     "characterInventory",
     "sendARaven",
   ]),
   title: z.string(),
+  prompt: z.string().optional(),
 });
-const scroller = defineCollection({
+const section = defineCollection({
   type: "content",
-  schema: scrollerSchema,
+  schema: sectionSchema,
 });
 
 /* PROFILE */
@@ -158,7 +160,7 @@ const contact = defineCollection({
 });
 
 export const collections = {
-  scroller,
+  section,
   stats,
   links,
   profile,

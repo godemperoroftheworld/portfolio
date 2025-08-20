@@ -6,9 +6,13 @@ import LabeledValue from "@/components/ui/LabeledValue.astro";
 import HandWritingBlock from "@/components/ui/HandWritingBlock.astro";
 import Scroller from "@/components/ui/client/Scroller.vue";
 import { getEntry } from "astro:content";
+import { localizePath } from "../utils/locale";
 
-const profile = await getEntry("profile", "profile")!;
-const scroller = await getEntry("scroller", profile.data.scroller)!;
+const profile = await getEntry("profile", localizePath(Astro, "profile"))!;
+const scroller = await getEntry(
+  "section",
+  localizePath(Astro, profile.data.scroller)
+)!;
 ---
 
 <section
@@ -54,6 +58,6 @@ const scroller = await getEntry("scroller", profile.data.scroller)!;
     elementId={scroller.data.target}
     client:load
   >
-    {scroller.data.title}
+    {scroller.data.prompt}
   </Scroller>
 </section>

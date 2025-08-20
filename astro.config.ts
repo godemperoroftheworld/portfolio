@@ -17,5 +17,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), svgLoader(), vueJsx()],
   },
+  i18n: {
+    locales: ["en", "fr"],
+    defaultLocale: "en",
+  },
   adapter: vercel(),
 });

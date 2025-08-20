@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "title": "Stats"
+  },
+  "skills": {
+    "title": "Compétences",
+    "entries": [
+      {
+        "name": "Tests unitaires",
+        "stat": "focus",
+        "value": 5
+      },
+      {
+        "name": "Kanban",
+        "stat": "agility",
+        "value": 5
+      },
+      {
+        "name": "Pipelines CI/CD",
+        "stat": "stamina",
+        "value": 3
+      },
+      {
+        "name": "Conception de systèmes",
+        "stat": "logic",
+        "value": 4
+      },
+      {
+        "name": "Accessibilité",
+        "stat": "lore",
+        "value": 4
+      },
+      {
+        "name": "Raconter des histoires",
+        "stat": "muse",
+        "value": 3
+      },
+      {
+        "name": "Refactorisation de code",
+        "stat": "focus",
+        "value": 5
+      },
+      {
+        "name": "Conception réactive",
+        "stat": "agility",
+        "value": 5
+      },
+      {
+        "name": "Automatisation des tests",
+        "stat": "stamina",
+        "value": 3
+      },
+      {
+        "name": "Structures de données",
+        "stat": "logic",
+        "value": 4
+      },
+      {
+        "name": "Modélisation de domaine",
+        "stat": "lore",
+        "value": 4
+      },
+      {
+        "name": "Codage créatif",
+        "stat": "muse",
+        "value": 3
+      }
+    ]
+  },
+  "features": {
+    "title": "Caractéristiques et traits",
+    "entries": [
+      {
+        "name": "Exécution rapide",
+        "stat": "agility",
+        "description": "Vous résolvez des problèmes et accomplissez des tâches à un rythme soutenu. Sous pression, vous obtenez un avantage sur un test de productivité par défi."
+      },
+      {
+        "name": "Auto-apprentissage",
+        "stat": "logic",
+        "description": "Vous gagnez de nouvelles compétences deux fois plus vite. Lorsque vous essayez une nouvelle compétence, utilisez un avantage si vous l'avez recherchée pendant un long repos."
+      },
+      {
+        "name": "Propriété des tâches",
+        "stat": "focus",
+        "description": "Vous vous épanouissez dans les nouvelles tâches complexes que vous pouvez entreprendre. Une fois par sprint, vous obtenez un avantage sur tous les jets liés à votre tâche jusqu'à sa réalisation."
+      },
+      {
+        "name": "Fluence de la base de code",
+        "stat": "lore",
+        "description": "Vous êtes immédiatement à l'aise avec les nouvelles bases de code, les nouveaux frameworks et les nouveaux outils. Une fois par semaine, vous pourrez identifier d'un coup d'œil l'objectif et la structure d'un module ou d'un système principal."
+      }
+    ]
+  },
+  "proficiencies": {
+    "title": "Langues et compétences",
+    "value": [
+      "typescript",
+      "html",
+      "css",
+      "tailwind",
+      "nodejs",
+      "java",
+      "csharp",
+      "kotlin",
+      "python",
+      "vue",
+      "react",
+      "astro",
+      "nextjs",
+      "nuxt",
+      "express",
+      "fastify",
+      "spring",
+      "flask"
+    ],
+    "valueTwo": [
+      "prisma",
+      "mongodb",
+      "postgresql",
+      "tanstack",
+      "strapi",
+      "mapbox",
+      "githubactions",
+      "git",
+      "docker",
+      "vite",
+      "vitest",
+      "jest",
+      "appium",
+      "appium-1"
+    ]
+  },
+  "scroller": "characterhistory"
+}

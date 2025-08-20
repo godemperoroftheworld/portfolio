@@ -3649,6 +3649,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"astro-i18n-aut@npm:^0.7.3":
+  version: 0.7.3
+  resolution: "astro-i18n-aut@npm:0.7.3"
+  dependencies:
+    dedent: ^1.5.3
+    fast-glob: ^3.3.2
+    fs-extra: ^11.2.0
+    slash: ^5.1.0
+  peerDependencies:
+    astro: ^5.0.0
+  checksum: 5269a09c3d2965d799fc23ff06a86962f8fc2d63c44df53d537844db1e02384467bbf1c33bc64007ba275f16860f4a2fb5454436f334a0da30338cd8f7ee3adf
+  languageName: node
+  linkType: hard
+
 "astro-paper@workspace:.":
   version: 0.0.0-use.local
   resolution: "astro-paper@workspace:."
@@ -3673,6 +3687,7 @@ __metadata:
     animate.css: ^4.1.1
     aos: ^2.3.4
     astro: ^5.12.7
+    astro-i18n-aut: ^0.7.3
     commitizen: ^4.3.0
     commitlint: ^19.8.1
     cz-conventional-changelog: ^3.3.0
@@ -4788,6 +4803,18 @@ __metadata:
   version: 0.7.0
   resolution: "dedent@npm:0.7.0"
   checksum: 87de191050d9a40dd70cad01159a0bcf05ecb59750951242070b6abf9569088684880d00ba92a955b4058804f16eeaf91d604f283929b4f614d181cd7ae633d2
+  languageName: node
+  linkType: hard
+
+"dedent@npm:^1.5.3":
+  version: 1.6.0
+  resolution: "dedent@npm:1.6.0"
+  peerDependencies:
+    babel-plugin-macros: ^3.1.0
+  peerDependenciesMeta:
+    babel-plugin-macros:
+      optional: true
+  checksum: ecaa83968b3db4ffeadf8f679c01280f8679ec79993d7e203c0281d7926e883bb79f42b263ba0df1f78e146e4b0be1b9a5b922b1fe040cb89b09977bc9c25b38
   languageName: node
   linkType: hard
 
@@ -10352,6 +10379,13 @@ __metadata:
   version: 4.0.0
   resolution: "slash@npm:4.0.0"
   checksum: da8e4af73712253acd21b7853b7e0dbba776b786e82b010a5bfc8b5051a1db38ed8aba8e1e8f400dd2c9f373be91eb1c42b66e91abb407ff42b10feece5e1d2d
+  languageName: node
+  linkType: hard
+
+"slash@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "slash@npm:5.1.0"
+  checksum: 70434b34c50eb21b741d37d455110258c42d2cf18c01e6518aeb7299f3c6e626330c889c0c552b5ca2ef54a8f5a74213ab48895f0640717cacefeef6830a1ba4
   languageName: node
   linkType: hard
 

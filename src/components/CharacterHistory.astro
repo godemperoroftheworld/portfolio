@@ -5,9 +5,13 @@ import HistoryMapCard from "./history/details/HistoryMapCard.vue";
 import HistoryTimeline from "./history/timeline/HistoryTimeline.vue";
 import Scroller from "@/components/ui/client/Scroller.vue";
 import { getEntry } from "astro:content";
+import { localizePath } from "../utils/locale";
 
-const history = await getEntry("history", "history")!;
-const scroller = await getEntry("scroller", history.data.scroller)!;
+const history = await getEntry("history", localizePath(Astro, "history"))!;
+const scroller = await getEntry(
+  "section",
+  localizePath(Astro, history.data.scroller)
+)!;
 
 const steps = history.data.events.map(event => ({
   label: event.label,
@@ -66,6 +70,6 @@ const steps = history.data.events.map(event => ({
     elementId={scroller.data.target}
     client:load
   >
-    {scroller.data.title}
+    {scroller.data.prompt}
   </Scroller>
 </section>

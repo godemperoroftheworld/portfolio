@@ -1,0 +1,63 @@
+{
+  "picture": "/src/assets/avatar.jpg",
+  "facts": [
+    {
+      "label": "Nom de Personnage",
+      "value": "Tenzin Pelletier",
+      "id": "name"
+    },
+    {
+      "label": "Pronoms",
+      "value": "iel",
+      "id": "pronouns"
+    },
+    {
+      "label": "Classes et Niveaux",
+      "value": "Artificier Logiciel (Frontend) 3",
+      "id": "class"
+    },
+    {
+      "label": "Espèce",
+      "value": "Humain (variante)",
+      "id": "species"
+    },
+    {
+      "label": "Origines",
+      "value": "Science Informatique / Cinéma",
+      "id": "background"
+    },
+    {
+      "label": "Alignement",
+      "value": "Chaotique Bon",
+      "id": "alignment"
+    }
+  ],
+  "traits": [
+    {
+      "label": "Traits de personnalité",
+      "value": [
+        "Je suis passionné par la narration interactive.",
+        "Je suis un apprenant permanent dans l'âme. Je n'en sais jamais assez."
+      ]
+    },
+    {
+      "label": "Idéaux",
+      "value": [
+        "Les besoins réels des gens devraient être le moteur de l’innovation technologique."
+      ]
+    },
+    {
+      "label": "Obligations",
+      "value": [
+        "Je veux que mon travail ait un sens et qu'il rende la journée de quelqu'un un peu meilleure."
+      ]
+    },
+    {
+      "label": "Défauts",
+      "value": [
+        "Mon hyperconcentration sur mes tâches principales peut entraîner des manquements dans mes responsabilités auxiliaires."
+      ]
+    }
+  ],
+  "scroller": "charactersheet"
+}

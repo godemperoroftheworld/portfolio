@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import { localizePath } from "../../utils/locale";
 interface Props {
   name: string;
   stat: string;
@@ -7,7 +8,7 @@ interface Props {
 }
 
 const { name, stat, description } = Astro.props;
-const entry = await getEntry("stats", stat);
+const entry = await getEntry("stats", localizePath(Astro, stat));
 ---
 
 <div>

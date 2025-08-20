@@ -3,8 +3,9 @@ import LinkIcon from "@/components/ui/client/LinkIcon.vue";
 import Typed from "@/components/ui/client/Typed.vue";
 
 import { getEntries, getEntry } from "astro:content";
+import { localizePath } from "../utils/locale";
 
-const contact = await getEntry("contact", "contact")!;
+const contact = await getEntry("contact", localizePath(Astro, "contact"))!;
 const icons = await getEntries(contact.data.links)!;
 ---
 

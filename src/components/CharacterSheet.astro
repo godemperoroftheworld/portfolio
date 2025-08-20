@@ -7,12 +7,16 @@ import SkillsCarousel from "@/components/sheet/ProficiencyCarousel.vue";
 import Scroller from "@/components/ui/client/Scroller.vue";
 import DiceBox from "@/components/ui/DiceBox.astro";
 import { getEntry, getCollection, getEntries } from "astro:content";
+import { getLocaleFilter, localizePath } from "../utils/locale";
 
-const sheet = await getEntry("sheet", "sheet")!;
-const stats = await getCollection("stats")!;
+const sheet = await getEntry("sheet", localizePath(Astro, "sheet"))!;
+const stats = await getCollection("stats", getLocaleFilter(Astro))!;
 const icons = await getEntries(sheet.data.proficiencies.value);
 const iconsTwo = await getEntries(sheet.data.proficiencies.valueTwo);
-const scroller = await getEntry("scroller", sheet.data.scroller)!;
+const scroller = await getEntry(
+  "section",
+  localizePath(Astro, sheet.data.scroller)
+)!;
 ---
 
 <section
@@ -21,14 +25,13 @@ const scroller = await getEntry("scroller", sheet.data.scroller)!;
 >
   <div class="my-auto">
     <div class="my-auto flex gap-6 max-md:flex-col lg:max-w-5xl">
-      <Card padding={4}>
-        <h1
-          class="text-primary-500 mb-4 select-none text-center text-xl font-bold uppercase"
-        >
-          {sheet.data.stats.title}
-        </h1>
+      <Card
+        class="max-w-fit grow-0"
+        heading={sheet.data.stats.title}
+        padding={4}
+      >
         <div
-          class="flex h-full flex-wrap justify-center gap-3 md:flex-col md:justify-around"
+          class="flex h-full max-w-fit grow-0 flex-wrap justify-center gap-3 md:flex-col md:justify-around"
         >
           {
             stats.map(stat => (
@@ -56,12 +59,7 @@ const scroller = await getEntry("scroller", sheet.data.scroller)!;
         </div>
       </Card>
       <div class="flex flex-col gap-6 overflow-hidden">
-        <Card class="grow" padding={4}>
-          <h1
-            class="text-primary-500 mb-4 select-none text-center text-xl font-bold uppercase"
-          >
-            {sheet.data.features.title}
-          </h1>
+        <Card heading={sheet.data.features.title} class="grow" padding={4}>
           <div
             class="flex grow flex-col justify-around gap-2 overflow-y-scroll md:max-h-96"
           >
@@ -77,7 +75,7 @@ const scroller = await getEntry("scroller", sheet.data.scroller)!;
           </div>
         </Card>
         <Card
-          heading="Languages & Proficiencies"
+          heading={sheet.data.proficiencies.title}
           data-aos-offset="-25"
           padding={4}
         >
@@ -103,7 +101,7 @@ const scroller = await getEntry("scroller", sheet.data.scroller)!;
       elementId={scroller.data.target}
       client:load
     >
-      {scroller.data.title}
+      {scroller.data.prompt}
     </Scroller>
   </div>
   <DiceBox />

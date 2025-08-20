@@ -23,9 +23,10 @@ collections:
     i18n: true
     identifier_field: id
     fields:
-      - { label: ID, name: id, widget: string }
+      - { label: ID, name: id, widget: string, i18n: duplicate }
       - { label: Label, name: label, widget: string, i18n: true }
-      - { label: Value, name: value, widget: number }
+      - { label: Value, name: value, widget: number, i18n: duplicate }
+      - { label: Order, name: order, widget:  }
   - name: links
     label: Links
     folder: src/content/links
@@ -36,9 +37,9 @@ collections:
       - { label: Label, name: label, widget: string }
       - { label: URL, name: href, widget: string, required: false }
       - { label: "Is Large?", name: large, widget: boolean, required: false }
-  - name: scroller
-    label: Scroller
-    folder: src/content/scroller
+  - name: section
+    label: Sections
+    folder: src/content/section
     create: true
     i18n: true
     identifier_field: target
@@ -47,144 +48,180 @@ collections:
         name: target
         widget: select
         options:
+          - characterProfile
           - characterSheet
           - characterHistory
           - characterInventory
           - sendARaven
+        i18n: duplicate
       - label: Title
         name: title
         widget: string
         i18n: true
+      - label: Prompt
+        name: prompt
+        widget: string
+        required: false
+        i18n: true
 singletons:
   - name: "profile"
     label: "Profile"
-    file: src/content/profile/profile.json
+    file: src/content/profile/{{locale}}/profile.json
+    i18n: true
     fields:
       - label: Picture
         name: picture
         widget: image
+        i18n: duplicate
       - label: Facts
         name: facts
         widget: list
+        i18n: true
         fields:
-          - { label: Label, name: label, widget: string }
-          - { label: Value, name: value, widget: string }
+          - { label: Label, name: label, widget: string, i18n: true }
+          - { label: Value, name: value, widget: string, i18n: true }
       - label: Traits
         name: traits
         widget: list
+        i18n: true
         fields:
-          - { label: Label, name: label, widget: string }
+          - { label: Label, name: label, widget: string, i18n: true }
           - label: Value
             name: value
             widget: list
+            i18n: true
             field:
               widget: string
+              i18n: true
       - label: Scroller
-        name: scroller
+        name: section
         widget: relation
-        collection: scroller
+        i18n: duplicate
+        collection: section
   - name: sheet
     label: Sheet
-    file: src/content/sheet/sheet.json
+    file: src/content/sheet/{{locale}}/sheet.json
+    i18n: true
     fields:
       - label: Stats
         name: stats
         widget: object
+        i18n: true
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string, i18n: true }
       - label: Skills
         name: skills
         widget: object
+        i18n: true
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string, i18n: true }
           - label: Entries
             name: entries
             widget: list
+            i18n: true
             fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Stat, name: stat, widget: relation, collection: stats }
+              - { label: Name, name: name, widget: string, i18n: true }
+              - { label: Stat, name: stat, widget: relation, collection: stats, i18n: duplicate }
       - label: Features
         name: features
         widget: object
+        i18n: duplicate
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string, i18n: true }
           - label: Entries
             name: entries
             widget: list
+            i18n: true
             fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Stat, name: stat, widget: relation, collection: stats }
-              - { label: Description, name: description, widget: string }
+              - { label: Name, name: name, widget: string, i18n: true }
+              - { label: Stat, name: stat, widget: relation, collection: stats, i18n: duplicate }
+              - { label: Description, name: description, widget: string, i18n: true }
       - label: Proficiencies
         name: proficiencies
         widget: object
+        i18n: true
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: string, i18n: true }
           - label: Value
             name: value
             widget: list
+            i18n: duplicate
             field:
              widget: relation
              collection: links
+             i18n: true
           - label: "Value (Two)"
             name: valueTwo
             widget: list
+            i18n: duplicate
             field:
               widget: relation
               collection: links
+              i18n: true
       - label: Scroller
-        name: scroller
+        name: section
         widget: relation
-        collection: scroller
+        collection: section
+        i18n: duplicate
   - name: history
     label: History
-    file: src/content/history/history.json
+    file: src/content/history/{{locale}}/history.json
+    i18n: true
     fields:
-      - { label: Title, name: title, widget: string }
+      - { label: Title, name: title, widget: string, i18n: true }
       - label: Events
         name: events
         widget: list
+        i18n: true
         fields:
-          - { label: Label, name: label, widget: string }
-          - { label: Description, name: description, widget: string }
-          - { label: Coordinate, name: coordinate, widget: map, type: Point }
-          - { label: Icon, name: icon, widget: image }
-          - { label: "Start Date", name: startDate, widget: datetime}
-          - { label: "End Date", name: endDate, widget: datetime, required: false }
+          - { label: Label, name: label, widget: string, i18n: trues }
+          - { label: Description, name: description, widget: string, i18n: true }
+          - { label: Coordinate, name: coordinate, widget: map, type: Point, i18n: duplicate }
+          - { label: Icon, name: icon, widget: image, i18n: duplicate }
+          - { label: "Start Date", name: startDate, widget: datetime, i18n: duplicate }
+          - { label: "End Date", name: endDate, widget: datetime, required: false, i18n: duplicate }
       - label: Scroller
-        name: scroller
+        name: section
         widget: relation
-        collection: scroller
+        collection: section
+        i18n: duplicate
   - name: inventory
     label: Inventory
-    file: src/content/inventory/inventory.json
+    file: src/content/inventory/{{locale}}/inventory.json
+    i18n: true
     fields:
-      - { label: Title, name: title, widget: string }
+      - { label: Title, name: title, widget: string, i18n: true }
       - label: Projects
         name: projects
         widget: list
+        i18n: true
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Icon, name: icon, widget: image }
-          - { label: Description, name: description, widget: string }
-          - { label: URL, name: url, widget: string, required: false }
+          - { label: Title, name: title, widget: string, i18n: duplicate }
+          - { label: Icon, name: icon, widget: image, i18n: duplicate }
+          - { label: Description, name: description, widget: string, i18n: true }
+          - { label: URL, name: url, widget: string, required: false, i18n: duplicate }
           - label: Links
             name: links
             widget: list
+            i18n: duplicate
             field:
               widget: relation
               collection: links
-      - { label: Scroller, name: scroller, widget: relation, collection: scroller }
+              i18n: duplicate
+      - { label: Scroller, name: section, widget: relation, collection: section, i18n: duplicate }
   - name: contact
     label: Contact
-    file: src/content/contact/contact.json
+    file: src/content/contact/{{locale}}/contact.json
+    i18n: true
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: "Line One Text", name: lineOneText, widget: string }
-      - { label: "Line Two Text", name: lineTwoText, widget: string }
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: "Line One Text", name: lineOneText, widget: string, i18n: true }
+      - { label: "Line Two Text", name: lineTwoText, widget: string, i18n: true }
       - label: Links
         name: links
         widget: list
+        i18n: duplicate
         field:
           widget: relation
           collection: links
+          i18n: duplicate

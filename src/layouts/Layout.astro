@@ -14,6 +14,8 @@ import "@/styles/base.css";
 
 import ThemeToggle from "@/components/ui/client/ThemeToggle.vue";
 import HeaderLink from "@/components/ui/client/HeaderLink.vue";
+import { getCollection } from "astro:content";
+import { getLocaleFilter } from "../utils/locale";
 
 interface Props {
   title: string;
@@ -21,6 +23,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const sections = await getCollection("section", getLocaleFilter(Astro));
 ---
 
 <html
@@ -45,33 +49,17 @@ const { title, description } = Astro.props;
     <header
       class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-4 bg-white/75 p-4 dark:bg-black/75"
     >
-      <HeaderLink
-        class="max-md:hidden"
-        client:load
-        elementId="characterProfile"
-      >
-        Profile
-      </HeaderLink>
-      <HeaderLink class="max-md:hidden" client:load elementId="characterSheet">
-        Sheet
-      </HeaderLink>
-      <HeaderLink
-        class="max-md:hidden"
-        client:load
-        elementId="characterHistory"
-      >
-        Backstory
-      </HeaderLink>
-      <HeaderLink
-        class="max-md:hidden"
-        client:load
-        elementId="characterInventory"
-      >
-        Inventory
-      </HeaderLink>
-      <HeaderLink class="max-md:hidden" client:load elementId="sendARaven">
-        Contact
-      </HeaderLink>
+      {
+        sections.map(section => (
+          <HeaderLink
+            class="max-md:hidden"
+            elementId={section.data.target}
+            client:load
+          >
+            {section.data.title}
+          </HeaderLink>
+        ))
+      }
       <ThemeToggle client:load />
     </header>
     <main class="relative flex flex-col items-center gap-8 px-4">

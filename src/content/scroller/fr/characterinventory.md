@@ -1,3 +1,0 @@
----
-title: Regarder mon Inventaire
----

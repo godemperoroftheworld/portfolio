@@ -2,9 +2,16 @@
 import InventoryCard from "./inventory/InventoryCard.astro";
 import Scroller from "@/components/ui/client/Scroller.vue";
 import { getEntry } from "astro:content";
+import { localizePath } from "../utils/locale";
 
-const inventory = await getEntry("inventory", "inventory")!;
-const scroller = await getEntry("scroller", inventory.data.scroller)!;
+const inventory = await getEntry(
+  "inventory",
+  localizePath(Astro, "inventory")
+)!;
+const scroller = await getEntry(
+  "section",
+  localizePath(Astro, inventory.data.scroller)
+)!;
 ---
 
 <section
@@ -41,7 +48,7 @@ const scroller = await getEntry("scroller", inventory.data.scroller)!;
       elementId={scroller.data.target}
       client:load
     >
-      {scroller.data.title}
+      {scroller.data.prompt}
     </Scroller>
   </div>
 </section>
