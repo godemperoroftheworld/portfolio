@@ -10,6 +10,7 @@ import "vue3-toastify/dist/index.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "animate.css";
 import "@/styles/base.css";
+import "aos/dist/aos.css";
 
 import ThemeToggle from "@/components/ui/client/ThemeToggle.vue";
 import LanguageToggle from "@/components/ui/client/LanguageToggle.vue";
@@ -53,7 +54,6 @@ const sections = sectionsUnsorted.toSorted(
       }}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="stylesheet" href="/style/aos.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <script is:inline>
@@ -61,8 +61,8 @@ const sections = sectionsUnsorted.toSorted(
         document.documentElement.classList.add("dark");
       }
     </script>
-    <script is:inline src="/scripts/aos.js"></script>
-  </head><body class="relative">
+  </head>
+  <body class="relative">
     <header
       class="border-b-primary-500 border-b-0.5 fixed left-0 top-0 z-10 flex h-16 w-dvw items-center justify-end gap-4 bg-white/75 p-4 dark:bg-black/75"
     >
@@ -83,9 +83,11 @@ const sections = sectionsUnsorted.toSorted(
     <main class="relative flex flex-col items-center gap-8 px-4">
       <slot />
     </main>
-    <script is:inline>
+    <script>
+      import AOS from "aos";
       AOS.init({
         once: true,
+        startEvent: "load",
       });
     </script>
   </body>
