@@ -38,12 +38,12 @@ const steps = history.data.events.map(event => ({
           {history.data.title}
         </h1>
         <Card animation="zoom-in">
-          <Mapbox client:load class="aspect-[4/3] w-full" steps={steps} />
+          <Mapbox client:visible class="aspect-[4/3] w-full" steps={steps} />
         </Card>
       </div>
       <HistoryMapCard
         data-aos="zoom-in"
-        client:only="vue"
+        client:idle
         class="mt-6 h-64 lg:hidden"
         steps={steps}
       />
@@ -58,7 +58,7 @@ const steps = history.data.events.map(event => ({
       <HistoryTimeline
         class="my-auto shrink-0 max-md:mx-auto max-md:h-fit max-md:min-h-full max-md:w-full md:-mb-16"
         data-aos="fade-right"
-        client:load
+        client:idle
         steps={steps}
       />
     </div>
@@ -68,7 +68,7 @@ const steps = history.data.events.map(event => ({
     data-aos="zoom-in"
     data-aos-offset="-25"
     elementId={scroller.data.target}
-    client:load
+    client:idle
   >
     {scroller.data.prompt}
   </Scroller>
