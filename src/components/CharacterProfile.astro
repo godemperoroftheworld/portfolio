@@ -34,12 +34,11 @@ const scroller = await getEntry(
     </div>
     <Card class="animate animate-zoom-in aspect-square max-w-lg">
       <Image
-        class="max-w-full"
         src={profile.data.picture}
         alt="Avatar"
         priority={true}
-        widths={[420, 640, 869]}
-        sizes="(max-width: 420px) 420px, (max-width: 640px) 640px, 869px"
+        layout="constrained"
+        widths={[320, 480, 640, 768, 869]}
       />
     </Card>
     <div class="flex w-80 min-w-64 flex-col justify-center gap-4 max-lg:hidden">
