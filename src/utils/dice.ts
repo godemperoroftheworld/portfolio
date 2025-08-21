@@ -21,7 +21,9 @@ const useDiceBox = createSharedComposable(() => {
     offscreen: false,
   });
 
-  const isDark = useDark();
+  const isDark = useDark({
+    disableTransition: false,
+  });
   const { width } = useWindowSize();
   const scale = refDebounced(
     toRef(() => {

@@ -13,19 +13,20 @@ function onClick() {
 </script>
 
 <template>
-  <div
+  <button
+    @click="onClick"
+    @keyup.enter="onClick"
     v-bind="$attrs"
-    class="font-heading text-primary-500 mx-auto w-fit text-lg font-bold"
+    class="font-heading text-primary-500 pointer-events-none mx-auto block w-fit text-lg font-bold"
   >
-    <button @click="onClick" class="peer block w-fit cursor-pointer">
+    <div class="peer pointer-events-auto block w-fit cursor-pointer">
       <slot />
-    </button>
-    <button
-      @click="onClick"
+    </div>
+    <div
       aria-label="Scroll to Next Section"
-      class="mx-auto mt-4 block w-fit animate-bounce cursor-pointer transition-all duration-200 hover:scale-125 peer-hover:scale-125"
+      class="pointer-events-auto mx-auto mt-4 block w-fit animate-bounce cursor-pointer transition-all duration-200 hover:scale-125 peer-hover:scale-125"
     >
       <ChevronDown class="size-12" />
-    </button>
-  </div>
+    </div>
+  </button>
 </template>

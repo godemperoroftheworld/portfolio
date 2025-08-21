@@ -14,14 +14,14 @@ const icons = await getEntries(links);
 ---
 
 <div class="svg-wrapper text-primary-500 size-24">
-  <Icon path={icon} client:idle />
+  <Icon path={icon} client:visible />
 </div>
 <div class="max-h-30 grow overflow-y-scroll text-center">
   {description}
 </div>
 <InventoryCarousel
   class="max-w-full"
-  client:idle
+  client:visible
   links={icons.map(i => ({
     label: i.data.label,
     icon: i.data.icon,

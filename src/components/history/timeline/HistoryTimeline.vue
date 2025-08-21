@@ -36,6 +36,7 @@ function onClickStep(idx: number) {
           v-for="(step, idx) in steps"
           :key="idx"
           @click="() => onClickStep(idx)"
+          @keyup.enter="() => onClickStep(idx)"
         >
           <history-timeline-step
             v-if="step"

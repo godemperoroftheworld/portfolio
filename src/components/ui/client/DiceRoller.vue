@@ -9,7 +9,9 @@ interface Props {
 const { modifier } = defineProps<Props>();
 
 const diceBox = useDiceBox();
-const isDark = useDark();
+const isDark = useDark({
+  disableTransition: false,
+});
 
 async function onClick() {
   const [result] = await diceBox.add({ qty: 1, sides: 20 });

@@ -36,10 +36,13 @@ const selectedLocale = computed({
 
 <template>
   <Listbox v-model="selectedLocale">
-    <div class="relative" style="--cutout-corner: 0.5em">
+    <div
+      class="dark:ring-silver-300 relative focus-within:ring"
+      style="--cutout-corner: 0.5em"
+    >
       <div class="cutout p-0.25 bg-primary-500">
         <ListboxButton
-          class="cutout not-dark:hover:text-white hover:bg-silver-500/50 dark:hover:bg-silver-700/75 flex h-8 w-16 cursor-pointer items-center justify-around bg-white px-2 py-1 font-bold uppercase dark:bg-black"
+          class="cutout not-dark:hover:text-white hover:bg-silver-500/50 dark:hover:bg-silver-700/75 flex h-8 w-16 cursor-pointer items-center justify-around bg-white px-2 py-1 font-bold uppercase focus:ring dark:bg-black"
         >
           <div class="h-4 leading-[1.2]">
             {{ LOCALE_MAP[locale] }}

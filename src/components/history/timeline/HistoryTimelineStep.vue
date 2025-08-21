@@ -4,7 +4,7 @@
     :class="{
       'animate-heartbeat scale-125': isActive,
     }"
-    class="iteration-infinite bg-primary-500 pointer-events-auto -ml-[0.3px] size-3 -translate-x-1/2 rounded-full transition-transform duration-200 group-hover:scale-150"
+    class="iteration-infinite bg-primary-500 pointer-events-auto -ml-[0.3px] size-3 -translate-x-1/2 rounded-full transition-transform duration-200 group-focus-within:scale-150 group-hover:scale-150"
   />
   <!-- Content -->
   <div
@@ -12,12 +12,13 @@
       'max-md:max-h-dvh! max-w-72 translate-x-2.5 max-md:relative max-md:-mb-16 max-md:-mt-2':
         isActive,
     }"
-    class="max-md:border-primary-500 transition-transform-extended pointer-events-auto absolute -top-2 left-4 max-h-[70px] min-w-72 cursor-pointer transition-transform duration-200 group-hover:translate-x-4 max-md:border max-md:p-2"
+    class="max-md:border-primary-500 transition-transform-extended pointer-events-auto absolute -top-2 left-4 max-h-[70px] min-w-72 cursor-pointer transition-transform duration-200 group-focus-within:translate-x-4 group-hover:translate-x-4 max-md:border max-md:p-2"
   >
     <div class="flex items-center gap-2">
       <Icon
         :path="step.icon"
-        class="outline-primary-500 flex size-8 items-center justify-center rounded-full p-1.5 outline"
+        tabindex="0"
+        class="outline-primary-500 dark:ring-silver-300 flex size-8 items-center justify-center rounded-full p-1.5 outline ring-offset-2 focus:ring"
       />
       <span
         :class="isActive ? 'text-primary-300' : 'text-primary-500'"
