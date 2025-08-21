@@ -11,6 +11,11 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL || "http://localhost:4321",
+  image: {
+    layout: "constrained",
+    breakpoints: [420, 640, 750, 828, 1080, 1280, 1668, 2048, 2560],
+    responsiveStyles: true,
+  },
   integrations: [
     sitemap({
       i18n: {
