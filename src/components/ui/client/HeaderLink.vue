@@ -33,7 +33,7 @@ onMounted(async () => {
 
 <template>
   <button
-    class="text-primary-500 hover:bg-silver-500/50 dark:hover:bg-silver-700/75 block cursor-pointer p-2 font-bold uppercase focus:ring"
+    class="text-primary-500 hover:bg-silver-500/50 dark:hover:bg-silver-700/75 block cursor-pointer p-2 font-bold uppercase"
     :class="{
       'text-primary-100!': elementVisible,
     }"
