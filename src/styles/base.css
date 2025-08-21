@@ -59,7 +59,7 @@
   --color-success-200: oklch(0.905 0.093 164.15);
   --color-success-300: oklch(0.845 0.143 164.978);
   --color-success-400: oklch(0.765 0.177 163.223);
-  --color-success-500: oklch(0.696 0.17 162.48);  
+  --color-success-500: oklch(0.696 0.17 162.48);
   --color-success-600: oklch(0.596 0.145 163.225);
   --color-success-700: oklch(0.508 0.118 165.612);
   --color-success-800: oklch(0.432 0.095 166.913);
@@ -129,6 +129,7 @@ html:not(.dark) {
 
 :root {
   --toastify-color-progress-dark: var(--color-primary-500) !important;
+  --toastify-color-info: var(--color-primary-500) !important;
 }
 
 html {
