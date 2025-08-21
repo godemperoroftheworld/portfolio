@@ -36,11 +36,9 @@ const scroller = await getEntry(
       <Image
         src={profile.data.picture}
         alt="Avatar"
-        loading="eager"
-        fetchpriority="high"
+        priority={true}
         layout="constrained"
-        width="504"
-        height="504"
+        widths={[320, 480, 640, 768, 869]}
       />
     </Card>
     <div class="flex w-80 min-w-64 flex-col justify-center gap-4 max-lg:hidden">
