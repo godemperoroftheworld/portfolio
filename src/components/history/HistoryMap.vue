@@ -107,7 +107,7 @@ function directFlight(step: number) {
   setTimeout(() => {
     // Restore pane
     hidePane.value = false;
-  }, duration * 0.75);
+  }, duration * 0.7);
 }
 function updateMapLine(map: mapboxgl.Map) {
   const source = map.getSource("route") as GeoJSONSource;
