@@ -22,19 +22,19 @@ const icons = await getEntries(contact.data.links)!;
     </h1>
     <Typed
       client:visible
-      delay={1000}
+      delay={750}
       class="mb-12 text-lg"
       text={contact.data.lineOneText}
     />
     <Typed
       client:visible
-      delay={5000}
+      delay={4250}
       text={contact.data.lineTwoText}
       class="text-success-500 mb-4 text-xl font-bold"
     />
     <div
       data-aos="fade-up"
-      data-aos-delay="7500"
+      data-aos-delay="6500"
       data-aos-duration="500"
       class="mx-auto mb-4 flex w-fit flex-wrap justify-center gap-6 gap-y-4"
     >
@@ -55,7 +55,7 @@ const icons = await getEntries(contact.data.links)!;
 </section>
 
 <style>
-  [data-aos-delay="7500"].aos-animate {
-    transition-delay: 7500ms;
+  [data-aos-delay="6500"].aos-animate {
+    transition-delay: 6500ms;
   }
 </style>

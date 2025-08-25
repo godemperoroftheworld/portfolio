@@ -2,7 +2,7 @@
 import { computed, ref, useTemplateRef, watch } from "vue";
 import { useElementVisibility } from "@vueuse/core";
 
-const TYPING_SPEED = 92;
+const TYPING_SPEED = 92; // How fast I type in real life (130wpm), assuming average word has 5 characters
 const FLASH_SPEED = 500;
 
 interface Props {
