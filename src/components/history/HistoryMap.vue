@@ -37,6 +37,7 @@ function initMap(map: mapboxgl.Map) {
   steps.forEach((step, idx) => {
     const node = createMarkerNode(() => (
       <button
+        tabindex="-1"
         class="mb-4 block cursor-pointer"
         aria-label={step.label}
         onClick={() => setStep(idx)}
