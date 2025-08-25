@@ -173,11 +173,11 @@ h1,h2,h3,h4,h5,h6 {
   }
 
   .animate-flip-in {
-    animation: swing-in-top-bck 0.75s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-bck 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
   }
 
   .animate-flip-out {
-    animation: swing-out-top-fwd 0.75s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+    animation: swing-out-top-fwd 1s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
   }
 
   .animate-zoom-in {
