@@ -20,7 +20,7 @@ onBeforeMount(() => {
 
 <template>
   <div
-    class="z-1 dark:ring-silver-300 relative cursor-pointer select-none focus-within:ring"
+    class="z-1 dark:ring-silver-300 has-focus-visible:ring relative cursor-pointer select-none"
   >
     <Switch
       v-model="isDark"
