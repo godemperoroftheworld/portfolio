@@ -18,21 +18,6 @@
       ]
     },
     {
-      "title": "Divestrael",
-      "icon": "@assets/icons/Palestine.svg",
-      "description": "Divestrael is a web app that aims to facilitate the boycotting of companies that are complicit in Israel's genocide of the palestinian people.",
-      "url": "https://divestrael.vercel.app",
-      "links": [
-        "typescript",
-        "tailwind",
-        "react",
-        "nextjs",
-        "fastify",
-        "prisma",
-        "mongodb"
-      ]
-    },
-    {
       "title": "Portfolio",
       "icon": "@assets/icons/User.svg",
       "description": "My portfolio website. You're on it right now!",
