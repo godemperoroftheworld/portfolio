@@ -2,8 +2,8 @@ backend:
   name: github
   branch: main
   repo: godemperoroftheworld/portfolio
-  site_domain: t2pellet.vercel.app
-  base_url: https://t2pellet.vercel.app
+  site_domain: tenzin.live
+  base_url: https://tenzin.live
   auth_endpoint: oauth
 media_folder: "src/assets"
 public_folder: "@assets"
