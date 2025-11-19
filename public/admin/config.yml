@@ -3,7 +3,7 @@ backend:
   branch: main
   repo: godemperoroftheworld/portfolio
   site_domain: tenzin.live
-  base_url: https://tenzin.live
+  base_url: https://www.tenzin.live
   auth_endpoint: oauth
 media_folder: "src/assets"
 public_folder: "@assets"

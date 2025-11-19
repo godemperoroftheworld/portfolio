@@ -7,6 +7,7 @@ import svgLoader from "vite-svg-loader";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import vercel from "@astrojs/vercel";
 import robotsTxt from "astro-robots-txt";
+import decapCMS from "astro-decap-cms-oauth";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +26,9 @@ export default defineConfig({
           fr: "fr-CA",
         },
       },
+    }),
+    decapCMS({
+      decapCMSSrcUrl: "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js",
     }),
     vue({ devtools: true, appEntrypoint: "/src/pages/_app" }),
     robotsTxt(),

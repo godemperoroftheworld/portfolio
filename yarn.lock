@@ -3831,6 +3831,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"astro-decap-cms-oauth@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "astro-decap-cms-oauth@npm:0.5.1"
+  peerDependencies:
+    astro: ^5.0.0
+  checksum: 92f78379cb7aac81972df3095991d27f4b6a8ee6ee452a24d7f34e6f9189afc6a37aab07b5651bf7dc251d5bd3750a7877b57afdaa6a35284eb85b2351f4498e
+  languageName: node
+  linkType: hard
+
 "astro-eslint-parser@npm:^1.0.2":
   version: 1.2.2
   resolution: "astro-eslint-parser@npm:1.2.2"
@@ -3875,6 +3884,7 @@ __metadata:
     animate.css: ^4.1.1
     aos: ^2.3.4
     astro: ^5.12.7
+    astro-decap-cms-oauth: ^0.5.1
     astro-robots-txt: ^1.0.0
     astro-seo: ^0.8.4
     commitizen: ^4.3.0
