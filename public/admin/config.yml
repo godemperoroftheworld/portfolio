@@ -16,6 +16,17 @@ i18n:
     - fr
   structure: multiple_folders
 collections:
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    i18n: false
+    identifier_field: id
+    fields:
+      - { label: ID, name: id, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: Content, name: content, widget: markdown }
   - name: stats
     label: Stats
     folder: src/content/stats
