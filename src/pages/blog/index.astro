@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Card from "@/components/ui/Card.astro";
+import Image from "astro/components/Image.astro";
+import BlogPath from "@/components/blog/BlogPath.vue";
+
+const entries = await getCollection("blog")!;
+---
+
+<Layout title="Tenzin's Blog" description="Tenzin's Blog Description">
+  <div class="pt-20 flex flex-col gap-12 w-4xl 2xl:w-5xl">
+    {
+      entries.map((e, idx) => (
+        <Card class={`blog-card cursor-pointer h-64 w-lg  hover:scale-105 transition-transform ${idx % 2 === 0 ? 'self-start' : 'self-end'}`} heading={e.data.title} onclick="">
+          <div class="pb-4 px-4 flex flex-col overflow-hidden">
+            <div class="grid grid-cols-2 gap-4 shrink min-h-0 relative">
+              <Image class="col-span-1 max-h-full min-h-0 w-full object-cover" src={e.data.image} alt={e.data.title} />
+              <p class="col-span-1 text-ellipsis">
+                { e.data.description }
+              </p>
+            </div>
+          </div>
+        </Card>
+      ))
+    }
+    <BlogPath cardSelector=".blog-card" client:only />
+  </div>
+</Layout>

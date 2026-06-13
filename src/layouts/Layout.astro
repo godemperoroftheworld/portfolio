@@ -105,6 +105,9 @@ const sections = sectionsUnsorted.toSorted(
         once: true,
         startEvent: "load",
       });
+      document.addEventListener('aos:in', (e) => {
+        document.dispatchEvent(new CustomEvent('aos:in:relay', { detail: e.detail }))
+      })
     </script>
   </body>
 </html>
