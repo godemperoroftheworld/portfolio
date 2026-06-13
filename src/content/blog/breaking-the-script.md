@@ -1,7 +1,7 @@
 ---
 id: breaking-the-script
 title: Breaking the Script
-description: A film program essay on "I Saw the TV Glow", "The Matrix" and "Love Lies Bleeding"
+description: A film program essay on "I Saw the TV Glow", "The Matrix" and "Love Lies Bleeding", emphasizing the destabilizing and transformative power of trans aesthetics. Written for my queer & trans media analysis course at Concordia University
 date: 2026-04-23
 image: '@assets/blog/breaking-the-script/image17.png'
 ---
