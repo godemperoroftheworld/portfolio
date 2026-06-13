@@ -25,7 +25,8 @@ function initLines() {
         startSocket: i % 2 === 0 ? "right" : "left",
         endSocket: "top",
         size: 4,
-        endPlug: "disc",
+        startPlug: "disc",
+        endPlug: "behind",
       })
     );
   });
