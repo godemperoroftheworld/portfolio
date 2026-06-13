@@ -80,10 +80,10 @@ const sections = sectionsUnsorted.toSorted(
       import scrollToElement from "@/utils/scroll.ts";
 
       window.addEventListener('load', () => {
-        const target = sessionStorage.getItem('scrollOnLoad')
+        const target = sessionStorage.getItem('scrollOnLoad');
         if (target) {
-          sessionStorage.removeItem('scrollOnLoad')
-          scrollToElement(target)
+          sessionStorage.removeItem('scrollOnLoad');
+          setTimeout(() => scrollToElement(target), 250);
         }
       })
     </script>
@@ -97,7 +97,6 @@ const sections = sectionsUnsorted.toSorted(
           sections.map(section => (
             <HeaderLink
               class="max-md:hidden"
-              route="/"
               elementId={section.data.target}
               client:idle
             >
@@ -109,7 +108,7 @@ const sections = sectionsUnsorted.toSorted(
           Blog
         </HeaderLink>
       </nav>
-      <LanguageToggle locale={Astro.currentLocale as Locale} client:idle />
+      <LanguageToggle defaultLocale={Astro.currentLocale as Locale} client:idle />
       <ThemeToggle client:idle />
     </header>
     <main class="relative flex flex-col items-center gap-8 px-4">

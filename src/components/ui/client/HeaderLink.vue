@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import scrollToElement from "@/utils/scroll.ts";
-import { computedWithControl, isClient, useWindowScroll } from "@vueuse/core";
+import {
+  computedWithControl,
+  isClient,
+  useSessionStorage,
+  useWindowScroll,
+} from "@vueuse/core";
 import { onMounted, ref } from "vue";
+import { DEFAULT_LOCALE, type Locale } from "@/utils/locale.ts";
 
 const TOP_THRESHOLD = 100;
 
 interface Props {
-  route: string;
+  route?: string;
   elementId?: string;
 }
 
@@ -14,6 +20,7 @@ const { route, elementId } = defineProps<Props>();
 const { y: scrollY } = useWindowScroll();
 
 const mounted = ref(false);
+const locale = useSessionStorage<Locale>("locale", DEFAULT_LOCALE);
 
 const elementVisible = computedWithControl([mounted, scrollY], () => {
   if (isClient && mounted.value && elementId) {
@@ -30,11 +37,16 @@ const elementVisible = computedWithControl([mounted, scrollY], () => {
 });
 
 function onClickLink() {
-  if (route !== window.location.pathname) {
+  if (route && route !== window.location.pathname) {
     if (elementId) {
       sessionStorage.setItem("scrollOnLoad", elementId);
     }
     window.location.href = route;
+  } else if (!window.location.pathname.endsWith(locale.value)) {
+    if (elementId) {
+      sessionStorage.setItem("scrollOnLoad", elementId);
+    }
+    window.location.href = `/${locale.value}`;
   } else if (elementId) {
     scrollToElement(elementId);
   }

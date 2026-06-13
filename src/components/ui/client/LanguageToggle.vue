@@ -5,32 +5,25 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/vue";
-import { computed } from "vue";
+import { computed, onMounted, watch } from "vue";
 import { DEFAULT_LOCALE, type Locale, locales } from "@/utils/locale.ts";
+import { useSessionStorage } from "@vueuse/core";
 
 interface Props {
-  locale: Locale;
+  defaultLocale: Locale;
 }
-const { locale } = defineProps<Props>();
+const { defaultLocale } = defineProps<Props>();
 
 const LOCALE_MAP: Record<Locale, string> = {
   en: "🇬🇧",
   fr: "🇫🇷",
 };
 
-const selectedLocale = computed({
-  get: () => locale,
-  set(value) {
-    // Do nothing when selecting current locale
-    if (value === locale) return;
-    let url = window.location.origin;
-    // No suffix for defualt locale
-    const localeSuffix = value === DEFAULT_LOCALE ? "" : value;
-    if (localeSuffix) {
-      url += `/${localeSuffix}`;
-    }
-    window.location.assign(url);
-  },
+const selectedLocale = useSessionStorage<Locale>("locale", defaultLocale);
+
+watch(selectedLocale, value => {
+  let url = `${window.location.origin}/${value}`;
+  window.location.assign(url);
 });
 </script>
 
@@ -45,10 +38,10 @@ const selectedLocale = computed({
           class="cutout not-dark:hover:text-white hover:bg-silver-500/50 dark:hover:bg-silver-700/75 flex h-8 w-16 cursor-pointer items-center justify-around bg-white px-2 py-1 font-bold uppercase focus:ring dark:bg-black"
         >
           <div class="h-4 leading-[1.2]">
-            {{ LOCALE_MAP[locale] }}
+            {{ LOCALE_MAP[selectedLocale] }}
           </div>
           <div class="h-4 leading-[1.2]">
-            {{ locale }}
+            {{ selectedLocale }}
           </div>
         </ListboxButton>
       </div>

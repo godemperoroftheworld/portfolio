@@ -9,7 +9,7 @@ const entries = await getCollection("blog")!;
 ---
 
 <Layout title="Tenzin's Blog" description="Tenzin's Blog Description">
-  <div class="pt-20 flex flex-col-reverse gap-12 w-4xl 2xl:w-5xl">
+  <div class="pt-20 pb-10 flex flex-col-reverse gap-12 w-4xl 2xl:w-5xl">
     {
       entries.map((e, idx) => (
         <Card class={`blog-card cursor-pointer h-64 w-lg  hover:scale-105 transition-transform ${idx % 2 === 1 ? 'self-start' : 'self-end'}`} heading={e.data.title} data-id={e.data.id}>

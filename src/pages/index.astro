@@ -1,20 +1,5 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import CharacterProfile from "@/components/CharacterProfile.astro";
-import CharacterSheet from "@/components/CharacterSheet.astro";
-import CharacterHistory from "@/components/CharacterHistory.astro";
-import CharacterInventory from "@/components/CharacterInventory.astro";
-import SendARaven from "@/components/SendARaven.astro";
-import { getEntry } from "astro:content";
-import { localizePath } from "../utils/locale";
+import { DEFAULT_LOCALE } from "@/utils/locale.ts";
 
-const seo = await getEntry("seo", localizePath(Astro, "seo"))!;
+return Astro.rewrite(DEFAULT_LOCALE);
 ---
-
-<Layout title={seo.data.title} description={seo.data.description}>
-  <CharacterProfile />
-  <CharacterSheet />
-  <CharacterHistory />
-  <CharacterInventory />
-  <SendARaven />
-</Layout>

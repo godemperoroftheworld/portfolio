@@ -5,8 +5,12 @@ import CharacterSheet from "@/components/CharacterSheet.astro";
 import CharacterHistory from "@/components/CharacterHistory.astro";
 import CharacterInventory from "@/components/CharacterInventory.astro";
 import SendARaven from "@/components/SendARaven.astro";
-import { localizePath } from "../../utils/locale";
 import { getEntry } from "astro:content";
+import { locales, localizePath } from "@/utils/locale.ts";
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang }}));
+}
 
 const seo = await getEntry("seo", localizePath(Astro, "seo"))!;
 ---
