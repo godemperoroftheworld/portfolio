@@ -22,8 +22,8 @@ function initLines() {
         color: "#b8860b",
         dash: { animation: false, len: 8, gap: 8 },
         path: "fluid",
-        startSocket: i % 2 === 1 ? "right" : "left",
-        endSocket: "bottom",
+        startSocket: i % 2 === 0 ? "right" : "left",
+        endSocket: "top",
         size: 4,
         endPlug: "disc",
       })
