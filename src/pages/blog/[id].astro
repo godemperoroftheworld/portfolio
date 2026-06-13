@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from "@/layouts/Layout.astro";
+import { db, Comment, eq, desc, isNull, and, count } from "astro:db";
+import BlogComment from "@/components/blog/BlogComment.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("blog");
@@ -12,13 +14,36 @@ export async function getStaticPaths() {
 
 const { blog } = Astro.props;
 const { Content } = await render(blog);
+const rootComments = await db.select().from(Comment)
+  .where(and(
+    eq(Comment.postSlug, blog.data.id),
+    isNull(Comment.parentId)
+  )).orderBy(desc(Comment.createdAt));
+const [{ total }] = await db.select({ total: count() }).from(Comment)
+  .where(eq(Comment.postSlug, blog.data.id));
 ---
 
 <Layout title={blog.data.title} description={blog.data.description}>
- <div class="pt-20 pb-10 prose prose-lg prose-headings:text-primary-500 prose-img:max-w-xl prose-img:max-h-96 prose-img:object-contain! text-white  min-w-3xl">
-   <h1>
-     {blog.data.title}
-   </h1>
-   <Content />
- </div>
+  <div class="pt-20 pb-10">
+    <div class="mx-auto prose prose-lg prose-headings:text-primary-500 prose-img:max-w-xl prose-img:max-h-96 prose-img:object-contain! dark:text-white  min-w-3xl">
+      <h1>
+        {blog.data.title}
+      </h1>
+      <Content />
+    </div>
+    <div class="mt-10 min-w-4xl">
+      <h3 class="text-primary-500 text-2xl font-bold">Comments</h3>
+      <hr class="border-t border-t-primary-700 mt-2 mb-4" />
+      <span class="uppercase text-silver-600 dark:text-silver-300">{ total } comments</span>
+      <div class="flex flex-col gap-4 mt-4">
+        { rootComments.map((comment) =>
+          <div class="cutout bg-primary-700 p-0.25 relative ">
+            <div class="cutout p-4 h-full bg-white dark:bg-silver-950">
+              <BlogComment comment={comment} />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
 </Layout>
