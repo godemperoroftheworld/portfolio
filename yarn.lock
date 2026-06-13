@@ -79,6 +79,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/db@npm:^0.21.3":
+  version: 0.21.3
+  resolution: "@astrojs/db@npm:0.21.3"
+  dependencies:
+    "@clack/prompts": ^1.0.1
+    "@libsql/client": ^0.17.0
+    drizzle-orm: ^0.45.2
+    microdiff: ^1.5.0
+    nanoid: ^5.1.6
+    piccolore: ^0.1.3
+    yargs-parser: ^22.0.0
+    zod: ^4.3.6
+  checksum: 101a0727ffeb955f6200dd7040a24cec946af9f028a05c5f48d373eaca0b50c734484f0b614875b7fc7a1277e72f0055ed0a5c0947e15967f1af5daa04136838
+  languageName: node
+  linkType: hard
+
 "@astrojs/internal-helpers@npm:0.7.0":
   version: 0.7.0
   resolution: "@astrojs/internal-helpers@npm:0.7.0"
@@ -617,6 +633,28 @@ __metadata:
     cross-fetch: ^3.0.4
     fontkit: ^2.0.2
   checksum: 8ddbfa1c5ed0b9fd357d16e0e2512d0cdfdd604c17f8588a30cf33b7526cbfe7d425e15f1c4a152d84344fec1f2955b99ca0f47dca124b948a2946978888c241
+  languageName: node
+  linkType: hard
+
+"@clack/core@npm:1.4.1":
+  version: 1.4.1
+  resolution: "@clack/core@npm:1.4.1"
+  dependencies:
+    fast-wrap-ansi: ^0.2.0
+    sisteransi: ^1.0.5
+  checksum: 34c3d2467bc7fee610ccf568c2c8277b512d35e5faa4b5a596ddc09e6f7f2410c9cc3cab726cccc9b008d6cb896717fdacfaa42185103be7a6869b2f1d89b553
+  languageName: node
+  linkType: hard
+
+"@clack/prompts@npm:^1.0.1":
+  version: 1.5.1
+  resolution: "@clack/prompts@npm:1.5.1"
+  dependencies:
+    "@clack/core": 1.4.1
+    fast-string-width: ^3.0.2
+    fast-wrap-ansi: ^0.2.0
+    sisteransi: ^1.0.5
+  checksum: 9494a383b17b5bed6567b808d7830703b4298993e23faa226fe27800307c59e4eebd9a064202b5d457e51d3279e2046a0ce3d3e71e5802e11953e01e256c2c55
   languageName: node
   linkType: hard
 
@@ -1766,6 +1804,111 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@libsql/client@npm:^0.17.0":
+  version: 0.17.3
+  resolution: "@libsql/client@npm:0.17.3"
+  dependencies:
+    "@libsql/core": ^0.17.3
+    "@libsql/hrana-client": ^0.10.0
+    js-base64: ^3.7.5
+    libsql: ^0.5.28
+    promise-limit: ^2.7.0
+  checksum: e41a2177546d8eb7d2536942df283318a199effe1d0e670fcfeb49482ebfe2a2d9b5ad835bbfa0f2f0813bbb1a3f80fc8a2aaf52082ae8c9a522a78063febe80
+  languageName: node
+  linkType: hard
+
+"@libsql/core@npm:^0.17.3":
+  version: 0.17.3
+  resolution: "@libsql/core@npm:0.17.3"
+  dependencies:
+    js-base64: ^3.7.5
+  checksum: f7be390d39c1c978f01f1bf096c8072b36b04321781f07e86caccd97b5241a4018d0ce33b46ca609440ae4315175a92fea7861f233c46d88d569bf4eb5decf35
+  languageName: node
+  linkType: hard
+
+"@libsql/darwin-arm64@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/darwin-arm64@npm:0.5.29"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@libsql/darwin-x64@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/darwin-x64@npm:0.5.29"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@libsql/hrana-client@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "@libsql/hrana-client@npm:0.10.0"
+  dependencies:
+    "@libsql/isomorphic-ws": ^0.1.5
+    js-base64: ^3.7.5
+  checksum: d5aacbdce90afca62ac1767e17bdb75337d72b6bd5bcfad70898b70afe71e857f6a9373c18ec8c34716b08b8e1bffdb55b2fe891ca8476622c5524d24d6d14e3
+  languageName: node
+  linkType: hard
+
+"@libsql/isomorphic-ws@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "@libsql/isomorphic-ws@npm:0.1.5"
+  dependencies:
+    "@types/ws": ^8.5.4
+    ws: ^8.13.0
+  checksum: 8255a0f4cae8ea66c94d6ab02ca57ddc7d6472c43700fd089e615e2df56028bf3723f694c91fbd76db403772f43f49cf2545e29e7ac18f77aa482fcfed71c940
+  languageName: node
+  linkType: hard
+
+"@libsql/linux-arm-gnueabihf@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/linux-arm-gnueabihf@npm:0.5.29"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@libsql/linux-arm-musleabihf@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/linux-arm-musleabihf@npm:0.5.29"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@libsql/linux-arm64-gnu@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/linux-arm64-gnu@npm:0.5.29"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@libsql/linux-arm64-musl@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/linux-arm64-musl@npm:0.5.29"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@libsql/linux-x64-gnu@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/linux-x64-gnu@npm:0.5.29"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@libsql/linux-x64-musl@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/linux-x64-musl@npm:0.5.29"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@libsql/win32-x64-msvc@npm:0.5.29":
+  version: 0.5.29
+  resolution: "@libsql/win32-x64-msvc@npm:0.5.29"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@mapbox/jsonlint-lines-primitives@npm:^2.0.2":
   version: 2.0.2
   resolution: "@mapbox/jsonlint-lines-primitives@npm:2.0.2"
@@ -1861,6 +2004,13 @@ __metadata:
     "@emnapi/runtime": ^1.4.3
     "@tybys/wasm-util": ^0.10.0
   checksum: 676271082b2e356623faa1fefd552a82abb8c00f8218e333091851456c52c81686b98f77fcd119b9b2f4f215d924e4b23acd6401d9934157c80da17be783ec3d
+  languageName: node
+  linkType: hard
+
+"@neon-rs/load@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "@neon-rs/load@npm:0.0.4"
+  checksum: ceed42a681980f4c96152857f6846434e3a89e25cac14228604a55e7992e96af01f30629026a498341984b405a2687099e56256a9eded9fee5393facca1ef762
   languageName: node
   linkType: hard
 
@@ -2980,6 +3130,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ws@npm:^8.5.4":
+  version: 8.18.1
+  resolution: "@types/ws@npm:8.18.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: 0331b14cde388e2805af66cad3e3f51857db8e68ed91e5b99750915e96fe7572e58296dc99999331bbcf08f0ff00a227a0bb214e991f53c2a5aca7b0e71173fa
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:8.38.0":
   version: 8.38.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.38.0"
@@ -3862,6 +4021,7 @@ __metadata:
   resolution: "astro-paper@workspace:."
   dependencies:
     "@3d-dice/dice-box": ^1.1.4
+    "@astrojs/db": ^0.21.3
     "@astrojs/sitemap": 3.4.2
     "@astrojs/ts-plugin": ^1.10.4
     "@astrojs/vercel": ^8.2.6
@@ -5130,6 +5290,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-libc@npm:2.0.2":
+  version: 2.0.2
+  resolution: "detect-libc@npm:2.0.2"
+  checksum: 2b2cd3649b83d576f4be7cc37eb3b1815c79969c8b1a03a40a4d55d83bc74d010753485753448eacb98784abf22f7dbd3911fd3b60e29fda28fed2d1a997944d
+  languageName: node
+  linkType: hard
+
 "detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.3, detect-libc@npm:^2.0.4":
   version: 2.0.4
   resolution: "detect-libc@npm:2.0.4"
@@ -5265,6 +5432,101 @@ __metadata:
   dependencies:
     is-obj: ^2.0.0
   checksum: d5775790093c234ef4bfd5fbe40884ff7e6c87573e5339432870616331189f7f5d86575c5b5af2dcf0f61172990f4f734d07844b1f23482fff09e3c4bead05ea
+  languageName: node
+  linkType: hard
+
+"drizzle-orm@npm:^0.45.2":
+  version: 0.45.2
+  resolution: "drizzle-orm@npm:0.45.2"
+  peerDependencies:
+    "@aws-sdk/client-rds-data": ">=3"
+    "@cloudflare/workers-types": ">=4"
+    "@electric-sql/pglite": ">=0.2.0"
+    "@libsql/client": ">=0.10.0"
+    "@libsql/client-wasm": ">=0.10.0"
+    "@neondatabase/serverless": ">=0.10.0"
+    "@op-engineering/op-sqlite": ">=2"
+    "@opentelemetry/api": ^1.4.1
+    "@planetscale/database": ">=1.13"
+    "@prisma/client": "*"
+    "@tidbcloud/serverless": "*"
+    "@types/better-sqlite3": "*"
+    "@types/pg": "*"
+    "@types/sql.js": "*"
+    "@upstash/redis": ">=1.34.7"
+    "@vercel/postgres": ">=0.8.0"
+    "@xata.io/client": "*"
+    better-sqlite3: ">=7"
+    bun-types: "*"
+    expo-sqlite: ">=14.0.0"
+    gel: ">=2"
+    knex: "*"
+    kysely: "*"
+    mysql2: ">=2"
+    pg: ">=8"
+    postgres: ">=3"
+    sql.js: ">=1"
+    sqlite3: ">=5"
+  peerDependenciesMeta:
+    "@aws-sdk/client-rds-data":
+      optional: true
+    "@cloudflare/workers-types":
+      optional: true
+    "@electric-sql/pglite":
+      optional: true
+    "@libsql/client":
+      optional: true
+    "@libsql/client-wasm":
+      optional: true
+    "@neondatabase/serverless":
+      optional: true
+    "@op-engineering/op-sqlite":
+      optional: true
+    "@opentelemetry/api":
+      optional: true
+    "@planetscale/database":
+      optional: true
+    "@prisma/client":
+      optional: true
+    "@tidbcloud/serverless":
+      optional: true
+    "@types/better-sqlite3":
+      optional: true
+    "@types/pg":
+      optional: true
+    "@types/sql.js":
+      optional: true
+    "@upstash/redis":
+      optional: true
+    "@vercel/postgres":
+      optional: true
+    "@xata.io/client":
+      optional: true
+    better-sqlite3:
+      optional: true
+    bun-types:
+      optional: true
+    expo-sqlite:
+      optional: true
+    gel:
+      optional: true
+    knex:
+      optional: true
+    kysely:
+      optional: true
+    mysql2:
+      optional: true
+    pg:
+      optional: true
+    postgres:
+      optional: true
+    prisma:
+      optional: true
+    sql.js:
+      optional: true
+    sqlite3:
+      optional: true
+  checksum: 96f908b92391c28b87f67ac1b75e8c4155b8214dc19bc7d0af303d91a1b1a1493b54048a1438c507e55b184fba03d4042973dd353866b1df35fc53edb0af91ed
   languageName: node
   linkType: hard
 
@@ -5960,10 +6222,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-string-truncated-width@npm:^3.0.2":
+  version: 3.0.3
+  resolution: "fast-string-truncated-width@npm:3.0.3"
+  checksum: 0243070cb71fde376d4668f6dfbed17bc30a3dec3e6b866aff2c98fade74285d2552cb47bfd859cbf7eae7369b5248ec8c271043457a786e99a86704c1e2db71
+  languageName: node
+  linkType: hard
+
+"fast-string-width@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "fast-string-width@npm:3.0.2"
+  dependencies:
+    fast-string-truncated-width: ^3.0.2
+  checksum: 5b9019769f2b00b96d43575c202f4e035a0e55eba7669a9a32351de9fa0805d0959a2afcaec6e4db5ee9b9a4c08d8e77f95abeb04b5bae2f76635cf04ddb4b80
+  languageName: node
+  linkType: hard
+
 "fast-uri@npm:^3.0.1":
   version: 3.0.6
   resolution: "fast-uri@npm:3.0.6"
   checksum: 7161ba2a7944778d679ba8e5f00d6a2bb479a2142df0982f541d67be6c979b17808f7edbb0ce78161c85035974bde3fa52b5137df31da46c0828cb629ba67c4e
+  languageName: node
+  linkType: hard
+
+"fast-wrap-ansi@npm:^0.2.0":
+  version: 0.2.2
+  resolution: "fast-wrap-ansi@npm:0.2.2"
+  dependencies:
+    fast-string-width: ^3.0.2
+  checksum: 663978cd61d7bd6f24050d24c9c291e80612b971ec3cc60fa4180d6505f4b2c2f4fbd8e2912aada48e23c98ae3e5010237d63bc70f2ce56ed335357ceb0932e5
   languageName: node
   linkType: hard
 
@@ -7184,6 +7471,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-base64@npm:^3.7.5":
+  version: 3.7.8
+  resolution: "js-base64@npm:3.7.8"
+  checksum: 891746b0f23aea7dd466c5ef2d349b093944a25eca6093c09b2cbb99bc47a94237c63b91623bbc203306b7c72aab5112e90378544bceef3fd0eb9ab86d7af496
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -7532,6 +7826,45 @@ __metadata:
     proc-log: ^5.0.0
     semver: ^7.3.7
   checksum: 3d801e8ceb447654bb3ee39c7cb930045786bf9c9e84a95a4a2b6c43d49e219b0e7d5752b48c5651f762d8da0887e25898e809f6e208db568645c750cc06cdc3
+  languageName: node
+  linkType: hard
+
+"libsql@npm:^0.5.28":
+  version: 0.5.29
+  resolution: "libsql@npm:0.5.29"
+  dependencies:
+    "@libsql/darwin-arm64": 0.5.29
+    "@libsql/darwin-x64": 0.5.29
+    "@libsql/linux-arm-gnueabihf": 0.5.29
+    "@libsql/linux-arm-musleabihf": 0.5.29
+    "@libsql/linux-arm64-gnu": 0.5.29
+    "@libsql/linux-arm64-musl": 0.5.29
+    "@libsql/linux-x64-gnu": 0.5.29
+    "@libsql/linux-x64-musl": 0.5.29
+    "@libsql/win32-x64-msvc": 0.5.29
+    "@neon-rs/load": ^0.0.4
+    detect-libc: 2.0.2
+  dependenciesMeta:
+    "@libsql/darwin-arm64":
+      optional: true
+    "@libsql/darwin-x64":
+      optional: true
+    "@libsql/linux-arm-gnueabihf":
+      optional: true
+    "@libsql/linux-arm-musleabihf":
+      optional: true
+    "@libsql/linux-arm64-gnu":
+      optional: true
+    "@libsql/linux-arm64-musl":
+      optional: true
+    "@libsql/linux-x64-gnu":
+      optional: true
+    "@libsql/linux-x64-musl":
+      optional: true
+    "@libsql/win32-x64-msvc":
+      optional: true
+  checksum: a204aa2383c63a1e235f81007de52e95524908a7ecff41ec226d6c344fc1913dfad9bdab1a0cc05e07612ac4e73740a306c53ceae950f8d77e4527ed5930ace9
+  conditions: (os=darwin | os=linux | os=win32) & (cpu=x64 | cpu=arm64 | cpu=wasm32 | cpu=arm)
   languageName: node
   linkType: hard
 
@@ -8195,6 +8528,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"microdiff@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "microdiff@npm:1.5.0"
+  checksum: 03d9d6885c9b30cdfd7cab0eb882c374d1dafeeba277de215af3e6d55b631afb7a6241469c6ce8c9d8a119ae49fc4f4d892d935c0b426333046bf2ef6ab2cbf4
+  languageName: node
+  linkType: hard
+
 "micromark-core-commonmark@npm:^2.0.0":
   version: 2.0.3
   resolution: "micromark-core-commonmark@npm:2.0.3"
@@ -8780,6 +9120,15 @@ __metadata:
   bin:
     nanoid: bin/nanoid.js
   checksum: 6de2d006b51c983be385ef7ee285f7f2a57bd96f8c0ca881c4111461644bd81fafc2544f8e07cb834ca0f3e0f3f676c1fe78052183f008b0809efe6e273119f5
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^5.1.6":
+  version: 5.1.11
+  resolution: "nanoid@npm:5.1.11"
+  bin:
+    nanoid: bin/nanoid.js
+  checksum: d5971a1d39f68bd9845565c70a27733c832ba1bd73caad3c7b999a366c0355b6fcc65064f3b0179bca6cd36b50cacd5747d4482c303f026b58d62ebe31df9868
   languageName: node
   linkType: hard
 
@@ -9611,6 +9960,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"piccolore@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "piccolore@npm:0.1.3"
+  checksum: 9adb39909c14e02092d38cb0b36425ab4db62738ca235dce02ca762cfdaf54c2fd273f711558dff5348baf254145043861f1bdd86d8ec47890f47019d8af13fe
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.0.0, picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
@@ -9825,6 +10181,13 @@ __metadata:
   version: 3.0.2
   resolution: "promise-call-limit@npm:3.0.2"
   checksum: e1e2d57658bd57574959bd89733958f4e6940a6a5788d2f380a81f62f5660f88f93a7dd9f9eb3d09dc7c4927387e25c00ca941a3bdfce8fb050987d2d0ffe59a
+  languageName: node
+  linkType: hard
+
+"promise-limit@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "promise-limit@npm:2.7.0"
+  checksum: 3e20a46d752ab41c921feceb668b3a6d000438573e71342d42bf63373fdbafbf4b6a3f88ef5ff902a2a37be28152dc74e618e863134fd4c08c196448f4a6d28f
   languageName: node
   linkType: hard
 
@@ -12468,6 +12831,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ws@npm:^8.13.0":
+  version: 8.21.0
+  resolution: "ws@npm:8.21.0"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ">=5.0.2"
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 83ff89ae011bc5c3c5605a45a0d50e12589143c7500ca4de83a8d43b3cd26e71f422cb3206fd1a9e6d541d666eeb66255c30d095d62d413b3c7afe5d2c5cb928
+  languageName: node
+  linkType: hard
+
 "ws@npm:^8.18.0":
   version: 8.18.3
   resolution: "ws@npm:8.18.3"
@@ -12588,6 +12966,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"yargs-parser@npm:^22.0.0":
+  version: 22.0.0
+  resolution: "yargs-parser@npm:22.0.0"
+  checksum: 55df0d94f3f9f933f1349f244ddf72a6978a9d5a972b69332965cdfd5ec849ff26386965512f4179065b0573cc6e8df33ca44334958a892c47fedae08a967c99
+  languageName: node
+  linkType: hard
+
 "yargs@npm:^17.0.0, yargs@npm:^17.7.2":
   version: 17.7.2
   resolution: "yargs@npm:17.7.2"
@@ -12656,6 +13041,13 @@ __metadata:
   version: 3.25.76
   resolution: "zod@npm:3.25.76"
   checksum: c9a403a62b329188a5f6bd24d5d935d2bba345f7ab8151d1baa1505b5da9f227fb139354b043711490c798e91f3df75991395e40142e6510a4b16409f302b849
+  languageName: node
+  linkType: hard
+
+"zod@npm:^4.3.6":
+  version: 4.4.3
+  resolution: "zod@npm:4.4.3"
+  checksum: bf236fdee7a5a5ec645eef5bfea3aad34e7df912931c2a23bc17e5b59882482751da42392916529da52ff9bc70f584797a5d496f1fb81f2d1a4c90fdd3922d2a
   languageName: node
   linkType: hard
 

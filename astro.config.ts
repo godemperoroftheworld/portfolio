@@ -9,6 +9,8 @@ import vercel from "@astrojs/vercel";
 import robotsTxt from "astro-robots-txt";
 import decapCMS from "astro-decap-cms-oauth";
 
+import db from "@astrojs/db";
+
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL || "http://localhost:4321",
@@ -17,22 +19,17 @@ export default defineConfig({
     breakpoints: [420, 640, 750, 828, 1080, 1280, 1668, 2048, 2560],
     responsiveStyles: true,
   },
-  integrations: [
-    sitemap({
-      i18n: {
-        defaultLocale: "en",
-        locales: {
-          en: "en-CA",
-          fr: "fr-CA",
-        },
+  integrations: [sitemap({
+    i18n: {
+      defaultLocale: "en",
+      locales: {
+        en: "en-CA",
+        fr: "fr-CA",
       },
-    }),
-    decapCMS({
-      decapCMSSrcUrl: "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js",
-    }),
-    vue({ devtools: true, appEntrypoint: "/src/pages/_app" }),
-    robotsTxt(),
-  ],
+    },
+  }), decapCMS({
+    decapCMSSrcUrl: "https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js",
+  }), vue({ devtools: true, appEntrypoint: "/src/pages/_app" }), robotsTxt(), db()],
   vite: {
     plugins: [tailwindcss(), svgLoader(), vueJsx()],
   },
