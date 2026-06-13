@@ -9,10 +9,10 @@ const entries = await getCollection("blog")!;
 ---
 
 <Layout title="Tenzin's Blog" description="Tenzin's Blog Description">
-  <div class="pt-20 flex flex-col gap-12 w-4xl 2xl:w-5xl">
+  <div class="pt-20 flex flex-col-reverse gap-12 w-4xl 2xl:w-5xl">
     {
       entries.map((e, idx) => (
-        <Card class={`blog-card cursor-pointer h-64 w-lg  hover:scale-105 transition-transform ${idx % 2 === 0 ? 'self-start' : 'self-end'}`} heading={e.data.title} onclick="">
+        <Card class={`blog-card cursor-pointer h-64 w-lg  hover:scale-105 transition-transform ${idx % 2 === 1 ? 'self-start' : 'self-end'}`} heading={e.data.title} data-id={e.data.id}>
           <div class="pb-4 px-4 flex flex-col overflow-hidden">
             <div class="grid grid-cols-2 gap-4 shrink min-h-0 relative">
               <Image class="col-span-1 max-h-full min-h-0 w-full object-cover" src={e.data.image} alt={e.data.title} />
@@ -27,3 +27,11 @@ const entries = await getCollection("blog")!;
     <BlogPath cardSelector=".blog-card" client:only />
   </div>
 </Layout>
+
+<script>
+  document.querySelectorAll('.blog-card').forEach(card => {
+    card.addEventListener('click', () => {
+      window.location.href = `/blog/${card.dataset.id}`
+    })
+  })
+</script>

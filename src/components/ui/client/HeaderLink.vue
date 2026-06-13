@@ -23,6 +23,8 @@ const elementVisible = computedWithControl([mounted, scrollY], () => {
       return Math.abs(bounds.top) < TOP_THRESHOLD;
     }
     return false;
+  } else if (isClient && mounted.value) {
+    return window.location.pathname === route;
   }
   return false;
 });
