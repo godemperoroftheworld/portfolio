@@ -17,9 +17,12 @@ const sortedEntries = entries.sort((a, b) => new Date(b.data.date).getTime() - n
           <div class="pb-4 px-4 flex flex-col overflow-hidden">
             <div class="grid grid-cols-2 gap-4 shrink min-h-0 relative">
               <Image class="cutout col-span-1 max-h-full min-h-0 w-full object-cover" src={e.data.image} alt={e.data.title} />
-              <p class="col-span-1 text-ellipsis">
-                { e.data.description }
-              </p>
+              <div>
+                <h3 class="mb-2 font-semibold">{ e.data.date.toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' }) }</h3>
+                <p class="col-span-1 text-ellipsis">
+                  { e.data.description }
+                </p>
+              </div>
             </div>
           </div>
         </Card>
