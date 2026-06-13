@@ -13,10 +13,10 @@ const sortedEntries = entries.sort((a, b) => new Date(b.data.date).getTime() - n
   <div class="pt-20 pb-10 flex flex-col gap-12 w-4xl 2xl:w-5xl">
     {
       sortedEntries.map((e, idx) => (
-        <Card class={`blog-card cursor-pointer h-64 w-lg  hover:scale-105 transition-transform ${idx % 2 === 0 ? 'self-start' : 'self-end'}`} heading={e.data.title} data-id={e.data.id}>
+        <Card class={`blog-card cursor-pointer min-h-64 w-lg  hover:scale-105 transition-transform ${idx % 2 === 0 ? 'self-start' : 'self-end'}`} heading={e.data.title} data-id={e.data.id}>
           <div class="pb-4 px-4 flex flex-col overflow-hidden">
             <div class="grid grid-cols-2 gap-4 shrink min-h-0 relative">
-              <Image class="col-span-1 max-h-full min-h-0 w-full object-cover" src={e.data.image} alt={e.data.title} />
+              <Image class="cutout col-span-1 max-h-full min-h-0 w-full object-cover" src={e.data.image} alt={e.data.title} />
               <p class="col-span-1 text-ellipsis">
                 { e.data.description }
               </p>
