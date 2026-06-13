@@ -1,7 +1,7 @@
 ---
 id: subversive-worldmaking
-title: Subversive Worldmaking in "Portrait de la jeune fille en feu"
-description: My final for my film analysis course in Winter 2026.
+title: Subversive Worldmaking
+description: An analysis of Céline Sciamma's film "Portrait de la jeune fille en feu" under a queer lens, drawing on some of Sara Ahmed and Luce Irigiray's writings. Written for my film analysis course at Concordia University.
 date: 2026-04-18
 image: '@assets/blog/subversive-worldmaking/portrait.jpg'
 ---
