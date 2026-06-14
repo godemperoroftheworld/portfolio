@@ -9,12 +9,14 @@ export default function useComments(slug: string, initialComments: CommentType[]
   const comments = ref<CommentType[]>(initialComments);
 
   const commentTrees = computed(() => {
-    const map: Record<number, CommentTree> = Object.fromEntries(
-      comments.value.map(c => [c.id, { ...c, replies: [] }])
-    );
+    const map: Record<number, CommentTree> = {};
+    const sorted = comments.value.toSorted((a, b) => b.id - a.id);
+    sorted.forEach(comment => {
+      map[comment.id] = { ...comment, replies: [] };
+    });
     const root: CommentTree[] = [];
 
-    comments.value.forEach(comment => {
+    sorted.forEach(comment => {
       if (comment.parentId === null) {
         root.push(map[comment.id]);
       } else {
@@ -25,10 +27,14 @@ export default function useComments(slug: string, initialComments: CommentType[]
     return root;
   })
 
+  function addComment(comment: CommentType) {
+    comments.value.push(comment);
+  }
+
   onMounted(async () => {
     const res = await fetch(`/api/comments/${slug}`);
     comments.value = await res.json();
   });
 
-  return commentTrees;
+  return { commentTrees, addComment };
 }

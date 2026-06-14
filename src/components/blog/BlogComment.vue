@@ -64,7 +64,7 @@ const handleLike = async () => {
             ' cutout flex w-fit cursor-pointer select-none items-center gap-2 px-3 py-2 ',
             liked
               ? 'bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-black'
-              : 'bg-silver-100 dark:bg-silver-950 hover:bg-silver-500/50 hover:dark:bg-silver-700/75 active:bg-silver-500/25 active:dark:bg-silver-700 hover:text-white',
+              :  'bg-white dark:bg-silver-950 hover:bg-silver-500/50 hover:dark:bg-silver-700/75 active:bg-silver-500/25 active:dark:bg-silver-700 hover:text-white',
           ]"
           @click="handleLike"
         >
@@ -81,9 +81,9 @@ const handleLike = async () => {
           {{ likes }}
         </div>
       </div>
-      <div class="cutout bg-silver-600 dark:bg-silver-300 w-fit p-px">
+      <div class="cutout bg-silver-600  dark:bg-silver-300 w-fit p-px">
         <div
-          class="hover:bg-silver-500/50 hover:dark:bg-silver-700/75 cutout bg-silver-100 active:bg-silver-500/25 active:dark:bg-silver-700 dark:bg-silver-950 flex w-fit cursor-pointer items-center gap-2 px-3 py-2 hover:text-white"
+          class="hover:bg-silver-500/75 hover:dark:bg-silver-700/75 bg-white cutout  active:bg-silver-500/25 active:dark:bg-silver-700 dark:bg-silver-950 flex w-fit cursor-pointer items-center gap-2 px-3 py-2 hover:text-white"
         >
           <svg
             class="size-5"

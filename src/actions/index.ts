@@ -29,14 +29,15 @@ export const server = {
       body: z.string().min(1),
     }),
     handler: async ({ postSlug, parentId, name, body }) => {
-      await db.insert(Comment).values({
+      const [comment] = await db.insert(Comment).values({
         postSlug,
         parentId: parentId ?? null,
         name,
         body,
-        likes: 0,
+        likes: 1,
         createdAt: new Date(),
-      });
+      }).returning();
+      return comment;
     },
   }),
 };
