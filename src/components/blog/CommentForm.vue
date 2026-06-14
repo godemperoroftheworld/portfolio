@@ -35,9 +35,10 @@ const handleSubmit = async () => {
 <template>
   <div>
     <h3
+      v-if="!parentId"
       :class="['text-primary-500 font-bold', parentId ? 'text-xl' : 'text-2xl']"
     >
-      Add a {{ parentId ? "reply" : "comment" }}
+      Add a comment
     </h3>
     <div class="mt-4 flex flex-col gap-3">
       <div class="cutout bg-silver-600 dark:bg-silver-300 p-px">

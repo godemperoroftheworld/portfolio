@@ -44,7 +44,7 @@ function onCommentSubmitted(comment: CommentType) {
         :key="comment.id"
       >
         <div class="cutout dark:bg-silver-950 h-full bg-white p-4">
-          <BlogComment :comment="comment" />
+          <BlogComment :comment="comment" :slug="slug" @submitted="onCommentSubmitted" />
         </div>
       </div>
     </div>
