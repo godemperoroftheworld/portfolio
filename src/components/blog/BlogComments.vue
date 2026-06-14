@@ -31,24 +31,30 @@ function onCommentSubmitted(comment: CommentType) {
 </script>
 
 <template>
-  <div class="min-w-4xl mt-10">
-    <h3 class="text-primary-500 text-2xl font-bold">Comments</h3>
-    <hr class="border-t-primary-800 mb-4 mt-2 border-t" />
-    <span class="text-silver-600 dark:text-silver-300 uppercase">
-      {{ comments.length }} comments
-    </span>
-    <div class="mt-4 flex flex-col gap-4">
-      <div
-        v-for="comment in commentTrees"
-        class="cutout bg-primary-700 p-0.25 relative"
-        :key="comment.id"
-      >
-        <div class="cutout dark:bg-silver-950 h-full bg-white p-4">
-          <BlogComment :comment="comment" :slug="slug" @submitted="onCommentSubmitted" />
+  <div class="min-w-4xl">
+    <template v-if="commentTrees.length">
+      <h3 class="text-primary-500 mt-6 text-2xl font-bold">Comments</h3>
+      <hr class="border-t-primary-800 mb-4 mt-2 border-t" />
+      <span class="text-silver-600 dark:text-silver-300 uppercase">
+        {{ comments.length }} comments
+      </span>
+      <div class="mt-4 flex flex-col gap-4">
+        <div
+          v-for="comment in commentTrees"
+          class="cutout bg-primary-700 p-0.25 relative"
+          :key="comment.id"
+        >
+          <div class="cutout dark:bg-silver-950 h-full bg-white p-4">
+            <BlogComment
+              :comment="comment"
+              :slug="slug"
+              @submitted="onCommentSubmitted"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <hr class="border-t-primary-800 my-4 border-t" />
-    <CommentForm :slug="slug" @submitted="onCommentSubmitted" />
+    </template>
+    <hr v-else class="border-t-primary-800 my-6 border-t" />
+    <CommentForm :class="{ 'mt-6': !!commentTrees.length }" :slug="slug" @submitted="onCommentSubmitted" />
   </div>
 </template>

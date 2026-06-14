@@ -29,6 +29,6 @@ const comments = await db.select().from(Comment)
       </h1>
       <Content />
     </div>
-    <BlogComments class="mt-4" slug={blog.data.id} comments={comments} client:load />
+    <BlogComments slug={blog.data.id} comments={comments} client:load />
   </div>
 </Layout>

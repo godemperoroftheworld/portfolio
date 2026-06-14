@@ -36,11 +36,11 @@ const handleSubmit = async () => {
   <div>
     <h3
       v-if="!parentId"
-      :class="['text-primary-500 font-bold', parentId ? 'text-xl' : 'text-2xl']"
+      :class="['text-primary-500 font-bold text-2xl']"
     >
       Add a comment
     </h3>
-    <div class="mt-4 flex flex-col gap-3">
+    <div :class="['flex flex-col gap-3', parentId ? 'mt-4' : 'mt-2' ]">
       <div class="cutout bg-silver-600 dark:bg-silver-300 p-px">
         <input
           v-model="name"
