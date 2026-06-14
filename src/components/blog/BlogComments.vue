@@ -36,7 +36,7 @@ function onCommentSubmitted(comment: CommentType) {
       <h3 class="text-primary-500 mt-6 text-2xl font-bold">Comments</h3>
       <hr class="border-t-primary-800 mb-4 mt-2 border-t" />
       <span class="text-silver-600 dark:text-silver-300 uppercase">
-        {{ comments.length }} comments
+        {{ commentTrees.length }} comments
       </span>
       <div class="mt-4 flex flex-col gap-4">
         <div
