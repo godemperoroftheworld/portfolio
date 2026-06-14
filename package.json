@@ -6,8 +6,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build && jampack ./dist",
+    "build": "astro build --remote && jampack ./dist",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
