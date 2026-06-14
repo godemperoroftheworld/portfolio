@@ -5,6 +5,8 @@ import Card from "@/components/ui/Card.astro";
 import Image from "astro/components/Image.astro";
 import BlogPath from "@/components/blog/BlogPath.vue";
 
+export const prerender = true;
+
 const entries = await getCollection("blog")!;
 const sortedEntries = entries.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---

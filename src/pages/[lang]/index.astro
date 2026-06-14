@@ -8,6 +8,7 @@ import SendARaven from "@/components/SendARaven.astro";
 import { getEntry } from "astro:content";
 import { locales, localizePath } from "@/utils/locale.ts";
 
+export const prerender = true;
 export async function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang }}));
 }

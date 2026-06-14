@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from "@/layouts/Layout.astro";
-import { db, Comment, eq, desc, isNull, and, count } from "astro:db";
-import BlogComment from "@/components/blog/BlogComment.astro";
+import { db, Comment, eq, desc } from "astro:db";
+import BlogComments from '@/components/blog/BlogComments.vue';
 
+export const prerender = true;
 export async function getStaticPaths() {
   const entries = await getCollection("blog");
   return entries.map((e) => ({
@@ -14,13 +15,10 @@ export async function getStaticPaths() {
 
 const { blog } = Astro.props;
 const { Content } = await render(blog);
-const rootComments = await db.select().from(Comment)
-  .where(and(
+const comments = await db.select().from(Comment)
+  .where(
     eq(Comment.postSlug, blog.data.id),
-    isNull(Comment.parentId)
-  )).orderBy(desc(Comment.createdAt));
-const [{ total }] = await db.select({ total: count() }).from(Comment)
-  .where(eq(Comment.postSlug, blog.data.id));
+  ).orderBy(desc(Comment.createdAt));
 ---
 
 <Layout title={blog.data.title} description={blog.data.description}>
@@ -34,16 +32,8 @@ const [{ total }] = await db.select({ total: count() }).from(Comment)
     <div class="mt-10 min-w-4xl">
       <h3 class="text-primary-500 text-2xl font-bold">Comments</h3>
       <hr class="border-t border-t-primary-700 mt-2 mb-4" />
-      <span class="uppercase text-silver-600 dark:text-silver-300">{ total } comments</span>
-      <div class="flex flex-col gap-4 mt-4">
-        { rootComments.map((comment) =>
-          <div class="cutout bg-primary-700 p-0.25 relative ">
-            <div class="cutout p-4 h-full bg-white dark:bg-silver-950">
-              <BlogComment comment={comment} />
-            </div>
-          </div>
-        )}
-      </div>
+      <span class="uppercase text-silver-600 dark:text-silver-300">{ comments.length } comments</span>
+      <BlogComments class="mt-4" slug={blog.data.id} comments={comments} client:load />
     </div>
   </div>
 </Layout>

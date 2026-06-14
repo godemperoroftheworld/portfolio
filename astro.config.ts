@@ -38,4 +38,5 @@ export default defineConfig({
     defaultLocale: "en",
   },
   adapter: vercel(),
+  output: "server"
 });
