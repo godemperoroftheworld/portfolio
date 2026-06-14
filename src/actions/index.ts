@@ -12,6 +12,15 @@ export const server = {
         .where(eq(Comment.id, id));
     },
   }),
+  unlike: defineAction({
+    input: z.object({ id: z.number() }),
+    handler: async ({ id }) => {
+      await db
+        .update(Comment)
+        .set({ likes: sql`MAX(${Comment.likes} - 1, 0)` })
+        .where(eq(Comment.id, id));
+    }
+  }),
   comment: defineAction({
     input: z.object({
       postSlug: z.string(),
