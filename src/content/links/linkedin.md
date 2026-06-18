@@ -1,6 +1,6 @@
 ---
-icon: "@assets/icons/LinkedIn.svg"
+icon: '@assets/icons/LinkedIn.svg'
 label: LinkedIn
-href: https://www.linkedin.com/in/t2pellet/
+href: https://www.linkedin.com/in/tenzinpelletier/
 large: false
 ---
