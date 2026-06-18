@@ -6,7 +6,7 @@
       "description": "My CEGEP, where I got my DEC in Pure and Applied Sciences. Stressful times, but I learnt a lot! Sadly, lots of the science knowledge has started to slip away.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.6122102,45.4812387]}",
       "icon": "@assets/icons/School.svg",
-      "startDate": "2012-09-01T00:00:00",
+      "startDate": "2017-09-01T00:00",
       "endDate": "2019-06-30T00:00:00"
     },
     {

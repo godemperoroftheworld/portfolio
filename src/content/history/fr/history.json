@@ -6,7 +6,7 @@
       "description": "Mon cégep, où j'ai obtenu mon DEC en sciences pures et appliquées. J'ai vécu des moments stressants, mais j'ai beaucoup appris ! Malheureusement, une grande partie de mes connaissances scientifiques ont commencé à m'échapper.",
       "coordinate": "{\"type\":\"Point\",\"coordinates\":[-73.6122102,45.4812387]}",
       "icon": "@assets/icons/School.svg",
-      "startDate": "2012-09-01T00:00:00",
+      "startDate": "2017-09-01T00:00",
       "endDate": "2019-06-30T00:00:00"
     },
     {
