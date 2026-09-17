@@ -5,7 +5,7 @@
       "title": "Letterblend",
       "icon": "@assets/icons/Letterboxd.svg",
       "description": "Letterblend is a web app allowing you to blend your watchlist with your friends. Can filter by category, ask it to pick for you, and share the link to your friends.",
-      "url": "https://letterblend.vercel.app",
+      "url": "https://letterblend.tenzin.live",
       "links": [
         "typescript",
         "tailwind",
@@ -37,8 +37,16 @@
       "icon": "@assets/icons/User.svg",
       "description": "My portfolio website. You're on it right now!",
       "url": "",
-      "links": ["typescript", "tailwind", "vue", "astro", "mapbox", "sveltia"]
+      "links": [
+        "typescript",
+        "tailwind",
+        "vue",
+        "astro",
+        "mapbox",
+        "sveltia"
+      ]
     }
   ],
+  "section": "characterinventory",
   "scroller": "sendaraven"
 }
