@@ -61,7 +61,7 @@ const scroller = await getEntry(
       <div class="flex flex-col gap-6 overflow-hidden">
         <Card heading={sheet.data.features.title} class="grow" padding={4}>
           <div
-            class="flex grow flex-col justify-around gap-2 overflow-y-scroll md:max-h-96"
+            class="flex grow flex-col justify-around gap-2 overflow-y-auto md:max-h-96"
           >
             {
               sheet.data.features.entries.map(feature => (

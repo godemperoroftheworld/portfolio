@@ -23,7 +23,7 @@ function onClickStep(idx: number) {
 <template>
   <div
     style="scrollbar-width: thin"
-    class="relative overflow-x-visible overflow-y-scroll"
+    class="relative overflow-x-visible overflow-y-auto"
   >
     <div
       class="relative h-fit min-h-full w-full px-8 pb-20 pt-4 md:pb-16 md:pt-8"
