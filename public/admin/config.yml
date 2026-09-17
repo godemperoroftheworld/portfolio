@@ -119,6 +119,7 @@ singletons:
             widget: list
             i18n: true
             field:
+              name: value
               widget: string
               i18n: true
       - label: Scroller
@@ -175,14 +176,16 @@ singletons:
             widget: list
             i18n: duplicate
             field:
-             widget: relation
-             collection: links
-             i18n: true
+              name: value
+              widget: relation
+              collection: links
+              i18n: true
           - label: "Value (Two)"
             name: valueTwo
             widget: list
             i18n: duplicate
             field:
+              name: valueTwo
               widget: relation
               collection: links
               i18n: true
@@ -202,7 +205,7 @@ singletons:
         widget: list
         i18n: true
         fields:
-          - { label: Label, name: label, widget: string, i18n: trues }
+          - { label: Label, name: label, widget: string, i18n: true }
           - { label: Description, name: description, widget: string, i18n: true }
           - { label: Coordinate, name: coordinate, widget: map, type: Point, i18n: duplicate }
           - { label: Icon, name: icon, widget: image, i18n: duplicate }
@@ -233,6 +236,7 @@ singletons:
             widget: list
             i18n: duplicate
             field:
+              name: links
               widget: relation
               collection: links
               i18n: duplicate
@@ -250,6 +254,7 @@ singletons:
         widget: list
         i18n: duplicate
         field:
+          name: links
           widget: relation
           collection: links
           i18n: duplicate
