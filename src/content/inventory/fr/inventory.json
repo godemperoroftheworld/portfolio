@@ -21,7 +21,7 @@
       "title": "Divestrael",
       "icon": "@assets/icons/Palestine.svg",
       "description": "Divestrael est une application Web qui vise à faciliter le boycott des entreprises complices du génocide du peuple palestinien par Israël.",
-      "url": "https://divestrael.vercel.app",
+      "url": "https://divestrael.tenzin.live",
       "links": [
         "typescript",
         "tailwind",
